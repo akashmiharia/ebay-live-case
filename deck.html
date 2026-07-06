@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>eBay Live — Getting Live Out of Beta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e53238;--blue:#0064d2;--yellow:#f5af02;--green:#86b817;
+  --agent:#0a4bb3;--agent-soft:#eaf1fc;
+  --ink:#191919;--ink-2:#41495a;--muted:#8892a4;--line:#e6e9ef;
+  --paper:#ffffff;--wash:#f6f7f9;
+  --font:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:var(--font);background:#0b0d12;color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-0.01em}
+#deck{height:100vh;width:100vw;position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw;background:var(--paper);opacity:0}
+.slide.on{display:flex;opacity:1;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.slide.wash{background:var(--wash)}
+.slide.dark{background:#141821;color:#fff}
+.slide.dark .eyebrow{color:#8ea2c4}.slide.dark .sub{color:#c2cbdb}
+
+.eyebrow{font-size:clamp(11px,1.1vw,14px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2.4vh}
+h1{font-size:clamp(30px,5.2vw,66px);font-weight:900;line-height:1.03;letter-spacing:-.025em}
+h2{font-size:clamp(24px,3.5vw,44px);font-weight:800;line-height:1.09;letter-spacing:-.02em}
+.sub{font-size:clamp(15px,1.65vw,22px);font-weight:400;line-height:1.5;color:var(--ink-2);max-width:62ch;margin-top:2.6vh}
+strong,.hl{font-weight:800}
+.red{color:var(--red)}.blue{color:var(--blue)}.green{color:var(--green)}.agent{color:var(--agent)}.yellow{color:#b07d00}
+.strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px;opacity:.5}
+.logo{font-weight:900;font-size:clamp(26px,3vw,40px);letter-spacing:-.05em}
+.logo .e{color:var(--red)}.logo .b{color:var(--blue)}.logo .a{color:var(--yellow)}.logo .y{color:var(--green)}
+.tagpill{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:20px;background:var(--agent-soft);color:var(--agent);margin-bottom:2.4vh}
+.slide.dark .tagpill{background:rgba(255,255,255,.1);color:#9fc0ff}
+.cred{margin-top:4vh;display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:9px 16px;font-size:14px;font-weight:600;color:#fff}
+
+.rows{margin-top:3vh;display:flex;flex-direction:column;gap:1.6vh;max-width:74ch}
+.row{display:flex;gap:14px;align-items:flex-start;font-size:clamp(15px,1.65vw,21px);line-height:1.4}
+.row .k{font-weight:800;min-width:130px;color:var(--ink)}
+.slide.dark .row .k{color:#fff}
+.row .v{color:var(--ink-2)}.slide.dark .row .v{color:#c2cbdb}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:.6em}
+
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw;margin-top:4vh}
+.persona{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 22px;box-shadow:0 10px 30px rgba(20,30,60,.05)}
+.persona .ico{font-size:34px;margin-bottom:12px}
+.persona h3{font-size:clamp(16px,1.7vw,22px);font-weight:800;margin-bottom:4px}
+.persona .want{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:12px 0 4px}
+.persona p{font-size:clamp(13px,1.35vw,16px);color:var(--ink-2);line-height:1.45}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3vw;margin-top:3.5vh}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:0 12px 34px rgba(20,30,60,.05)}
+.card h3{font-size:clamp(16px,1.7vw,22px);font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card .q{font-size:clamp(13px,1.4vw,17px);line-height:1.4;color:var(--ink-2);margin-bottom:11px;padding-left:14px;border-left:3px solid var(--line)}
+.drown h3{color:var(--red)}.drown .q{border-color:var(--red)}
+.surf h3{color:var(--green)}.surf .q{border-color:var(--green)}
+
+.lovehate{display:grid;grid-template-columns:1fr 1fr;gap:3vw;margin-top:3vh}
+.lh h4{font-size:14px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.lh.love h4{color:var(--green)}.lh.hate h4{color:var(--red)}
+.lh .q{font-size:clamp(14px,1.5vw,18px);line-height:1.4;color:var(--ink-2);margin-bottom:10px;padding-left:16px;border-left:3px solid}
+.lh.love .q{border-color:var(--green)}.lh.hate .q{border-color:var(--red)}
+
+.compare{width:100%;border-collapse:separate;border-spacing:0;margin-top:3vh;font-size:clamp(13px,1.4vw,17px);border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.compare th,.compare td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.compare thead th{background:#fbfcfe;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.compare tbody th{font-weight:800;color:var(--ink)}
+.compare td{color:var(--ink-2)}
+.compare .eb{background:#f4f8ff}
+.compare .win{color:#3a7a00;font-weight:700}.compare .lose{color:var(--red);font-weight:700}
+.verdict{margin-top:2.4vh;font-size:clamp(15px,1.6vw,20px);font-weight:600;color:var(--ink)}
+
+.btd{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:3.5vh}
+.col{border-radius:16px;padding:22px;border:1px solid var(--line)}
+.col h4{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.col li{font-size:clamp(13px,1.32vw,16px);line-height:1.35;color:var(--ink-2);padding-left:16px;position:relative}
+.col li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%}
+.col.b{background:#fbfbfb}.col.b h4{color:var(--muted)}.col.b li::before{background:var(--muted)}
+.col.t{background:#fef6e6;border-color:#f6e3b8}.col.t h4{color:#b07d00}.col.t li::before{background:var(--yellow)}
+.col.d{background:var(--agent-soft);border-color:#cfe0ff}.col.d h4{color:var(--agent)}.col.d li::before{background:var(--agent)}
+.col.d li{color:var(--ink)}
+
+.segtable{width:100%;border-collapse:separate;border-spacing:0;margin-top:3vh;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;font-size:clamp(12px,1.3vw,15px)}
+.segtable th,.segtable td{padding:14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);text-align:left;vertical-align:top}
+.segtable th{background:#fbfcfe;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.segtable td{color:var(--ink-2)}
+.segtable .pick{background:#f4f8ff;border:2px solid var(--agent)}
+.segtable .pick .tg{font-size:11px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--agent);display:block;margin-bottom:4px}
+.segtable .below{opacity:.55}
+
+.flow{display:flex;gap:14px;margin-top:3.5vh;flex-wrap:wrap}
+.step{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.slide.dark .step{background:#1c212c;border-color:#2a3140}
+.step .n{font-size:12px;font-weight:900;color:var(--agent);letter-spacing:.1em}
+.slide.dark .step .n{color:#9fc0ff}
+.step h5{font-size:clamp(14px,1.5vw,18px);font-weight:800;margin:6px 0}
+.step p{font-size:clamp(12px,1.3vw,15px);color:var(--ink-2);line-height:1.4}
+.slide.dark .step p{color:#aab3c4}
+.protohead{display:flex;align-items:center;gap:10px;font-size:clamp(15px,1.5vw,19px);font-weight:800;margin:3vh 0 1vh}
+.protohead .num{width:30px;height:30px;border-radius:50%;background:var(--agent);color:#fff;display:grid;place-items:center;font-size:14px;flex:none}
+
+.metrics{display:flex;gap:3vw;margin-top:4vh;flex-wrap:wrap}
+.metric{flex:1;min-width:170px}
+.metric .ph{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--agent);margin-bottom:8px}
+.slide.dark .metric .ph{color:#9fc0ff}
+.metric .m{font-size:clamp(14px,1.5vw,18px);color:var(--ink-2);line-height:1.5}
+.slide.dark .metric .m{color:#c2cbdb}
+
+.why{margin-top:3vh;display:flex;flex-direction:column;gap:1.7vh;max-width:76ch}
+.why .w{display:flex;gap:14px;align-items:baseline;font-size:clamp(15px,1.65vw,21px);line-height:1.4}
+.why .w b{color:#fff}.why .w .v{color:#c2cbdb}
+.chk{color:var(--green);font-weight:900;flex-shrink:0}
+
+.bar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green),var(--blue));z-index:50;transition:width .35s}
+.count{position:fixed;bottom:18px;right:22px;font-size:12px;font-weight:700;color:var(--muted);z-index:50;background:rgba(255,255,255,.7);padding:4px 10px;border-radius:20px;backdrop-filter:blur(6px)}
+.nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:50}
+.nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.85);cursor:pointer;font-size:15px;color:var(--ink-2);backdrop-filter:blur(6px)}
+.nav button:hover{background:#fff}
+.hint{position:fixed;bottom:20px;left:22px;font-size:11px;color:var(--muted);z-index:50}
+@media (max-width:820px){.three,.split,.lovehate,.btd,.metrics{grid-template-columns:1fr}.segtable,.compare{font-size:11px;display:block;overflow-x:auto}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div id="deck">
+
+<!-- 1 TITLE -->
+<section class="slide dark on">
+  <div class="logo" style="margin-bottom:4vh"><span class="e">e</span><span class="b">B</span><span class="a">a</span><span class="y">y</span> <span style="color:#fff;font-weight:800">Live</span></div>
+  <h1>The agent that gets<br>Live <span class="green">out of beta.</span></h1>
+  <p class="sub">eBay Live has the trust, the goods, and the buyers. It's been stuck in beta for four years because it can't run great, safe shows at scale. This is how it graduates, and how it finally feels lovable.</p>
+  <div class="cred">🍽️ I wrote this after buying my first eBay Live lot: four vintage Hermès plates from Linda's Stuff.</div>
+  <p class="sub" style="margin-top:4vh;font-size:14px;color:#8ea2c4">Akash Miharia · Product Thinking &amp; Prototype · Seller &amp; Host Experience</p>
+</section>
+
+<!-- 2 THE REFRAME -->
+<section class="slide wash">
+  <div class="eyebrow">The question</div>
+  <h1>Everyone asks<br><span class="strike">how do we make live selling better?</span></h1>
+  <h1 style="margin-top:3vh">I ask<br><span class="red">why is eBay Live still a gated beta, four years in?</span></h1>
+  <p class="sub">That reframe changes the whole problem. This is not a feature gap. It is a capability gap, and it is the exact thing an agent is built to close.</p>
+</section>
+
+<!-- 3 THREE HUMANS -->
+<section class="slide">
+  <div class="eyebrow">Set the scene · three humans, one live moment</div>
+  <h2>Live commerce runs on three people, and one of them does all the work.</h2>
+  <div class="three">
+    <div class="persona"><div class="ico">🛍️</div><h3 class="blue">The buyer</h3>
+      <div class="want">Job to be done</div>
+      <p>Win the bid, get the deal, belong to the room, be entertained, do not miss the drop. Trust that the item is real.</p></div>
+    <div class="persona"><div class="ico">📦</div><h3 class="green">The seller</h3>
+      <div class="want">Job to be done</div>
+      <p>Move real inventory, build a following that comes back, be known. All without the ops swallowing the day.</p></div>
+    <div class="persona"><div class="ico">🎙️</div><h3 class="red">The host</h3>
+      <div class="want">Job to be done</div>
+      <p>Run the room. Read the crowd, hype the lot, answer, celebrate the regulars. This is the human engine of the sale.</p></div>
+  </div>
+  <p class="sub">Usually the seller is the host, so one person carries the entire production, live.</p>
+</section>
+
+<!-- 4 CATEGORY TRUTH -->
+<section class="slide dark">
+  <div class="tagpill">First principle</div>
+  <h1>Regular commerce <span style="color:#8ea2c4">serves</span> demand.<br>Live commerce <span class="green">manufactures</span> it.</h1>
+  <p class="sub">You do not arrive wanting the glossy green dress. The room makes you want it: the auction thrill, the "you got it for that price," a stranger measuring the dress so you bid. Belonging forms the intent, live. Amazon and Walmart structurally cannot do that.</p>
+</section>
+
+<!-- 5 FIELD PROOF: DROWNING vs SURFING -->
+<section class="slide wash">
+  <div class="eyebrow">From the field · same access, opposite outcome</div>
+  <h2>eBay's sellers are drowning. Whatnot's are surfing.</h2>
+  <div class="split">
+    <div class="card drown"><h3>eBay Live · operators</h3>
+      <div class="q">"All our other people aren't working today, it's just us." Two sellers, passing stickers, moving slow.</div>
+      <div class="q">"Oh no, we're not gonna get paid for that. Let's just rerun it." Buyers not paying, losses eaten live.</div>
+      <div class="q">"eBay glitched out, put in your max bids, chat!" Reactive, in their heads, fighting the tools.</div></div>
+    <div class="card surf"><h3>Whatnot · performers</h3>
+      <div class="q">3-second auctions, 7,000 people, goal of 20,000 items sold, and he hit it. Sponsors, energy, culture.</div>
+      <div class="q">On offense: confident, directing the room, telling the community what happens next.</div>
+      <div class="q">A community-engagement manager, not a shopkeeper. Built to make the seller great.</div></div>
+  </div>
+  <p class="sub"><strong>Both sets of sellers got let in. The difference is not access. eBay bolted live onto a legacy system, so its sellers are operators. Whatnot was built to make them performers.</strong></p>
+</section>
+
+<!-- 6 LOVE / HATE -->
+<section class="slide">
+  <div class="eyebrow">The seller's real experience</div>
+  <h2>They love the connection. They drown in the ops.</h2>
+  <div class="lovehate">
+    <div class="lh love"><h4>✓ What every seller loves</h4>
+      <div class="q">"Best thing is the chat. I love the chat."</div>
+      <div class="q">"You answer all my dumb questions, it's so touching."</div>
+      <div class="q">"I love to talk and share."</div></div>
+    <div class="lh hate"><h4>✕ What every seller hates</h4>
+      <div class="q">Combined shipping: "adds less than a dollar, I do it all in the backend."</div>
+      <div class="q">"Worst thing is the glitches."</div>
+      <div class="q">"They say they never got it, tracking says delivered."</div></div>
+  </div>
+  <p class="sub"><strong>The thing they love is the human part. The thing they hate is everything else. That line is the entire product.</strong></p>
+</section>
+
+<!-- 7 PROBLEM -->
+<section class="slide dark">
+  <div class="tagpill">The problem, stated</div>
+  <h1>eBay promises trusted community commerce.<br>It ships a <span class="red">glitchy, tool-starved broadcast</span>, to almost no one.</h1>
+  <p class="sub">Live is still a gated private beta. Most sellers cannot even get in, and the few who do run it by hand on a stack that breaks under them. The gap between the promise and the delivery is the entire space this role sits in.</p>
+</section>
+
+<!-- 8 MARKET -->
+<section class="slide wash">
+  <div class="eyebrow">Validate against the market · access vs exclusivity</div>
+  <h2>Whatnot democratized live, almost to a fault. eBay gentrified it.</h2>
+  <table class="compare">
+    <thead><tr><th>Dimension</th><th>Whatnot</th><th>eBay Live</th></tr></thead>
+    <tbody>
+      <tr><th>Who can sell</th><td class="win">Anyone with an ID and a bank account</td><td class="lose">Proven, established sellers only</td></tr>
+      <tr><th>Time to go live</th><td class="win">~15 min sign-up, days to approve</td><td class="lose">Application waitlist, months or never</td></tr>
+      <tr><th>The result</th><td>Cutthroat, thousands live at once, race to the bottom</td><td>Protected, quiet, and empty</td></tr>
+      <tr class="eb"><th>Trust model</th><td>Ban the scammer after the fact</td><td class="win">Vet the person before the fact</td></tr>
+    </tbody>
+  </table>
+  <p class="verdict">Whatnot is the Wild West: easy, alive, and lawless. eBay Live is a gated country club: safe, quiet, and you are probably not on the list. The question is <span class="agent">why eBay can't just open the gate.</span></p>
+</section>
+
+<!-- 9 THE AHA -->
+<section class="slide dark">
+  <div class="tagpill">The insight · capability, not permission</div>
+  <h1>eBay isn't gating Live to be exclusive.<br>It's gating because it <span class="red">can't police live at velocity.</span></h1>
+  <div class="rows" style="max-width:none">
+    <div class="row"><span class="dot" style="background:#556;margin-top:.7em"></span><div><span class="k">On async eBay</span><span class="v">a scammer's 50 fake Rolexes get caught by algorithms before the money moves. Damage is slow and contained.</span></div></div>
+    <div class="row"><span class="dot" style="background:var(--red);margin-top:.7em"></span><div><span class="k">On live</span><span class="v">the same person sells 50 fakes in ten minutes to 500 people and vanishes. No bot polices real-time audio and video.</span></div></div>
+    <div class="row"><span class="dot" style="background:var(--green);margin-top:.7em"></span><div><span class="k">So eBay</span><span class="v">polices the person instead of the content, and only hands the live weapon to sellers with too much to lose. Four years, and the gate never opens.</span></div></div>
+  </div>
+  <p class="sub"><strong style="color:#fff">The trust moat and the beta gate are the same fact. An agent that verifies trust at live velocity is the only thing that lets Live graduate out of beta.</strong></p>
+</section>
+
+<!-- 10 MOAT -->
+<section class="slide dark">
+  <div class="tagpill">Why eBay wins · the only uncopyable thing</div>
+  <h1>It's not luxury. Whatnot has watches too.<br>It's the <span class="agent">data and trust under every seller.</span></h1>
+  <p class="sub">Thirty years of catalog, sold-comps, purchase history, and a real authentication operation, sitting behind millions of established sellers. Not a feature Whatnot can ship past. It is exactly what an agent needs to stand up a trusted show for you, and to keep it safe in real time.</p>
+</section>
+
+<!-- 11 PRINCIPLE -->
+<section class="slide wash">
+  <div class="eyebrow">The design principle that decides everything</div>
+  <h1 style="max-width:20ch">Humans do the human part. The agent does the rest.</h1>
+  <div class="split" style="margin-top:3vh">
+    <div class="card" style="border-left:4px solid var(--green)"><h3 style="color:var(--green)">Human, never touched</h3>
+      <p class="q" style="border:none;padding:0;font-size:clamp(14px,1.5vw,18px)">The chat, the banter, crowning Jeremy, reading the room. This connection is the whole reason people come to live instead of scrolling AI-generated feeds. Automate it and you kill it.</p></div>
+    <div class="card" style="border-left:4px solid var(--agent)"><h3 style="color:var(--agent)">Agent, everything else</h3>
+      <p class="q" style="border:none;padding:0;font-size:clamp(14px,1.5vw,18px)">Standing up the show, pricing from comps, verifying trust, moderating, shipping, disputes, logistics. The repetitive, high-stakes, low-connection work that drowns the seller today.</p></div>
+  </div>
+</section>
+
+<!-- 12 SEGMENTATION -->
+<section class="slide">
+  <div class="eyebrow">Segmentation · by type of goods and phase of seller</div>
+  <h2>Which seller do we switch on first?</h2>
+  <table class="segtable">
+    <thead><tr><th style="width:22%"></th><th>Dormant · never gone live</th><th>Scaling host</th><th>Pro host</th></tr></thead>
+    <tbody>
+      <tr><th>Trust-sensitive goods<br><span style="color:var(--muted);font-weight:600">cards, sneakers, watches, vintage</span></th>
+        <td class="pick"><span class="tg">◆ Beachhead</span>Inventory, comps, and trust already sit in eBay. The largest pool of supply, and the one only eBay's data can activate.</td>
+        <td>Real, but a tiny gated population today.</td>
+        <td>Handful of beta sellers. Low ceiling.</td></tr>
+      <tr><th>Fast-mover · cheap goods</th>
+        <td class="below">TikTok and Whatnot's game. Chasing it is the stuck-in-the-middle death.</td>
+        <td class="below">Below.</td>
+        <td class="below">Below.</td></tr>
+    </tbody>
+  </table>
+  <p class="sub">The beachhead is the <strong>dormant, trust-sensitive seller</strong>. That is where the supply is, where friction is highest today, and where eBay's data is decisive.</p>
+</section>
+
+<!-- 13 BTD -->
+<section class="slide wash">
+  <div class="eyebrow">Differentiation · below / table stakes / differentiate</div>
+  <h2>Where we lose on purpose, tie, and win.</h2>
+  <div class="btd">
+    <div class="col b"><h4>Below · trade it away</h4><ul>
+      <li>Out-clowning Whatnot's youth culture (their moat, fake on eBay)</li>
+      <li>Breadth of cheap, impulse categories</li>
+      <li>Being the lowest-fee option</li></ul></div>
+    <div class="col t"><h4>Table stakes · must match</h4><ul>
+      <li>Go live from a phone, fast payout, discovery</li>
+      <li>Auction mechanics that don't glitch</li>
+      <li>Kudos and loyalty, AI listing (eBay already ships these)</li></ul></div>
+    <div class="col d"><h4>Differentiate · where we win</h4><ul>
+      <li>Trust at velocity: real-time moderation and fraud checks that let eBay open the gate</li>
+      <li>Authenticity Guarantee brought to live (verified after the sale) plus computer-vision confidence signals in the moment</li>
+      <li>One-tap trusted supply from data Whatnot doesn't have</li></ul></div>
+  </div>
+</section>
+
+<!-- 14 PRIORITIZATION -->
+<section class="slide dark">
+  <div class="tagpill">The hard part · picking, with the trade-off named</div>
+  <h2>Fix supply first. The buyer follows the show.</h2>
+  <div class="rows" style="max-width:none">
+    <div class="row"><span class="dot" style="background:#556;margin-top:.8em"></span><div><span class="k">Today</span><span class="v">An ops co-pilot for existing beta hosts. Real, but a small gated population. Low ceiling.</span></div></div>
+    <div class="row"><span class="dot" style="background:var(--green);margin-top:.8em"></span><div><span class="k">The bet</span><span class="v"><strong style="color:#fff">Trust at velocity plus one-tap supply.</strong> This is what graduates Live out of beta, and it is the whole GMV unlock.</span></div></div>
+    <div class="row"><span class="dot" style="background:var(--yellow);margin-top:.8em"></span><div><span class="k">The trade-off</span><span class="v">Supply-first risks thin quality per show. We accept it: <strong style="color:#fff">an empty marketplace has no quality problem yet. Liquidity precedes polish.</strong></span></div></div>
+    <div class="row"><span class="dot" style="background:var(--blue);margin-top:.8em"></span><div><span class="k">The loop</span><span class="v">Fix the seller, the shows get good, and the culture buyer eBay doesn't have yet finally shows up. Supply earns the audience.</span></div></div>
+  </div>
+</section>
+
+<!-- 15 BUILD -->
+<section class="slide">
+  <div class="tagpill">What I'll demo · the agent works, the human performs</div>
+  <h2>Two moments, one idea.</h2>
+  <div class="protohead"><span class="num">1</span>The dormant seller goes live in one tap</div>
+  <div class="flow">
+    <div class="step"><div class="n">01</div><h5>25 sneakers, already verified</h5><p>An established async seller with authenticated inventory sitting in eBay.</p></div>
+    <div class="step"><div class="n">02</div><h5>One-click convert</h5><p>The agent reads the catalog and comps, builds the run-of-show, and prices every lot.</p></div>
+    <div class="step"><div class="n">03</div><h5>They just show up and talk</h5><p>The ops were done off-camera. The seller runs the room.</p></div>
+  </div>
+  <div class="protohead"><span class="num">2</span>The live co-pilot, working behind the scenes</div>
+  <div class="flow">
+    <div class="step"><div class="n">01</div><h5>Verifies trust live</h5><p>Authenticity signal on eligible items, moderation, fraud checks, in real time.</p></div>
+    <div class="step"><div class="n">02</div><h5>Absorbs the ops</h5><p>Bid mechanics, combined shipping, disputes, buyer offers, silently.</p></div>
+    <div class="step"><div class="n">03</div><h5>The human connects</h5><p>Free to hype the lot, answer the chat, and crown the regulars.</p></div>
+  </div>
+</section>
+
+<!-- 16 METRICS -->
+<section class="slide wash">
+  <div class="eyebrow">How we measure success</div>
+  <h2>Supply first. Then GMV. Trust as the guardrail.</h2>
+  <div class="metrics">
+    <div class="metric"><div class="ph">Activation</div><div class="m">Dormant sellers who go live for the first time, and time from tap to live show.</div></div>
+    <div class="metric"><div class="ph">Liquidity</div><div class="m">Active hosts, shows per week, hours live. Is the marketplace filling up?</div></div>
+    <div class="metric"><div class="ph">North star</div><div class="m">Live GMV, from newly activated supply. Everything ladders here.</div></div>
+    <div class="metric"><div class="ph">Guardrail</div><div class="m">Dispute rate and authentication pass-through. We buy liquidity, we never sell trust to get it.</div></div>
+  </div>
+</section>
+
+<!-- 17 SOUL / VISION -->
+<section class="slide dark">
+  <div class="tagpill">The soul · what eBay's culture actually is</div>
+  <h1>Not youth-hype. The <span class="green">global treasure hunt.</span></h1>
+  <p class="sub">eBay should not try to out-clown Whatnot. Its real culture is curatorial, trusted, and global: the place you find the vintage, the rare, the authenticated thing you can't get where you live. When I lived in Abu Dhabi, eBay was how I reached American goods and culture. Linda's vintage Hermès is that same magic. Get the tech right, make it lovable, and Live becomes the trusted global treasure hunt, live. First any seller becomes a host. Then anyone sells anything, live.</p>
+</section>
+
+<!-- 18 WHY ME -->
+<section class="slide dark">
+  <div class="tagpill">Why me</div>
+  <h2>I've lived every side of this problem.</h2>
+  <div class="why">
+    <div class="w"><span class="chk">✓</span><div><b>Commerce AI at scale</b> <span class="v">shipped Walmart's first generative-AI search, scaled ranking, personalization, and visual AI across a billion-item catalog.</span></div></div>
+    <div class="w"><span class="chk">✓</span><div><b>Enterprise agentic AI</b> <span class="v">a year building AI copilots that let non-experts do expert work, where trust was the whole game.</span></div></div>
+    <div class="w"><span class="chk">✓</span><div><b>Shopper and social native</b> <span class="v">I live in fast commerce, TikTok, Whatnot. I feel the intent and the culture as a user, not a studier.</span></div></div>
+    <div class="w"><span class="chk">✓</span><div><b>I did the thing</b> <span class="v">watched the shows, interviewed the sellers, bought my first eBay Live lot: four vintage Hermès plates.</span></div></div>
+  </div>
+  <p class="sub" style="color:#8ea2c4;margin-top:4vh">Thank you. Let's talk.</p>
+</section>
+
+</div>
+<div class="count" id="count">1 / 18</div>
+<div class="nav"><button id="prev">‹</button><button id="next">›</button></div>
+<div class="hint">← → to navigate</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let i=0;
+const bar=document.getElementById('bar'),count=document.getElementById('count');
+function show(n){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,x)=>s.classList.toggle('on',x===i));
+  bar.style.width=((i+1)/slides.length*100)+'%';
+  count.textContent=(i+1)+' / '+slides.length;
+}
+document.getElementById('next').onclick=()=>show(i+1);
+document.getElementById('prev').onclick=()=>show(i-1);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(i+1);}
+  if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+  if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1);
+});
+show(0);
+</script>
+</body>
+</html>
