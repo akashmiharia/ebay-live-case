@@ -214,7 +214,7 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 /* ---------- iPhone live: real eBay Live app look ---------- */
 .la-video{position:absolute;inset:0;background:radial-gradient(130% 90% at 50% 30%,#3a3f4d,#0b0b0c)}
 .la-video::after{content:"👟";position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);font-size:64px;opacity:.5;filter:drop-shadow(0 10px 24px rgba(0,0,0,.55))}
-.la-seller{position:absolute;top:46px;left:12px;z-index:6;display:flex;align-items:center;gap:6px;background:rgba(30,30,30,.55);border-radius:999px;padding:4px 12px 4px 5px;font-size:11px;font-weight:700;color:#fff}
+.la-seller{position:absolute;top:54px;left:12px;z-index:6;display:flex;align-items:center;gap:6px;background:rgba(30,30,30,.55);border-radius:999px;padding:4px 12px 4px 5px;font-size:11px;font-weight:700;color:#fff}
 .la-seller .av{width:20px;height:20px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:12px}
 .la-seller .hrt{opacity:.85}
 .la-ctrl{position:absolute;top:44px;right:10px;z-index:6;display:flex;flex-direction:column;align-items:center;gap:11px;background:rgba(30,30,30,.5);border-radius:22px;padding:9px 7px}
@@ -262,6 +262,10 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .la-toasts{position:absolute;left:12px;right:12px;top:80px;z-index:7;display:flex;flex-direction:column;gap:6px}
 .la-toasts .tst{background:#0a1830;border:1px solid #1e3a66;border-radius:12px;padding:9px 11px;font-size:11px;color:#eaf1fc;font-weight:600;line-height:1.3;animation:scin .35s ease}
 .la-toasts .tst b{color:#9fc0ff}
+.la-toasts .tst-acts{display:flex;gap:6px;margin-top:9px}
+.la-toasts .ta{flex:1;border:none;background:var(--blue);color:#fff;font-family:inherit;font-weight:800;font-size:11px;padding:9px 6px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.la-toasts .ta.ta2{background:rgba(120,170,255,.22);color:#cfe0ff}
+.la-toasts .ta:disabled{opacity:.6}
 .la-bid .jrow{display:flex;gap:8px;margin-top:6px}
 .la-bid .jbtn{flex:1;border:1px solid rgba(120,170,255,.5);background:rgba(120,170,255,.14);color:#cfe0ff;border-radius:999px;font-family:inherit;font-size:12px;font-weight:800;padding:11px 6px;cursor:pointer;white-space:nowrap}
 .la-bid .jbtn.hot{background:var(--blue);color:#fff;border-color:var(--blue)}
@@ -393,11 +397,18 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .work-row.done{background:#f2f7ea;border-color:#cfe6a8}
 .work-row .wr-det{display:none;margin-top:8px;font-size:12px;color:#41495a;font-weight:500;line-height:1.5;border-top:1px solid #f0f0f0;padding-top:8px}
 .work-row.open .wr-det{display:block}
+.sub-step{font-size:12px;color:#2f9e44;font-weight:700;margin-top:6px;animation:scin .3s ease}
+.sub-step:first-child{margin-top:0}
+.sub-step span{font-weight:900;margin-right:6px}
+.sub-q{font-size:12px;color:#41495a;font-weight:600;margin-bottom:8px}
+.sub-opts{display:flex;gap:6px;flex-wrap:wrap}
+.sub-opts button{border:1px solid #cfe0ff;background:#eaf1fc;color:var(--blue);font-family:inherit;font-weight:800;font-size:11px;padding:6px 11px;border-radius:8px;cursor:pointer}
+.sub-opts button:hover{background:#dce8fc}
 .ins-chart{background:#fafbfc;border:1px solid #eee;border-radius:12px;padding:14px 16px}
 .ic-bars{display:flex;align-items:flex-end;gap:14px;margin-top:12px}
 .ic-bars .icb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px}
-.ic-bars .icb i{display:block;width:100%;max-width:34px;background:linear-gradient(180deg,#4d9bff,#0064d2);border-radius:6px 6px 0 0;transform-origin:bottom;animation:barGrow .55s ease}
-.ic-bars .icb:nth-child(2) i{animation-delay:.1s}.ic-bars .icb:nth-child(3) i{animation-delay:.2s}.ic-bars .icb:nth-child(4) i{animation-delay:.3s}
+.ic-bars .icb i{display:block;width:100%;max-width:34px;background:linear-gradient(180deg,#4d9bff,#0064d2);border-radius:6px 6px 0 0;transform-origin:bottom;transform:scaleY(0);animation:barGrow .8s cubic-bezier(.22,1,.36,1) forwards}
+.ic-bars .icb:nth-child(1) i{animation-delay:.05s}.ic-bars .icb:nth-child(2) i{animation-delay:.18s}.ic-bars .icb:nth-child(3) i{animation-delay:.31s}.ic-bars .icb:nth-child(4) i{animation-delay:.44s}
 .ic-bars .icb small{font-size:10px;font-weight:800;color:#191919}
 .ic-bars .icb em{font-size:10px;color:#999;font-style:normal;font-weight:700}
 @keyframes barGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
@@ -466,7 +477,9 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .in-opts button.on{background:#12325e;color:#fff;border-color:var(--agent)}
 /* co-pilot v2 — on-brand, strategic */
 .con-right .con-copilot{background:#fff;color:#191919;border-top:1px solid #eee;border-radius:0 0 11px 11px;padding:12px;display:flex;flex-direction:column;overflow:hidden;flex:1.55 1 0;min-height:0;margin-top:0}
-.cop-h{font-size:12px;font-weight:800;color:var(--blue);text-shadow:0 0 12px rgba(0,100,210,.28);display:flex;align-items:center;gap:8px;padding-bottom:9px;border-bottom:1px solid #f0f0f0}
+.cop-h{font-size:12px;font-weight:800;color:#191919;display:flex;align-items:center;gap:8px;padding-bottom:9px;border-bottom:1px solid #f0f0f0}
+.cop-name,.ag-grad{background:linear-gradient(90deg,#0064d2,#2f9e44);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+.ag-dot{background:linear-gradient(90deg,#0064d2,#2f9e44);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
 .cop-live{font-size:9.5px;font-weight:800;color:#3a7a00;letter-spacing:.04em}
 .cop-set{margin-left:auto;font-size:11px;font-weight:800;color:var(--blue);cursor:pointer}
 .cop-set:hover{text-decoration:underline}
@@ -895,7 +908,7 @@ const scenes=[
       <div class="la-toasts" id="toastStack"></div>
       <div class="la-chat" id="chatbox2"></div>
       <div class="la-comment">Add a comment... <span class="h">♥</span></div>
-      <div class="la-bid"><div class="t">Loyalty play · jeremy_23</div><div class="pr">Back for the 4th time today</div><div class="ag">🎁 Lost his last 2 bids. The agent teed up two moves.</div><div class="jrow"><button class="jbtn" id="shoutOut">📣 Shout out</button><button class="jbtn hot" id="sendOffer">🎁 Send offer</button></div></div>`
+      <div class="la-bid"><div class="t">Air Jordan 1 "Chicago" · size 10</div><div class="pr">$340 <small>2 bids</small></div><div class="ag">✓ Authenticity Guarantee eligible</div><div class="bar"><span></span></div><div class="row"><button class="max">Max bid</button><button class="go">Bid $350 »</button></div><div class="win"><span>🏆 kickz_ winning</span><span class="tm">⏱ 00:12</span></div></div>`
   },
   {
     title:"The agent proposes. Marcus approves. Nobody gets scammed.",
@@ -1008,7 +1021,7 @@ function renderScene(n){
   if(scene===2){
     var s2tm=screen.querySelector('.la-bid .tm');var tt=8;
     tmTimer=setInterval(function(){if(!s2tm||!document.body.contains(s2tm)){clearInterval(tmTimer);tmTimer=null;return;}tt--;if(tt<1){tt=Math.floor(Math.random()*7)+8;}s2tm.textContent='⏱ 00:'+(tt<10?'0'+tt:tt);},800);
-    var addTip=function(txt){if(scene!==2)return;var v=screen.querySelector('.la-video');if(!v||!document.body.contains(v))return;var wrap=screen.querySelector('.la-tips');if(!wrap){wrap=document.createElement('div');wrap.className='la-tips';screen.appendChild(wrap);}var tp=document.createElement('div');tp.className='la-toast la-tip';tp.innerHTML='💡 <b>Tip:</b> '+txt;wrap.appendChild(tp);while(wrap.children.length>2)wrap.removeChild(wrap.firstChild);};
+    var addTip=function(txt){if(scene!==2)return;var v=screen.querySelector('.la-video');if(!v||!document.body.contains(v))return;var wrap=screen.querySelector('.la-tips');if(!wrap){wrap=document.createElement('div');wrap.className='la-tips';screen.appendChild(wrap);}var tp=document.createElement('div');tp.className='la-toast la-tip';tp.innerHTML='💡 <b>Tip:</b> '+txt;wrap.appendChild(tp);while(wrap.children.length>2)wrap.removeChild(wrap.firstChild);setTimeout(function(){if(tp&&tp.parentNode){tp.style.transition='opacity .5s,transform .5s';tp.style.opacity='0';tp.style.transform='translateY(-6px)';setTimeout(function(){if(tp&&tp.parentNode)tp.remove();},500);}},4200);};
     setTimeout(function(){addTip('your regulars love Jordans, tease the next one to keep them here.');},600);
     setTimeout(function(){addTip('greet your new followers by name, it makes them stay and bid.');},3000);
   }
@@ -1019,9 +1032,14 @@ function renderScene(n){
   }
   if(scene===3){
     var stack=document.getElementById('toastStack');
-    var pushT=function(html){if(!stack)return;var d=document.createElement('div');d.className='tst';d.innerHTML=html;stack.insertBefore(d,stack.firstChild);while(stack.children.length>2)stack.removeChild(stack.lastChild);};
+    var pushT=function(html){if(!stack)return null;var d=document.createElement('div');d.className='tst';d.innerHTML=html;stack.insertBefore(d,stack.firstChild);while(stack.children.length>2)stack.removeChild(stack.lastChild);return d;};
     pushT('◆ <b>Co-pilot:</b> Jeremy just joined the room 👋');
-    setTimeout(function(){pushT('◆ <b>Co-pilot:</b> Jeremy is back for the 4th time today, and he lost his last 2 bids. Offer him one, or shout him out?');},3000);
+    setTimeout(function(){
+      var d=pushT('◆ <b>Co-pilot:</b> Jeremy is back for the 4th time, and he lost his last 2 bids. Offer him one, or shout him out?<div class="tst-acts"><button class="ta ta2" id="shoutOut">📣 Shout out</button><button class="ta" id="sendOffer">🎁 Send offer</button></div>');
+      if(!d)return;
+      var so=d.querySelector('#sendOffer');if(so)so.onclick=function(e){e.stopPropagation();so.textContent='Offer sent ✓';so.disabled=true;phoneChatSys('🎁 Marcus sent <b>jeremy_23</b> a private offer');};
+      var sh=d.querySelector('#shoutOut');if(sh)sh.onclick=function(e){e.stopPropagation();sh.textContent='Shouted 📣';sh.disabled=true;phoneChatSys('📣 <b>Shout-out to jeremy_23</b> — show them love!');};
+    },2600);
   }
   if(scene===4){
     var af=document.getElementById('approveFix');
@@ -1161,7 +1179,7 @@ const dScenes=[
      </div>
      <div class="con-right">
        <div class="con-chatwrap"><div class="con-tabs">Live chat</div><div class="con-chat" id="dChat"></div></div>
-       <div class="con-copilot"><div class="cop-h">Seller Co-pilot <span class="cop-live">● live</span><span class="cop-toggle on" id="copToggle" title="Co-pilot on/off"></span><span class="cop-set" id="copSet">Settings</span></div><div class="cop-body" id="copBody"></div></div>
+       <div class="con-copilot"><div class="cop-h"><span class="cop-name">Seller Co-pilot</span><span class="cop-live">● live</span><span class="cop-toggle on" id="copToggle" title="Co-pilot on/off"></span><span class="cop-set" id="copSet">Settings</span></div><div class="cop-body" id="copBody"></div></div>
      </div>
      </div>`},
   {tab:'insights',title:"The agent closes the loop, and unlocks scale.",
@@ -1188,8 +1206,8 @@ const dScenes=[
          </div></div>
        </div>
        <div class="ins-col-r">
-         <div class="ins-copilot" id="insCopilot"><div class="co-h"><span class="co-pulse"></span>Next best actions <button class="doall" id="doAll">Do all →</button></div>
-           <div class="co-b">Tap any action to see what it does, or run it.</div>
+         <div class="ins-copilot" id="insCopilot"><div class="co-h"><span class="co-pulse"></span><span class="cop-name">Co-pilot</span> · next best actions <button class="doall" id="doAll">Do all →</button></div>
+           <div class="co-b">Tap a row to see what it does, or hit the arrow to run it.</div>
            <div class="ins-work" id="insWork"></div></div>
          <div class="ins-inbox"><div class="inbox-h">◆ Needs your call</div>
            <div class="refund-card" id="refundCard">
@@ -1232,23 +1250,23 @@ function renderD(n){
   if(dScene===3){runPostShow();}
 }
 var copNotes=[
-  {t:'<b>Jeremy</b> is back for the 5th time today and lost 3 of his last bids. Send him a private offer, or welcome him back?',acts:[
-    ['y','Send $299 offer','Sent Jeremy a private $299 offer.','🎁 Marcus sent <b>jeremy_23</b> a private $299 offer'],
-    ['a','Shout out','Gave Jeremy a shout-out to the room.','📣 <b>Shout-out to jeremy_23</b> — show them some love!']]},
-  {tip:true,t:'Your regulars keep asking for <b>Jordan 4s</b>. Tease one before you wrap so they come back next time.',acts:[
-    ['a','Queue a J4 next','Queued a Jordan 4 to hype before you wrap.',null],
+  {t:'<b>Jeremy</b>\'s back for the 5th time and lost his last 3 bids. Offer or shout him out?',acts:[
+    ['y','Send $299 offer','Sent Jeremy a private offer.','🎁 Marcus sent <b>jeremy_23</b> a private $299 offer'],
+    ['a','Shout out','Gave Jeremy a shout-out.','📣 <b>Shout-out to jeremy_23</b> — show love!']]},
+  {tip:true,t:'Regulars keep asking for <b>Jordan 4s</b>. Tease one before you wrap.',acts:[
+    ['a','Queue a J4','Queued a Jordan 4 to hype.',null],
     ['n','Got it','',null]]},
-  {t:'A buyer asked about the <b>"Mocha" colorway</b>. Here is the quick history you can read out:',info:'Air Jordan 1 "Mocha" dropped Oct 2022. A brown and sail colorway that sold out instantly and now trades around 2-3x retail. Condition-sensitive, so your Authenticity Guarantee is a real selling point.',acts:[
-    ['y','Pin to screen','Pinned the "Mocha" history to your screen.','📌 Pinned: about the "Mocha" colorway 👟'],
+  {t:'A buyer asked about the <b>"Mocha"</b>. Quick history to read out:',info:'Air Jordan 1 "Mocha", Oct 2022. Sold out instantly, trades 2-3x retail. Condition-sensitive, so your Authenticity Guarantee matters.',acts:[
+    ['y','Pin to screen','Pinned the "Mocha" history.','📌 Pinned: about the "Mocha" colorway 👟'],
     ['n','Dismiss','',null]]},
-  {tip:true,t:'Energy is peaking. A great moment to welcome your <b>new followers</b> by name and thank the room.',acts:[
+  {tip:true,t:'Energy\'s peaking. Welcome your <b>new followers</b> by name.',acts:[
     ['n','Got it','',null]]},
-  {t:'You just said this lot is a <b>10.5</b>, but the listing says 10. Update the listing so buyers see the correct size?',fixLot:true,acts:[
-    ['y','Yes, update it','Listing updated to size 10.5. Buyers now see it correctly.','✓ Dunk Low "Panda" corrected to a <b>size 10.5</b>'],
+  {t:'You said <b>10.5</b>, but the listing says 10. Update it?',fixLot:true,acts:[
+    ['y','Yes, update','Listing updated to 10.5.','✓ Dunk Low "Panda" corrected to a <b>size 10.5</b>'],
     ['n','No','',null]]},
-  {end:true,t:'You have been live for nearly <b>4 hours</b> and the room is still hot. Want to wrap while the energy is high?',acts:[
-    ['y','End show & recap','Wrapping up, generating your post-show recap…',null],
-    ['a','Keep running','Keeping it live, I\'ll check back in 30.',null]]}
+  {end:true,t:'Nearly <b>4 hours</b> live and still hot. Wrap while the energy\'s high?',acts:[
+    ['y','End show & recap','Wrapping up, generating your recap…',null],
+    ['a','Keep running','Keeping it live.',null]]}
 ];
 function chatSys(chat,txt){if(!chat)return;var d=document.createElement('div');d.className='cmsg sys';d.innerHTML=txt;chat.appendChild(d);while(chat.children.length>8)chat.removeChild(chat.firstChild);chat.scrollTop=chat.scrollHeight;}
 function chatScam(chat,m){if(!chat)return;var d=document.createElement('div');d.className='cmsg scam';d.innerHTML='<b>'+m[0]+'</b><span class="t">now</span><br>'+m[1];chat.appendChild(d);while(chat.children.length>9)chat.removeChild(chat.firstChild);chat.scrollTop=chat.scrollHeight;}
@@ -1281,12 +1299,12 @@ function renderCop(body,i){
   if(!body)return;
   var idx=i%copNotes.length,n=copNotes[idx];
   var card=document.createElement('div');card.className='cop-card'+(n.tip?' tip':'');
-  var h='<div class="ct">'+(n.tip?'💡 ':'◆ ')+n.t+'</div>';
+  var h='<div class="ct">'+(n.tip?'💡 ':'<span class="ag-dot">◆</span> ')+n.t+'</div>';
   if(n.info)h+='<div class="cinfo">'+n.info+'</div>';
   if(n.acts)h+='<div class="cop-acts2">'+n.acts.map(function(a){return '<button class="'+a[0]+'">'+a[1]+'</button>';}).join('')+'</div>';
   card.innerHTML=h;
   body.appendChild(card);
-  while(body.children.length>6)body.removeChild(body.firstChild);
+  while(body.children.length>6){if(body.firstChild.id==='copBanCard')break;body.removeChild(body.firstChild);}
   body.scrollTop=body.scrollHeight;
   var btns=[...card.querySelectorAll('button')];
   btns.forEach(function(btn,bi){var a=n.acts[bi];btn.onclick=function(){
@@ -1314,7 +1332,7 @@ function openCoSettings(){
     '<button class="cm-close" id="cmClose">Done</button></div>';
   document.getElementById('proto').appendChild(ov);
   [...ov.querySelectorAll('.cm-tg')].forEach(t=>t.onclick=()=>t.classList.toggle('on'));
-  var bt=document.getElementById('banTg');if(bt)bt.addEventListener('click',function(){if(bt.classList.contains('on'))pushBanNote();});
+  var bt=document.getElementById('banTg');if(bt)bt.addEventListener('click',function(){if(bt.classList.contains('on'))setTimeout(function(){if(bt.classList.contains('on'))pushBanNote();},1800);});
   var al=document.getElementById('autoLvl');if(al){al.style.cursor='pointer';al.onclick=function(){al.textContent=al.textContent==='Human-in-loop'?'Fully agentic':'Human-in-loop';};}
   document.getElementById('cmClose').onclick=()=>ov.remove();
   ov.onclick=e=>{if(e.target===ov)ov.remove();};
@@ -1346,26 +1364,40 @@ function openIntake(next){
   step1();
   ov.onclick=e=>{if(e.target===ov)ov.remove();};
 }
+function runSubs(d,det,subs,doneTxt){
+  det.innerHTML='';var i=0;
+  var iv=setInterval(function(){
+    if(i>=subs.length){clearInterval(iv);d.classList.remove('running');d.classList.add('done');var top=d.querySelector('.wr-top');if(top)top.innerHTML='<span class="c">✓</span> <span class="wr-t">'+doneTxt+'</span>';return;}
+    var s=document.createElement('div');s.className='sub-step';s.innerHTML='<span>✓</span> '+subs[i];det.appendChild(s);i++;
+  },580);
+}
 function addWorkRow(box,a){
   var d=document.createElement('div');d.className='work-row';
   d.innerHTML='<div class="wr-top"><span class="wr-t">'+a.t+'</span><button class="wr-go" title="Run this">→</button></div><div class="wr-det">'+a.x+'</div>';
   box.appendChild(d);box.scrollTop=box.scrollHeight;
-  var go=d.querySelector('.wr-go');
+  var go=d.querySelector('.wr-go'),det=d.querySelector('.wr-det');
   d.querySelector('.wr-top').onclick=function(e){if(e.target===go)return;d.classList.toggle('open');};
-  go.onclick=function(e){e.stopPropagation();go.disabled=true;go.innerHTML='…';d.classList.add('running');setTimeout(function(){d.classList.add('done');d.querySelector('.wr-top').innerHTML='<span class="c">✓</span> <span class="wr-t">'+a.done+'</span>';},1000);};
+  go.onclick=function(e){e.stopPropagation();go.disabled=true;go.innerHTML='…';d.classList.add('open','running');
+    if(a.ask){
+      det.innerHTML='<div class="sub-q">When should your next drop go live?</div><div class="sub-opts"><button>Sun 7pm</button><button>Wed 8pm</button><button>Fri 6pm</button></div>';
+      [...det.querySelectorAll('button')].forEach(function(b){b.onclick=function(ev){ev.stopPropagation();runSubs(d,det,['Booking '+b.textContent+' on your calendar','Teasing it to your 340 followers','Drafting the promo post'],'Next drop set for '+b.textContent+', 340 followers notified');};});
+      return;
+    }
+    runSubs(d,det,a.sub,a.done);
+  };
 }
 function runPostShow(){
   var box=document.getElementById('insWork');if(!box)return;box.innerHTML='';
   var actions=[
-    {t:'Relist your 7 unsold lots',x:'They go live-eligible with pricing updated from tonight\'s demand, first in line for your next show.',done:'7 lots relisted and ready'},
-    {t:'Generate 18 shipping labels + packing slips',x:'One UPS batch, emailed to you as a single PDF. Buyers get tracking automatically, no printer needed.',done:'18 labels emailed to you'},
-    {t:'Send thank-you notes to your top 5 buyers',x:'Personal messages to jeremy_23, vaultkid and 3 more, to bring them back next time.',done:'Thank-you notes sent'},
-    {t:'Schedule and promote your next drop',x:'I\'ll take your best-performing slot and tease it to your 340 followers.',done:'Next drop set for Sun 7pm'}
+    {t:'Relist your 7 unsold lots',x:'They go live-eligible with pricing updated from tonight\'s demand, first in line for your next show.',sub:['Reading tonight\'s bid and watch data','Repricing all 7 lots','Publishing them as live-eligible'],done:'7 lots relisted and ready'},
+    {t:'Generate 18 shipping labels + packing slips',x:'One UPS batch, emailed to you as a single PDF. Buyers get tracking automatically, no printer needed.',sub:['Pulling 18 buyer addresses','Batching one UPS order','Emailing you the label PDF'],done:'18 labels emailed to you'},
+    {t:'Send thank-you notes to your top 5 buyers',x:'Personal messages to jeremy_23, vaultkid and 3 more, to bring them back next time.',sub:['Ranking your top 5 buyers','Drafting a personal note for each','Queued for your approval'],done:'Thank-you notes ready to send'},
+    {t:'Schedule and promote your next drop',x:'I\'ll take your best-performing slot and tease it to your 340 followers.',ask:true,done:'Next drop scheduled'}
   ];
-  var i=0;var iv=setInterval(function(){if(i>=actions.length){clearInterval(iv);return;}addWorkRow(box,actions[i]);i++;},650);
-  var da=document.getElementById('doAll');if(da)da.onclick=function(){[...box.querySelectorAll('.wr-go:not(:disabled)')].forEach(function(g,x){setTimeout(function(){g.click();},x*260);});};
+  var i=0;var iv=setInterval(function(){if(i>=actions.length){clearInterval(iv);return;}addWorkRow(box,actions[i]);i++;},600);
+  var da=document.getElementById('doAll');if(da)da.onclick=function(){[...box.querySelectorAll('.wr-go:not(:disabled)')].forEach(function(g,x){setTimeout(function(){g.click();},x*400);});};
   var rj=document.getElementById('rfReject'),rp=document.getElementById('rfApprove'),rc=document.getElementById('refundCard');
-  if(rp)rp.onclick=function(){rc.classList.add('rf-done');rc.innerHTML='<div class="rf-t">✓ Refunded $185 to nebran_54</div><div class="rf-d">The Travis Scott lot was relisted instantly, it\'s back in your next show.</div>';};
+  if(rp)rp.onclick=function(){rc.classList.add('rf-run');rc.innerHTML='<div class="rf-t"><span class="ag-dot">◆</span> On it…</div><div id="rfSteps"></div>';var steps=['Refunding $185 to nebran_54','Relisting the Travis Scott lot','Queuing it for your next show'],ps=document.getElementById('rfSteps'),k=0;var iv2=setInterval(function(){if(k>=steps.length){clearInterval(iv2);rc.classList.add('rf-done');rc.innerHTML='<div class="rf-t">✓ Refunded and relisted</div><div class="rf-d">nebran_54 was refunded $185 and the Travis Scott lot is back in your next show.</div>';return;}var s=document.createElement('div');s.className='sub-step';s.innerHTML='<span>✓</span> '+steps[k];ps.appendChild(s);k++;},560);};
   if(rj)rj.onclick=function(){rc.classList.add('rf-done');rc.innerHTML='<div class="rf-t">Kept the sale</div><div class="rf-d">Sent nebran_54 a friendly note explaining your return policy.</div>';};
 }
 function runMaximize(){
