@@ -21,7 +21,15 @@ html,body{height:100%;font-family:var(--font);background:#0b0d12;color:var(--ink
 strong,.hl{font-weight:800}
 
 /* ---------- top nav / tabs ---------- */
-.topnav{height:var(--navh);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);position:relative;z-index:60}
+.topnav{height:var(--navh);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);position:relative;z-index:60;overflow:hidden;transition:height .28s ease}
+body.navcollapsed{--navh:0}
+body.navcollapsed .topnav{border-color:transparent}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-toggle{border:1px solid var(--line);background:#fff;height:30px;padding:0 11px;border-radius:8px;cursor:pointer;color:var(--muted);font-size:12px;font-weight:700;white-space:nowrap}
+.nav-toggle:hover{background:var(--wash);color:var(--ink)}
+.nav-restore{position:fixed;top:9px;right:14px;z-index:100;border:1px solid var(--line);background:rgba(255,255,255,.92);width:36px;height:30px;border-radius:8px;cursor:pointer;color:var(--ink-2);font-size:15px;display:none;backdrop-filter:blur(6px);box-shadow:0 4px 16px rgba(0,0,0,.14)}
+.nav-restore:hover{background:#fff}
+body.navcollapsed .nav-restore{display:block}
 .brand{font-weight:900;font-size:22px;letter-spacing:-.05em}
 .brand .e{color:var(--red)}.brand .b{color:var(--blue)}.brand .a{color:var(--yellow)}.brand .y{color:var(--green)}
 .brand span.live{color:var(--ink);font-weight:800;font-size:15px;margin-left:4px}
@@ -32,7 +40,7 @@ strong,.hl{font-weight:800}
 .who{font-size:12px;font-weight:600;color:var(--muted)}
 @media(max-width:720px){.who{display:none}.tab{padding:8px 12px;font-size:12px}}
 
-.panel{position:absolute;top:var(--navh);left:0;right:0;bottom:0;display:none}
+.panel{position:absolute;top:var(--navh);left:0;right:0;bottom:0;display:none;transition:top .28s ease}
 .panel.on{display:block}
 
 /* ---------- DECK (tab 1) ---------- */
@@ -47,6 +55,8 @@ strong,.hl{font-weight:800}
 .eyebrow{font-size:clamp(11px,1.05vw,13px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2.2vh}
 h1{font-size:clamp(28px,4.7vw,60px);font-weight:900;line-height:1.03;letter-spacing:-.025em}
 h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spacing:-.02em}
+h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-block;line-height:1.2;margin-bottom:.6vh}
+.slide.dark h2 .h2-sm{color:#8ea2c4}
 .sub{font-size:clamp(14px,1.5vw,20px);font-weight:400;line-height:1.5;color:var(--ink-2);max-width:62ch;margin-top:2.4vh}
 .strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px;opacity:.5}
 .logo{font-weight:900;font-size:clamp(24px,2.6vw,38px);letter-spacing:-.05em}
@@ -54,6 +64,7 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .tagpill{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:20px;background:var(--agent-soft);color:var(--agent);margin-bottom:2.2vh}
 .slide.dark .tagpill{background:rgba(255,255,255,.1);color:#9fc0ff}
 .cred{margin-top:3.4vh;display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:8px 15px;font-size:13px;font-weight:600;color:#fff}
+.titlefoot{position:absolute;bottom:6vh;left:7vw;font-size:14px;font-weight:600;color:#8ea2c4;letter-spacing:.01em}
 .rows{margin-top:2.6vh;display:flex;flex-direction:column;gap:1.4vh;max-width:76ch}
 .row{display:flex;gap:14px;align-items:flex-start;font-size:clamp(14px,1.5vw,20px);line-height:1.4}
 .row .k{font-weight:800;min-width:120px;color:var(--ink)}.slide.dark .row .k{color:#fff}
@@ -65,12 +76,34 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .persona h3{font-size:clamp(15px,1.6vw,21px);font-weight:800;margin-bottom:4px}
 .persona .want{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}
 .persona p{font-size:clamp(12px,1.25vw,15px);color:var(--ink-2);line-height:1.45}
+.persona .who{font-size:clamp(11.5px,1.2vw,14px);color:var(--ink-2);line-height:1.4;margin:2px 0 10px}
+.persona .pchips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.persona .pchips span{font-size:10.5px;font-weight:700;background:var(--wash);border:1px solid var(--line);color:var(--ink-2);padding:3px 9px;border-radius:999px}
+.persona .want{margin-top:6px}
+.wf{width:100%;border-collapse:separate;border-spacing:0;margin-top:2.4vh;font-size:clamp(11px,1.2vw,14.5px);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.wf th,.wf td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);border-right:1px solid var(--line);vertical-align:top}
+.wf thead th{background:#fbfcfe;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.wf tbody th{width:15%;font-weight:800;color:var(--ink)}
+.wf tbody th span{display:block;font-size:9.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+.wf td{color:var(--ink-2)}
+.wf .wf-creative{background:#f2f7ea}.wf .wf-creative th{color:#3a7a00}
+.wf .wf-ops{background:#fdf0f0}.wf .wf-ops th{color:var(--red)}.wf .wf-ops td{color:#8a4a4a}
+.wf-lh{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:1.8vh}
+.wf-tag{font-size:clamp(11.5px,1.2vw,14.5px);line-height:1.42;color:var(--ink-2);padding-left:14px;border-left:3px solid}
+.wf-tag b{color:var(--ink)}
+.wf-tag.love{border-color:var(--green)}.wf-tag.hate{border-color:var(--red)}
+.hyp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:2.6vh}
+.hyp{background:#1c212c;border:1px solid #2a3140;border-radius:14px;padding:15px 17px}
+.hyp .hh{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.hyp .hh b{font-size:clamp(15px,1.6vw,19px);font-weight:800;color:#fff}
+.hyp p{font-size:clamp(11.5px,1.2vw,14px);color:#aab3c4;line-height:1.42}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:2.6vw;margin-top:3vh}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 12px 34px rgba(20,30,60,.05)}
 .card h3{font-size:clamp(15px,1.6vw,21px);font-weight:800;margin-bottom:10px}
 .card .q{font-size:clamp(12px,1.3vw,16px);line-height:1.4;color:var(--ink-2);margin-bottom:10px;padding-left:13px;border-left:3px solid var(--line)}
 .drown h3{color:var(--red)}.drown .q{border-color:var(--red)}
 .surf h3{color:var(--green)}.surf .q{border-color:var(--green)}
+.card .q.em{font-weight:800;color:var(--ink);margin-top:6px}
 .lovehate{display:grid;grid-template-columns:1fr 1fr;gap:2.6vw;margin-top:2.6vh}
 .lh h4{font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
 .lh.love h4{color:var(--green)}.lh.hate h4{color:var(--red)}
@@ -100,6 +133,13 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .segtable .pick{background:#f4f8ff;border:2px solid var(--agent)}
 .segtable .pick .tg{font-size:10.5px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--agent);display:block;margin-bottom:4px}
 .segtable .below{opacity:.55}
+.segtable thead th{font-size:11.5px}
+.segtable thead th span{display:block;font-weight:600;color:var(--muted);font-size:10.5px;text-transform:none;letter-spacing:0;margin-top:3px}
+.segtable tbody th{font-size:clamp(12px,1.3vw,15px);color:var(--ink)}
+.segtable tbody th span{display:block;font-weight:600;color:var(--muted);font-size:.8em;margin-top:4px;line-height:1.35}
+.segtable td{font-size:clamp(11.5px,1.25vw,14.5px);line-height:1.45}
+.segtable .pick{background:#eef4ff;border:2px solid var(--agent);color:var(--ink)}
+.segtable th,.segtable td{padding:14px}
 .flow{display:flex;gap:12px;margin-top:2.4vh;flex-wrap:wrap}
 .step{flex:1;min-width:140px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
 .slide.dark .step{background:#1c212c;border-color:#2a3140}
@@ -117,6 +157,29 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .why .w b{color:#fff}.why .w .v{color:#c2cbdb}
 .chk{color:var(--green);font-weight:900;flex-shrink:0}
 .split.s37{grid-template-columns:1fr 1.75fr}
+.kicker{font-size:clamp(15px,1.7vw,22px);font-weight:900;letter-spacing:-.01em;color:#9fc0ff;margin-bottom:2vh}
+.lc-compare{display:grid;grid-template-columns:0.82fr 1.55fr;gap:1.6vw;margin-top:2.8vh;align-items:stretch}
+.lc-trad,.lc-live{border-radius:16px;padding:17px 19px}
+.lc-trad{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;justify-content:center}
+.lc-live{background:rgba(134,184,23,.07);border:1px solid rgba(134,184,23,.24)}
+.lc-label{font-size:10.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#8ea2c4;margin-bottom:14px}
+.lc-label.green{color:#9fe0ac}
+.lc-flow{display:flex;flex-direction:column;gap:12px}
+.lcf{display:flex;gap:11px;align-items:flex-start;font-size:clamp(13px,1.35vw,16px);color:#c2cbdb;line-height:1.4}
+.lcf .lcn{width:23px;height:23px;border-radius:7px;background:rgba(255,255,255,.1);color:#8ea2c4;font-weight:900;font-size:12px;display:grid;place-items:center;flex:none}
+.lc-note{margin-top:18px;font-size:clamp(12px,1.2vw,14.5px);color:#8b93a5;font-style:italic}
+.lc-intro{font-size:clamp(12px,1.25vw,15px);color:#aab3c4;line-height:1.4;margin-bottom:12px}
+.lc-tiles{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.lct{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:11px 13px}
+.lct.wide{grid-column:1 / -1}
+.lct .lc-cat{display:block;font-size:9.5px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:#86e29a;margin-bottom:5px}
+.lct b{display:block;font-size:clamp(13px,1.35vw,16px);font-weight:800;color:#fff}
+.lct span{display:block;font-size:clamp(10.5px,1.1vw,13px);color:#aab3c4;line-height:1.35;margin-top:3px}
+.bizcase{margin-top:2.2vh;background:var(--agent-soft);border:1px solid #cfe0ff;border-radius:14px;padding:15px 19px;font-size:clamp(13px,1.4vw,17px);line-height:1.5;color:var(--ink)}
+.bizcase b{color:var(--agent);font-weight:800}
+.bc-label{display:inline-block;font-size:10.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--agent);margin-right:9px;vertical-align:baseline}
+.bc-goal{font-weight:800;color:var(--ink)}
+.src{margin-top:1.4vh;font-size:11px;color:var(--muted)}
 .bignums{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:2.4vh}
 .bn{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 17px;box-shadow:0 10px 30px rgba(20,30,60,.05)}
 .slide.dark .bn{background:#1c212c;border-color:#2a3140}
@@ -162,11 +225,27 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .proc-close{margin-top:22px;background:#141821;color:#fff;border-radius:18px;padding:34px}
 .proc-close h3{font-size:clamp(20px,2.4vw,30px);font-weight:800;line-height:1.2}
 .proc-close p{color:#c2cbdb;font-size:16px;margin-top:12px;line-height:1.5}
+.proc-section{margin-top:48px}
+.ps-h{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--agent);margin-bottom:16px}
+.ps-title{font-size:clamp(20px,2.4vw,28px);font-weight:800;line-height:1.15;margin-bottom:18px;letter-spacing:-.015em;color:var(--ink)}
+.ps-lead{font-size:16px;color:var(--ink-2);line-height:1.55;max-width:74ch;margin-bottom:22px}
+.proc-steps{display:flex;flex-direction:column;gap:16px}
+.pstep{display:flex;gap:16px;align-items:flex-start}
+.pstep .pn{width:36px;height:36px;border-radius:11px;background:var(--agent-soft);color:var(--agent);font-weight:900;font-size:14px;display:grid;place-items:center;flex:none;font-variant-numeric:tabular-nums}
+.pstep h4{font-size:17px;font-weight:800;margin-bottom:3px;letter-spacing:-.01em;color:var(--ink)}
+.pstep p{font-size:14.5px;color:var(--ink-2);line-height:1.5;max-width:68ch}
+.empathy-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.emp{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:0 10px 30px rgba(20,30,60,.05)}
+.emp h4{font-size:13px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.emp ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.emp li{font-size:15px;color:var(--ink);line-height:1.45;padding-left:25px;position:relative}
+.emp li::before{content:"✓";position:absolute;left:0;top:0;color:var(--green);font-weight:900}
+.emp-note{margin-top:18px;font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.5;max-width:74ch}
 
 /* ---------- PROTOTYPE (tab 3) ---------- */
 #proto{background:radial-gradient(120% 90% at 20% 0%,#1a1f2b,#0b0d12)}
-.proto-layout{display:grid;grid-template-columns:340px 1fr;gap:5vw;align-items:center;height:100%;max-width:1080px;margin:0 auto;padding:0 40px}
-.phone{width:300px;height:620px;max-height:86vh;background:#0b0b0c;border-radius:42px;border:10px solid #05060a;box-shadow:0 40px 90px -30px rgba(0,0,0,.8);position:relative;overflow:hidden;justify-self:center}
+.proto-layout{display:grid;grid-template-columns:0.85fr auto 1fr;gap:3.4vw;align-items:center;height:100%;max-width:1280px;margin:0 auto;padding:0 44px}
+.phone{width:352px;height:720px;max-height:88vh;background:#0b0b0c;border-radius:46px;border:11px solid #05060a;box-shadow:0 46px 100px -30px rgba(0,0,0,.85);position:relative;overflow:hidden;justify-self:center;grid-column:2}
 .phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#05060a;border-radius:0 0 16px 16px;z-index:8}
 .screen{position:absolute;inset:0;background:#0e0f13;color:#fff;overflow:hidden}
 .pstatus{position:absolute;top:10px;left:0;right:0;display:flex;justify-content:space-between;padding:0 20px;font-size:11px;font-weight:700;color:#c9cfdb;z-index:7}
@@ -219,7 +298,7 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .closed .r{display:flex;align-items:center;gap:8px;font-size:12px;color:#c9cfdb;margin-top:12px;background:#171922;padding:9px 12px;border-radius:10px;text-align:left}
 .closed .r .c{color:#7ee29a;font-weight:900}
 /* right side: story + controls */
-.proto-story{color:#fff;max-width:460px}
+.proto-story{color:#fff;max-width:460px;grid-column:3}
 .proto-story .eyebrow{color:#8ea2c4;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .proto-story h2{font-size:clamp(24px,2.8vw,38px);font-weight:900;line-height:1.08;margin-top:14px;letter-spacing:-.02em}
 .proto-story .cap{font-size:clamp(15px,1.6vw,19px);color:#c2cbdb;line-height:1.55;margin-top:16px;min-height:5.5em}
@@ -232,7 +311,7 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .proto-dots{display:flex;gap:7px;margin-top:20px}
 .proto-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);transition:all .2s}
 .proto-dots i.on{background:var(--green);width:22px;border-radius:6px}
-@media(max-width:860px){.proto-layout{grid-template-columns:1fr;gap:24px;padding:20px;overflow-y:auto;align-content:start}.three,.split,.lovehate,.btd,.metrics,.proc-grid{grid-template-columns:1fr}.compare,.segtable{font-size:11px;display:block;overflow-x:auto}}
+@media(max-width:860px){.proto-layout{grid-template-columns:1fr;gap:24px;padding:20px;overflow-y:auto;align-content:start}.phone,.proto-story{grid-column:auto}.three,.split,.lovehate,.btd,.metrics,.proc-grid,.ins-cols,.two-side,.empathy-grid,.hyp-grid,.lc-compare,.bignums{grid-template-columns:1fr}.compare,.segtable,.mtable,.wf{font-size:11px;display:block;overflow-x:auto}}
 /* ---------- iPhone live: real eBay Live app look ---------- */
 .la-video{position:absolute;inset:0;background:radial-gradient(130% 90% at 50% 30%,#3a3f4d,#0b0b0c)}
 .la-video::after{content:"👟";position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);font-size:64px;opacity:.5;filter:drop-shadow(0 10px 24px rgba(0,0,0,.55))}
@@ -312,6 +391,27 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .cop-toggle.on::after{left:13px}
 .con-heart{position:absolute;right:10px;bottom:10px;z-index:6;font-size:17px;color:#fff;background:rgba(0,0,0,.42);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;user-select:none;transition:transform .1s}
 .con-heart:hover{background:rgba(0,0,0,.62);transform:scale(1.08)}
+.sc.pins{padding:44px 14px 16px;overflow:auto;gap:11px}
+.pins-h{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:800}
+.pins .cop-name{background:linear-gradient(90deg,#7aa5ff,#7ee29a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.pins .co-pulse{margin-right:0}
+.pins-sub{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#8b93a5;margin-top:1px}
+.pins-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:2px}
+.pins-stats>div{background:#171922;border:1px solid #262a36;border-radius:11px;padding:9px 11px}
+.pins-stats b{display:block;font-size:18px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.pins-stats span{font-size:9.5px;color:#9aa3b5;font-weight:700}
+.pins-card{background:#141821;border:1px solid #262a36;border-radius:12px;padding:12px}
+.pins-ch{font-size:10px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:#8b93a5;margin-bottom:9px}
+.pins-bars{display:flex;align-items:flex-end;gap:10px;height:74px}
+.pins-bars .pb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px}
+.pins-bars .pb i{display:block;width:100%;max-width:26px;background:linear-gradient(180deg,#4d9bff,#0064d2);border-radius:5px 5px 0 0;transform-origin:bottom;transform:scaleY(0);animation:barGrow .7s cubic-bezier(.22,1,.36,1) forwards}
+.pins-bars .pb:nth-child(1) i{animation-delay:.05s}.pins-bars .pb:nth-child(2) i{animation-delay:.16s}.pins-bars .pb:nth-child(3) i{animation-delay:.27s}.pins-bars .pb:nth-child(4) i{animation-delay:.38s}
+.pins-bars .pb small{font-size:9px;font-weight:800;color:#cfd6e4}
+.pins-bars .pb em{font-size:9px;color:#8b93a5;font-style:normal;font-weight:700}
+.pins-buyer{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#e6e9f2;padding:4px 0}
+.pins-buyer b{width:15px;color:#8b93a5}
+.pins-buyer span{margin-left:auto;color:#9aa3b5;font-weight:600;font-size:11px}
+.pins-note{background:#0e1830;border:1px solid #1e3a66;border-radius:11px;padding:10px 11px;font-size:11px;color:#c9d6ee;line-height:1.42;font-weight:600}
 .la-chat .m.scam{color:#ff8a8a;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.9)}
 .la-toast .pban-btn{margin-left:8px;border:none;background:var(--red);color:#fff;font-family:inherit;font-weight:800;font-size:11px;padding:5px 11px;border-radius:999px;cursor:pointer;vertical-align:middle}
 .pintake{position:absolute;inset:0;background:linear-gradient(165deg,#0c1424,#0a0e15);padding:22px 18px;overflow:auto;display:flex;flex-direction:column;gap:13px;z-index:8}
@@ -391,8 +491,9 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .ins-c span{font-size:11px;color:#767676;text-transform:uppercase;letter-spacing:.04em}
 .ins-c b{display:block;font-size:22px;margin-top:5px}
 .ins-copilot{margin-top:16px;background:linear-gradient(100deg,#f4f8ff,#eef4ff);border:1px solid #cfe0ff;border-radius:14px;padding:18px}
-.ins-copilot .co-h{font-size:11px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--agent)}
-.ins-copilot .co-b{font-size:15px;color:#333;margin:8px 0 14px;line-height:1.45}
+.ins-copilot .co-h{font-size:13.5px;font-weight:800;letter-spacing:0;text-transform:none;color:#191919;display:flex;align-items:center}
+.ins-copilot .co-sub{font-size:10.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.ins-copilot .co-b{font-size:14px;color:#41495a;margin:8px 0 12px;line-height:1.45}
 .dctl-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 22px;background:#0b0d12;border-top:1px solid #222}
 .dstory b{color:#fff;font-size:14px;display:block}.dstory span{color:#8ea2c4;font-size:12.5px}
 .dctl{display:flex;gap:8px;flex-shrink:0}
@@ -408,7 +509,7 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .ins-cols{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;margin-top:14px}
 .ins-col-l,.ins-col-r{display:flex;flex-direction:column;gap:12px;min-width:0}
 .ins-col-l .ins-lead,.ins-col-r .ins-copilot{margin-top:0}
-.doall{margin-left:auto;border:none;background:#eaf1fc;color:var(--blue);font-family:inherit;font-weight:800;font-size:11px;padding:5px 11px;border-radius:999px;cursor:pointer}
+.doall{display:inline-block;margin:0 0 10px;border:none;background:var(--blue);color:#fff;font-family:inherit;font-weight:800;font-size:12px;padding:8px 16px;border-radius:8px;cursor:pointer}
 .doall:hover{background:#dce8fc}
 .ins-work{margin-top:10px;display:flex;flex-direction:column;gap:8px}
 .work-row{background:#fff;border:1px solid #e2e6ee;border-radius:10px;padding:10px 12px;font-size:12.5px;color:#191919;font-weight:700;animation:scin .35s ease}
@@ -446,6 +547,8 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 .refund-card .rf-n{background:#eef0f4;color:#41495a}
 .refund-card.rf-done .rf-t{color:#3a7a00}
 .max-step{font-size:13.5px;color:#333;margin-top:9px;animation:scin .3s ease}
+.cm-card .max-step{color:#dfe7f5}
+.cm-card .max-step .c{color:#7ee29a}
 .max-step .c{color:#3a7a00;font-weight:900;margin-right:6px}
 .max-sched{margin-top:14px;animation:scin .3s ease}
 .max-sched .sq{font-size:14px;font-weight:700;color:#191919;margin-bottom:10px}
@@ -549,8 +652,9 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
     <button class="tab" data-tab="process">My Process</button>
     <button class="tab" data-tab="proto">Prototype</button>
   </div>
-  <div class="who">Akash Miharia · Seller &amp; Host</div>
+  <div class="nav-right"><div class="who">Akash Miharia · Seller &amp; Host</div><button class="nav-toggle" id="navToggle" title="Hide header for the demo">⌄ hide</button></div>
 </div>
+<button class="nav-restore" id="navRestore" title="Show header">☰</button>
 
 <!-- ============ TAB 1 : PRODUCT THINKING (DECK) ============ -->
 <div class="panel on" id="think">
@@ -560,166 +664,165 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
     <section class="slide dark on">
       <div class="logo" style="margin-bottom:3vh"><span class="e">e</span><span class="b">B</span><span class="a">a</span><span class="y">y</span> <span style="color:#fff;font-weight:800">Live</span></div>
       <h1>The one-tap host.<br>How Live gets <span class="green">out of beta.</span></h1>
-      <p class="sub">Excited to get into this. eBay Live has the trust, the goods, and the buyers, and it has been a gated beta for four years. Here is the read on why, the agent that changes it, and a working prototype I will demo.</p>
-      <div class="cred">🍽️ Written after buying my first eBay Live lot: four vintage Hermès plates from Linda's Stuff.</div>
-    </section>
-
-    <section class="slide wash">
-      <div class="eyebrow">First, how I approached this</div>
-      <h2>Agents gathered the landscape. I went and felt the problem.</h2>
-      <div class="two-side">
-        <div class="agentcol"><div class="side-h">◆ In parallel, my agents ran the desk research</div>
-          <div class="li">Custom market-research skills pulled the live-commerce market, the competitor landscape, and the performance data.</div>
-          <div class="li">Structured into the numbers, the platform bets, and eBay's own position, so I could reason on top of it instead of collecting it.</div>
-        </div>
-        <div class="mecol"><div class="side-h">✓ Meanwhile, I lived the product for hours</div>
-          <div class="li">Bought my first eBay Live lot, and Yeezy slides on Whatnot. Ran my own show, three minutes, sold nothing, felt the empathy first-hand.</div>
-          <div class="li">Interviewed 5–6 sellers in the chat on what they love and what they'd fix. Read the community. Signed up as a seller.</div>
-        </div>
-      </div>
-      <p class="sub">The strategy came from the overlap: what the data said, and what the product actually felt like from both sides of the camera.</p>
+      <p class="sub">eBay Live has the trust, the goods, and the buyers, and it has been a gated beta for four years. Here is the read on why, the agent that changes it, and a working prototype I will demo.</p>
+      <div class="titlefoot">Akash Miharia · Product Thinking &amp; Prototype · July 6, 2026</div>
     </section>
 
     <section class="slide dark">
-      <div class="tagpill">First principle · what live commerce is</div>
+      <div class="kicker">What is live commerce</div>
       <h1>Regular commerce <span style="color:#8ea2c4">serves</span> demand.<br>Live commerce <span class="green">manufactures</span> it.</h1>
-      <p class="sub">You need a charger, you buy it, no feeling. But at a barbecue a friend shows off a new grill, the group says "you got that for that price?", and now you want one you never planned to buy. Live is the barbecue, not the charger. Belonging forms the intent, in real time. On Linda's Stuff a buyer asked for a measurement, the host pulled a tape live, and a $200 dress closed at $129 in ninety seconds. Amazon and Walmart structurally cannot do that.</p>
+      <div class="lc-compare">
+        <div class="lc-trad">
+          <div class="lc-label">Traditional commerce · serves intent</div>
+          <div class="lc-flow">
+            <div class="lcf"><span class="lcn">1</span><span>You already have an intent, a need or a want.</span></div>
+            <div class="lcf"><span class="lcn">2</span><span>You know where to go to satisfy it.</span></div>
+            <div class="lcf"><span class="lcn">3</span><span>You search, the platform serves it, the transaction closes.</span></div>
+          </div>
+          <div class="lc-note">Efficient. And completely without feeling.</div>
+        </div>
+        <div class="lc-live">
+          <div class="lc-label green">Live commerce · manufactures intent</div>
+          <p class="lc-intro">You're just happy to be there, and being there can form the intent. Five lived ways to feel it:</p>
+          <div class="lc-tiles">
+            <div class="lct"><span class="lc-cat">The analogy</span><b>The barbecue</b><span>"You got that for that price?" A want forms through the group, not from need.</span></div>
+            <div class="lct"><span class="lc-cat">The analogy, at scale</span><b>The Sephora turn</b><span>A stranger says "great for your skin." On live it happens on purpose, to a whole room.</span></div>
+            <div class="lct"><span class="lc-cat">A scene you watch</span><b>The dress</b><span>Measured live, $200 → $129 in 90 seconds. Async can't close intent like that.</span></div>
+            <div class="lct"><span class="lc-cat">A feeling</span><b>The auction thrill</b><span>Winning, the countdown, not missing the drop. Buying becomes belonging.</span></div>
+            <div class="lct wide"><span class="lc-cat">The glue</span><b>The community</b><span>"Give Jeremy his hearts." A passive watcher becomes a member. You can't ask another shopper anything at Walmart.</span></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="slide wash">
-      <div class="eyebrow">Why it matters now · the barbecue feeling, measured</div>
-      <h2>When commerce goes live, it performs.</h2>
+      <div class="eyebrow">The opportunity</div>
+      <h2>When commerce goes live, it performs. And the market is enormous.</h2>
       <div class="bignums">
         <div class="bn"><b>10x</b><span>engagement vs standard video</span></div>
-        <div class="bn"><b>8–20%</b><span>click-through, vs 1–3% for traditional commerce</span></div>
-        <div class="bn"><b>5–15%</b><span>conversion, exceptional by any retail standard</span></div>
-        <div class="bn"><b>40%</b><span>lower returns — live demo and Q&amp;A resolve the doubt that drives them</span></div>
+        <div class="bn"><b>~10x</b><span>the conversion of standard e-commerce (vs 2–3%)</span></div>
+        <div class="bn"><b>40%</b><span>lower returns, live demo and Q&amp;A resolve the doubt</span></div>
         <div class="bn"><b>$3.7T</b><span>global live commerce by 2030</span></div>
-        <div class="bn"><b>70%</b><span>of EU online shoppers already interested in live shopping</span></div>
+        <div class="bn"><b>7x</b><span>eBay Live's own GMV growth year-over-year, still a gated beta</span></div>
+        <div class="bn"><b>70%</b><span>of EU online shoppers already interested in live</span></div>
       </div>
-      <p class="verdict">The demand is running ahead of the industry's willingness to act on it. <span class="agent">eBay is on the wrong side of that gap today.</span></p>
+      <div class="bizcase"><span class="bc-label">The case for eBay</span>eBay does <b>~$80B GMV</b> a year across 134M buyers, nearly all of it static. Its gated Live beta is already growing <b>~7x year-over-year</b>. Open that gate profitably and Live compounds from a sliver into a major share of the business. <span class="bc-goal">The upside case: Live grows into a majority of eBay's GMV.</span></div>
+      <div class="src">Sources: eBay Q4 earnings &amp; SEC filings, Ark Invest, Firework, YouGov, Grandview · cross-checked Jul 2026</div>
     </section>
 
     <section class="slide">
-      <div class="eyebrow">The players and the rules of the game</div>
-      <h2>Every live platform makes a different bet on the same two risks.</h2>
-      <table class="compare">
-        <thead><tr><th>Platform</th><th>Entry barrier</th><th>Enforcement bet</th><th>Best for</th></tr></thead>
+      <div class="eyebrow">Who we build for · one marketplace, two sides, three personas</div>
+      <h2>The buyer, the seller, and the host.</h2>
+      <div class="three">
+        <div class="persona"><div class="ico">🛍️</div><h3 class="blue">The buyer</h3><p class="who">Came to hunt for something real, and got pulled into a room.</p><div class="pchips"><span>the win</span><span>the deal</span><span>belonging</span><span>real goods</span></div><div class="want">Primary job</div><p>Win the bid, catch the deal, belong to the room. And trust the item is real. Intent forms <em>inside</em> the show.</p></div>
+        <div class="persona"><div class="ico">📦</div><h3 class="green">The seller</h3><p class="who">Owns the business and the inventory. A store, a company, or one person.</p><div class="pchips"><span>move stock</span><span>a following</span><span>be known</span><span>less ops</span></div><div class="want">Primary job</div><p>Move real inventory, build a following that returns, be known, without the ops swallowing the day.</p></div>
+        <div class="persona"><div class="ico">🎙️</div><h3 class="red">The host</h3><p class="who">Runs the show. Often the seller, sometimes a team or a hired face.</p><div class="pchips"><span>read the room</span><span>hype</span><span>the regulars</span></div><div class="want">Primary job</div><p>Run the room. Read the crowd, hype the lot, celebrate the regulars. The motivation engine, built by hand.</p></div>
+      </div>
+      <p class="sub">Live commerce is a <strong>belonging machine for all three.</strong> The seller brings the inventory and the trust, the host builds the identity and community, and the buyer finds belonging and forms intent inside it. Seller and host are one side, the buyer the other, and everyone wins when the loop turns.</p>
+    </section>
+
+    <section class="slide wash">
+      <div class="eyebrow">The seller's real problem · one person, two workflows at once</div>
+      <h2>They run a creative show <span class="agent">and</span> a full operation, live, in parallel.</h2>
+      <table class="wf">
+        <thead><tr><th></th><th>Before the show</th><th>Live</th><th>After the show</th></tr></thead>
         <tbody>
-          <tr><th>Whatnot</th><td>Instant, ~15 min</td><td>Open door, ban after the fact</td><td>Hobbyists, collectors, high-energy sellers</td></tr>
-          <tr><th>TikTok Shop</th><td>Instant, gated lives</td><td>Real-time AI kills a violating stream live</td><td>High-volume, trend items, creators</td></tr>
-          <tr><th>Poshmark</th><td>30-day probation</td><td>Lowers the skill bar (Silent Shows)</td><td>Clothing, introverted sellers</td></tr>
-          <tr><th class="eb">eBay Live</th><td class="lose eb">Fort Knox, invite-only</td><td class="eb">Pre-vets the person, not the content</td><td class="eb">Established brands, authenticated high-value goods</td></tr>
+          <tr class="wf-creative"><th>Creative<span>what they love</span></th>
+            <td>Curate and optimize the lots, plan the run of show, write a findable title, pick the right time, rally the followers</td>
+            <td>Host, run the Q&amp;A, engage, build community, inspire, crown the regulars</td>
+            <td>Thank the buyers, tease the next drop, keep them for next time</td></tr>
+          <tr class="wf-ops"><th>Operations<span>what they hate</span></th>
+            <td>Source, categorize, price from comps, set reserves, verify and authenticate</td>
+            <td>Moderate, run the bids, check trust, send offers, chase no-pays</td>
+            <td>Ship, combine shipping, disputes, refunds, relist the unsold</td></tr>
         </tbody>
       </table>
-      <p class="verdict">Same job, opposite bets. eBay picked the most restrictive door of the four. <span class="agent">The question is why, and where that leaves the opening.</span></p>
+      <div class="wf-lh">
+        <div class="wf-tag love"><b>Every part they love is the green row.</b> "I love the chat." "Touching these garments and showing my favorites."</div>
+        <div class="wf-tag hate"><b>Every part they hate is the red row.</b> "Combined shipping, I do it in the backend." "eBay's glitchy, the timer won't reset."</div>
+      </div>
+      <p class="sub"><strong>The red row scales with every show; the joy is capped by human attention. Success itself burns out the best sellers, </strong><span class="agent">until the agent takes the entire operations row off their plate.</span></p>
+    </section>
+
+    <section class="slide wash">
+      <div class="eyebrow">From the field · same access, opposite posture</div>
+      <h2>eBay Live sellers play defense. Other platforms let them play offense.</h2>
+      <div class="split">
+        <div class="card drown"><h3>eBay Live · on the defense</h3>
+          <div class="q">Two sellers passing stickers, moving slow: "all our other people aren't working today."</div>
+          <div class="q">"We're not gonna get paid for that. Let's just rerun it." Losses eaten live.</div>
+          <div class="q">"eBay glitched out, put in your max bids, chat!" Reacting to the tool, not running the room.</div>
+          <div class="q em">Observed: frustration, and a seller fighting the product.</div></div>
+        <div class="card surf"><h3>Whatnot &amp; TikTok Shop · on the offense</h3>
+          <div class="q">3-second auctions, 7,000 people, a goal of 20,000 items, and he hit it.</div>
+          <div class="q">A full kit: multiple camera angles, overlays, giveaways, pinned lots, one-tap offers.</div>
+          <div class="q">Hosts empowered, ops handled, buyers engaged. They just perform.</div>
+          <div class="q em">Observed: delight, and a seller owning the moment.</div></div>
+      </div>
+      <p class="sub"><strong>Both got let in. The gap is not access, it is the workflow and the tools. eBay bolted live onto a legacy stack with almost none, so its sellers defend. The others hand the seller a full kit, so they attack.</strong></p>
     </section>
 
     <section class="slide">
-      <div class="eyebrow">Who we build for · the three humans</div>
-      <h2>One marketplace, two sides, three jobs to be done.</h2>
-      <div class="three">
-        <div class="persona"><div class="ico">🛍️</div><h3 class="blue">The buyer</h3><div class="want">Job to be done</div><p>Win the bid, catch the deal, belong to the room, don't miss the drop. And trust the item is real. Intent forms <em>inside</em> the show, not before it.</p></div>
-        <div class="persona"><div class="ico">📦</div><h3 class="green">The seller</h3><div class="want">Job to be done</div><p>Move real inventory, build a following that returns, be known, without the ops swallowing the day. A creator seeking community in a merchant's apron.</p></div>
-        <div class="persona"><div class="ico">🎙️</div><h3 class="red">The host</h3><div class="want">Job to be done</div><p>Run the room. Read the crowd, hype the lot, celebrate the regulars. The motivation engine, built by hand while drowning in ops.</p></div>
-      </div>
-      <p class="bracket-note">→ Seller and host are one side of the marketplace (often the same person, sometimes a team, sometimes an eBay-piloted third-party host). The buyer is the other. Both choose to be there.</p>
-      <p class="sub">Live commerce is a <strong>belonging machine for both sides.</strong> The host builds identity and community; the buyer finds belonging and forms intent inside it. Two ends of one loop.</p>
+      <div class="eyebrow">The map · every platform is built on a different job</div>
+      <h2><span class="h2-sm">TikTok is attention-first. Whatnot is culture-first.</span><br><span class="blue">eBay can be trust-first.</span></h2>
+      <table class="compare">
+        <thead><tr><th>Platform</th><th>Platform DNA</th><th>Why the buyer comes</th><th>Core differentiator</th><th>Way in</th></tr></thead>
+        <tbody>
+          <tr><th>TikTok Shop</th><td>Attention-first</td><td>To be entertained</td><td>Algorithmic reach</td><td>Instant, gated lives</td></tr>
+          <tr><th>Whatnot</th><td>Culture-first</td><td>To belong to the drop</td><td>Community energy</td><td>Instant, ~15 min</td></tr>
+          <tr><th>Poshmark</th><td>Closet-first</td><td>To refresh a wardrobe</td><td>Low-friction resale</td><td>30-day probation</td></tr>
+          <tr><th class="eb">eBay Live</th><td class="win eb">Trust-first</td><td class="eb">To shop, and get the real thing</td><td class="win eb">30-yr data + authentication</td><td class="lose eb">Invite-only beta</td></tr>
+        </tbody>
+      </table>
+      <p class="verdict">On TikTok a live selling diamonds reads as bait-and-switch, because you came to be entertained. On eBay you came to shop, so trust and community arrive as a bonus. <span class="agent">Trust-first is the lane only eBay can own, and it points straight at who we build for.</span></p>
     </section>
 
     <section class="slide wash">
-      <div class="eyebrow">The seller's real problem</div>
-      <h2>They love the connection. They drown in the ops.</h2>
-      <div class="lovehate">
-        <div class="lh love"><h4>✓ What every seller I asked loves</h4>
-          <div class="q">"I love the chat, you guys are always active." — Tech Guy Sales</div>
-          <div class="q">"You answer all my dumb questions, I love it." — Linda's Stuff</div>
-          <div class="q">"I love to talk and share." — 24/7 Collectibles</div></div>
-        <div class="lh hate"><h4>✕ What every one of them hates</h4>
-          <div class="q">Combined shipping: "adds less than a dollar, I do it all in the backend."</div>
-          <div class="q">"Worst thing is the glitches."</div>
-          <div class="q">"They say they never got it, tracking says delivered."</div></div>
-      </div>
-      <p class="sub"><strong>The trap: they stay live only while the magic outweighs the tax. The tax scales with volume; the magic per hour is capped by human attention. Success itself burns out the best sellers.</strong></p>
-    </section>
-
-    <section class="slide wash">
-      <div class="eyebrow">From the field · same access, opposite outcome</div>
-      <h2>eBay's sellers are drowning. Whatnot's are surfing.</h2>
-      <div class="split">
-        <div class="card drown"><h3>eBay Live · operators</h3>
-          <div class="q">Two sellers passing stickers, moving slow: "all our other people aren't working today."</div>
-          <div class="q">"We're not gonna get paid for that. Let's just rerun it." Losses eaten live.</div>
-          <div class="q">"eBay glitched out, put in your max bids, chat!" Reactive, fighting the tool.</div></div>
-        <div class="card surf"><h3>Whatnot · performers</h3>
-          <div class="q">3-second auctions, 7,000 people, a goal of 20,000 items, and he hit it.</div>
-          <div class="q">On offense: directing the room, telling the community what happens next.</div>
-          <div class="q">A community manager in a seller's apron. Built to make the seller great.</div></div>
-      </div>
-      <p class="sub"><strong>Both got let in. The gap is not access. eBay bolted live onto a legacy stack, so its sellers are operators. Whatnot was built to make them performers.</strong></p>
+      <div class="eyebrow">The reframe · the Airbnb flip</div>
+      <h1>Instead of asking <span class="strike">how do we make the shows better?</span></h1>
+      <h1 style="margin-top:2.2vh">I ask <span class="red">why is it still so hard to sell live on eBay at all?</span></h1>
+      <p class="sub">135M buyers, ~18M sellers, roughly 8 buyers for every seller, and only a gated beta can go live. Demand does not look like the problem. <strong>The constraint is supply liquidity, and the dormant supply is the prize.</strong> Fix the seller, and the shows, the culture, and the buyer follow.</p>
     </section>
 
     <section class="slide dark">
-      <div class="tagpill">The senior move · hold it as hypotheses, not fact</div>
+      <div class="tagpill">Hold it as a hypothesis, not a fact</div>
       <h1>Why did eBay pick the <span class="red">most restrictive</span> door?</h1>
-      <div class="rows" style="max-width:none">
-        <div class="row"><span class="dot" style="background:var(--red);margin-top:.6em"></span><div><span class="k">Brand + velocity<span class="htag s">strong</span></span><span class="v">A fake or a bad stream damages a 30-year reputation. Live moves faster than eBay's async fraud tools, which catch scams before money moves. So it polices the person, not the content.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--yellow);margin-top:.6em"></span><div><span class="k">Unit economics<span class="htag s">strongest</span></span><span class="v">Streaming costs money per minute. Open access, where most sellers stream for hours and sell little, likely runs at a loss. A static listing is near-pure margin; a live sale costs far more to facilitate.</span></div></div>
-        <div class="row"><span class="dot" style="background:#556;margin-top:.6em"></span><div><span class="k">Legacy tech<span class="htag m">plausible</span></span><span class="v">The live stack is bolted onto an old async system. My field evidence supports it, but it stays a hypothesis until eng confirms.</span></div></div>
-        <div class="row"><span class="dot" style="background:#556;margin-top:.6em"></span><div><span class="k">Demand-side<span class="htag t">falsify this</span></span><span class="v">Maybe the live audience isn't there yet. This one would break the whole thesis, so it is the one to actively test: is the constraint hosts, or viewers?</span></div></div>
+      <div class="hyp-grid">
+        <div class="hyp"><div class="hh"><b>Brand + velocity</b><span class="htag s">strong</span></div><p>A fake or a bad stream damages a 30-year reputation. Live outruns eBay's async fraud tools, which catch scams before money moves. So it polices the person, not the content.</p></div>
+        <div class="hyp"><div class="hh"><b>Unit economics</b><span class="htag s">strongest</span></div><p>Streaming costs money per minute. Open access, where sellers stream for hours and sell little, likely runs at a loss. A static listing is near-pure margin.</p></div>
+        <div class="hyp"><div class="hh"><b>Legacy tech</b><span class="htag m">plausible</span></div><p>The live stack is bolted onto an old async system. My field evidence supports it, but it stays a hypothesis until eng confirms.</p></div>
+        <div class="hyp"><div class="hh"><b>Demand-side</b><span class="htag t">falsify this</span></div><p>Maybe the live audience isn't there yet. This one would break the thesis, so it's the one to actively test: is the constraint hosts, or viewers?</p></div>
       </div>
-      <p class="sub"><strong style="color:#fff">The reframe that survives a business leader: it is not "gated and safe" vs "open and risky." It is "gated and profitable" vs "open and money-losing." So flooding the zone with 18M sellers is a bad idea by eBay's own math, and I'd say so before they do.</strong></p>
+      <p class="sub"><strong style="color:#fff">The synthesis: it is not "gated and safe" vs "open and risky." It is "gated and profitable" vs "open and money-losing." Flooding the zone with 18M sellers is a bad idea by eBay's own math, and the agent is how eBay opens the gate profitably.</strong></p>
     </section>
 
-    <section class="slide dark">
-      <div class="tagpill">The insight · capability, not permission</div>
-      <h1>The trust moat and the beta gate are the <span class="green">same fact.</span></h1>
-      <div class="rows" style="max-width:none">
-        <div class="row"><span class="dot" style="background:#556;margin-top:.65em"></span><div><span class="k">On async eBay</span><span class="v">a scammer's 50 fake Rolexes get caught by algorithms before the money moves. Damage is slow and contained.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--red);margin-top:.65em"></span><div><span class="k">On live</span><span class="v">the same person sells 50 fakes in ten minutes to 500 people and vanishes. No bot polices real-time video.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--green);margin-top:.65em"></span><div><span class="k">So the fix</span><span class="v">an agent that verifies trust at live velocity, and changes the unit economics of every stream, is the only thing that lets Live graduate out of beta, profitably.</span></div></div>
+    <section class="slide wash">
+      <div class="eyebrow">The principle, and where we win</div>
+      <h2>Humans do the human part. The agent does the rest. <span class="agent">That is the differentiation.</span></h2>
+      <div class="btd">
+        <div class="col b"><h4>Below · trade it away</h4><ul><li>Out-communitying Whatnot's culture (their moat, fake on eBay)</li><li>Breadth of cheap, impulse goods</li><li>Being the lowest-fee option</li></ul></div>
+        <div class="col t"><h4>Table stakes · must match</h4><ul><li>Go live from a phone, fast payout, discovery</li><li>Auction mechanics that don't glitch</li><li>AI listing and reply drafts (eBay already ships these)</li></ul></div>
+        <div class="col d"><h4>Differentiate · where we win</h4><ul><li>The human keeps the room, the agent takes the ops</li><li>Trusted supply from existing data in one tap</li><li>Trust in the live moment: in-stream comps, Authenticity Guarantee, video receipt</li></ul></div>
       </div>
-    </section>
-
-    <section class="slide dark">
-      <div class="tagpill">Why eBay wins · the only uncopyable thing</div>
-      <h1>It's not luxury. Whatnot has watches too.<br>It's the <span class="agent">data and trust under every seller.</span></h1>
-      <p class="sub">Thirty years of catalog, sold-comps, purchase history, and a real authentication operation, behind ~18M established sellers. Not a feature Whatnot can ship past. Exactly what an agent needs to stand up a trusted show for you, and keep it safe in real time. The moat is not the goods. It is the data that proves the goods.</p>
     </section>
 
     <section class="slide">
       <div class="eyebrow">Segmentation · by the job, not the company size</div>
       <h2>Which seller do we switch on first?</h2>
       <table class="segtable">
-        <thead><tr><th style="width:22%"></th><th>Dormant · never gone live</th><th>Scaling host</th><th>Fast-mover · cheap goods</th></tr></thead>
+        <thead><tr><th style="width:24%"></th><th>Dormant<span>never gone live</span></th><th>Scaling host<span>already live</span></th><th>Fast-mover<span>cheap goods</span></th></tr></thead>
         <tbody>
-          <tr><th>Trust-sensitive goods<br><span style="color:var(--muted);font-weight:600">cards, sneakers, watches, vintage, luxury</span></th>
-            <td class="pick"><span class="tg">◆ Beachhead</span>Inventory, comps, and trust already sit in eBay. Biggest activation gap, only eBay's data can switch it on, and the streams are yield-positive by construction.</td>
-            <td>Already live, already loves it, hitting the ops ceiling. Real, but a tiny gated population.</td>
+          <tr><th>High-value, trust-sensitive<span>cards · sneakers · watches · vintage · luxury</span></th>
+            <td class="pick"><span class="tg">◆ Beachhead</span>Inventory, comps, and trust already sit in eBay. The biggest activation gap, only eBay's data can switch it on, and the streams are profitable by construction.</td>
+            <td>Loves it, hitting the ops ceiling. Real, but a tiny gated group.</td>
             <td class="below">TikTok and Whatnot's game.</td></tr>
-          <tr><th>Low-value · low-trust</th>
+          <tr><th>Low-value, low-trust</th>
             <td class="below">Not the wedge.</td>
             <td class="below">Below.</td>
-            <td class="below">The used-sock supply that makes open access a money pit. Stuck-in-the-middle death.</td></tr>
+            <td class="below">The used-sock supply that makes open access a money pit.</td></tr>
         </tbody>
       </table>
-      <p class="sub">The beachhead is the <strong>dormant, high-value seller</strong>. The segment choice is a unit-economics decision as much as a moat one: profitable supply, not dead streams. <span class="agent">eBay's lane is the intelligent platform for serious, curated selling, not clowning for the culture.</span></p>
-    </section>
-
-    <section class="slide wash">
-      <div class="eyebrow">The reframe · the Airbnb flip</div>
-      <h1>Everyone asks <span class="strike">how do we make the shows better?</span></h1>
-      <h1 style="margin-top:2.2vh">I ask <span class="red">why is it still so hard to sell live on eBay at all?</span></h1>
-      <p class="sub">135M buyers, ~18M sellers, roughly 8 buyers for every seller, and only a gated beta can go live. Demand does not look like the problem. <strong>The constraint is supply liquidity, and the dormant supply is the prize.</strong> Fix the seller, and the shows, the culture, and the buyer follow.</p>
-    </section>
-
-    <section class="slide wash">
-      <div class="eyebrow">The principle that decides every design choice</div>
-      <h1 style="max-width:20ch">Humans do the human part. The agent does the rest.</h1>
-      <div class="split" style="margin-top:2.4vh">
-        <div class="card" style="border-left:4px solid var(--green)"><h3 style="color:var(--green)">Human, never touched</h3><p class="q" style="border:none;padding:0;font-size:clamp(13px,1.4vw,17px)">The chat, the banter, crowning Jeremy, reading the room. In a world where every feed is AI-generated, the live human is the point. Automate it and you kill it.</p></div>
-        <div class="card" style="border-left:4px solid var(--agent)"><h3 style="color:var(--agent)">Agent, everything else</h3><p class="q" style="border:none;padding:0;font-size:clamp(13px,1.4vw,17px)">Stand up the show, price from comps, verify trust, moderate, ship, handle disputes and no-pays. The repetitive, high-stakes, low-connection work that drowns the seller today.</p></div>
-      </div>
+      <p class="sub">The beachhead is the <strong>dormant, high-value seller</strong>. This is a unit-economics call as much as a moat one: profitable supply, not dead streams. <span class="agent">eBay's lane is the intelligent platform for serious, curated selling, not clowning for the culture.</span></p>
     </section>
 
     <section class="slide">
@@ -737,16 +840,6 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
         <div class="step"><div class="n">TRUST</div><h5>Verified live</h5><p>Authenticity, moderation, and fraud checks in real time.</p></div>
         <div class="step"><div class="n">OPS</div><h5>Absorbed silently</h5><p>Combined shipping, no-pays, disputes, buyer offers.</p></div>
         <div class="step"><div class="n">HUMAN</div><h5>Free to connect</h5><p>Hype the lot, answer the chat, crown the regulars.</p></div>
-      </div>
-    </section>
-
-    <section class="slide wash">
-      <div class="eyebrow">Differentiation · below / table stakes / differentiate</div>
-      <h2>Where we lose on purpose, tie, and win.</h2>
-      <div class="btd">
-        <div class="col b"><h4>Below · trade it away</h4><ul><li>Out-communitying Whatnot's culture (their moat, fake on eBay)</li><li>Breadth of cheap, impulse goods</li><li>Being the lowest-fee option</li></ul></div>
-        <div class="col t"><h4>Table stakes · must match</h4><ul><li>Go live from a phone, fast payout, discovery</li><li>Auction mechanics that don't glitch</li><li>AI listing and reply drafts (eBay already ships these)</li></ul></div>
-        <div class="col d"><h4>Differentiate · where we win</h4><ul><li>An agent that manufactures <em>trusted supply</em> from existing data in one tap</li><li>Trust carried into the live moment: in-stream comps, Authenticity Guarantee, video receipt</li><li>The humans-do-human, agent-does-the-rest division of labor</li></ul></div>
       </div>
     </section>
 
@@ -801,21 +894,9 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
       <p class="sub">eBay should not try to out-clown Whatnot. Its real culture is curatorial, trusted, and global: the place you find the vintage, the rare, the authenticated thing you can't get where you live. When I lived in Abu Dhabi, eBay was how I reached American goods for years. Linda's vintage Hermès is that same magic. Get the tech right, make it lovable, and Live becomes the trusted global treasure hunt, live.</p>
     </section>
 
-    <section class="slide dark">
-      <div class="tagpill">Why me</div>
-      <h2>I've lived every side of this problem.</h2>
-      <div class="why">
-        <div class="w"><span class="chk">✓</span><div><b>Commerce AI at scale</b> <span class="v">shipped Walmart's first generative-AI search, scaled ranking, personalization, and visual AI to $87M+ in GMV. I feel the ops tax and marketplace mechanics.</span></div></div>
-        <div class="w"><span class="chk">✓</span><div><b>Enterprise agentic AI</b> <span class="v">a year building AI copilots that let non-experts do expert work, where trust was the whole game. It maps one-to-one onto a seller co-pilot.</span></div></div>
-        <div class="w"><span class="chk">✓</span><div><b>Shopper and social native</b> <span class="v">I live in fast commerce, TikTok, and Whatnot, so I feel the intent and the culture as a user, not a theory.</span></div></div>
-        <div class="w"><span class="chk">✓</span><div><b>I did the thing</b> <span class="v">studied shows across all three platforms, interviewed sellers on stream, ran my own show, and bought my first eBay Live lot.</span></div></div>
-      </div>
-      <p class="sub" style="color:#8ea2c4;margin-top:2.6vh">See the Prototype tab for the live demo, and My Process for how this was built in a weekend.</p>
-    </section>
-
         <div class="deckctl">
       <button id="dprev">‹</button>
-      <span class="cnt" id="dcnt">1 / 21</span>
+      <span class="cnt" id="dcnt">1 / 16</span>
       <button id="dnext">›</button>
     </div>
   </div>
@@ -825,19 +906,58 @@ h2{font-size:clamp(22px,3.2vw,40px);font-weight:800;line-height:1.09;letter-spac
 <div class="panel" id="process">
   <div class="proc-wrap">
     <div class="proc-head">
-      <div class="eyebrow" style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">How I built this</div>
-      <h1>Machines gathered the landscape. <span class="agent">I went and felt the problem.</span></h1>
-      <p class="sub" style="font-size:19px">Over a weekend, using my own AI-native workflow. Not a deck about a plan, but a working argument and a working prototype, built the way I'd move on your team.</p>
+      <div class="eyebrow" style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">A glance inside how I work</div>
+      <p class="sub" style="font-size:21px;margin-top:2vh;max-width:76ch;color:var(--ink)">The strategy, this deck, and a working two-sided prototype came together over a weekend, on the AI-native PM operating system I've spent years building for myself. Here is the workflow, the empathy work underneath it, and the infrastructure that turns concept-to-delivery into hours.</p>
     </div>
-    <div class="proc-grid">
-      <div class="pcard"><div class="ic">🔎</div><h3>1 · Research in parallel</h3><p>I kicked off my own market-research agents to pull the live-commerce landscape, the competitor bets, and the performance data, and structure it. That ran in the background while I spent my attention where it mattered most: inside the product.</p><div class="tags"><span>custom research skills</span><span>competitor pulls</span><span>data synthesis</span></div></div>
-      <div class="pcard"><div class="ic">🎥</div><h3>2 · Lived it, both sides of the camera</h3><p>Bought my first eBay Live lot and Yeezy slides on Whatnot. Interviewed 5–6 sellers in the chat on what they love and would fix. Read the community, signed up as a seller, and ran my own show, three minutes, sold nothing, to feel the empathy first-hand.</p><div class="tags"><span>bought &amp; sold</span><span>seller interviews</span><span>ran a show</span></div></div>
-      <div class="pcard"><div class="ic">⚔️</div><h3>3 · First principles, then falsify</h3><p>Every claim got pressure-tested and killed if it didn't survive. "Differentiate on luxury" died. "Community is the moat" died. What's left is only what stood up to a skeptical hiring-manager review, then written up as a full PRD and white paper.</p><div class="tags"><span>falsification</span><span>HM review</span><span>PRD + white paper</span></div></div>
-      <div class="pcard"><div class="ic">⚡</div><h3>4 · Built and iterated live</h3><p>The deck and this interactive prototype were coded in Claude Code, on eBay's real Evo design system and Market Sans, iterating in tight loops against my own taste bar. Real screens, real interactions, not a gray wireframe.</p><div class="tags"><span>Claude Code</span><span>eBay Evo</span><span>interactive prototype</span></div></div>
+
+    <div class="proc-section">
+      <div class="ps-h">◆ How I moved, end to end</div>
+      <div class="proc-steps">
+        <div class="pstep"><div class="pn">01</div><div><h4>Decompose the problem</h4><p>Broke eBay Live into its parts first: the market, the players, the three humans, the trust gap. No answers until the shape of the problem was clear.</p></div></div>
+        <div class="pstep"><div class="pn">02</div><div><h4>Reason from first principles, then fan out the research</h4><p>Thought it through from the ground up, then dispatched my own market-research sub-agents to pull the landscape, the competitors, and the performance data in parallel while I worked.</p></div></div>
+        <div class="pstep"><div class="pn">03</div><div><h4>Sub-agents scaffolded the presentation</h4><p>While that ran, other agents stood up the HTML structure for how I wanted to tell the story, so I could pour thinking into a real canvas instead of a blank page.</p></div></div>
+        <div class="pstep"><div class="pn">04</div><div><h4>Prototyped across the best tool for each job</h4><p>Built the interactive prototype with a mix of Codex, Lovable, and Claude Code, each where it's strongest, then stitched the pieces into one experience.</p></div></div>
+        <div class="pstep"><div class="pn">05</div><div><h4>Embedded it all together</h4><p>Wired the deck, the process, and the two-sided prototype into a single hosted thing, grounded in eBay's real Evo design system and Market Sans.</p></div></div>
+        <div class="pstep"><div class="pn">06</div><div><h4>Lived in the product the whole time, iterating live</h4><p>I stayed inside eBay Live and Whatnot as I built, so the strategy and the screens updated in real time as I learned. The prototype is a record of that loop.</p></div></div>
+      </div>
     </div>
+
+    <div class="proc-section">
+      <div class="ps-h">◆ The part no research doc can give you</div>
+      <h3 class="ps-title">I didn't study the users. I became them, on every side.</h3>
+      <div class="empathy-grid">
+        <div class="emp"><h4>Every platform, both sides of the camera</h4>
+          <ul>
+            <li>Used eBay Live on my own account, a 2013 loyalist</li>
+            <li>Created a Whatnot account for the first time, and used TikTok Shop</li>
+            <li>Became a seller, and hosted my own live show</li>
+            <li>Bought for real on eBay Live and on Whatnot, and sold too</li>
+          </ul>
+        </div>
+        <div class="emp"><h4>Straight from the source</h4>
+          <ul>
+            <li>Asked sellers directly in the chat: "what do you love about eBay Live?" and "what's the one thing you'd shout about?"</li>
+            <li>Listened to their real answers, in their words, live</li>
+            <li>Had close friends and family try it, for unbiased outside reactions</li>
+          </ul>
+        </div>
+      </div>
+      <p class="emp-note">Being a buyer and a seller, across every platform, is how the deeper view showed up. You can't feel manufactured demand from a spreadsheet.</p>
+    </div>
+
+    <div class="proc-section">
+      <div class="ps-h">◆ Why it was fast: the infrastructure underneath</div>
+      <p class="ps-lead">The speed comes from the operating system I've built as an AI-powered PM. Years of investment into skills, context, and design pipelines mean I start every project already deep, so an idea becomes a working, lovable thing in hours.</p>
+      <div class="proc-grid">
+        <div class="pcard"><div class="ic">🧠</div><h3>My PM OS</h3><p>Custom skills, research pipelines, a design system, and the frameworks I reach for, wired into one workflow so I never start from a blank page.</p><div class="tags"><span>custom skills</span><span>research stack</span><span>design pipeline</span></div></div>
+        <div class="pcard"><div class="ic">📚</div><h3>Archie, my second brain</h3><p>A personal knowledge base I've been compounding into for years. It carries the context, the taste, and the patterns, so every new project starts already smart.</p><div class="tags"><span>knowledge base</span><span>compounding context</span></div></div>
+        <div class="pcard"><div class="ic">🛠️</div><h3>A stack, not a tool</h3><p>Codex, Lovable, and Claude Code orchestrated together, each doing what it's best at. The result is real screens and real interactions, not a gray wireframe.</p><div class="tags"><span>Codex</span><span>Lovable</span><span>Claude Code</span></div></div>
+      </div>
+    </div>
+
     <div class="proc-close">
-      <h3>This is how I'd operate as your PM.</h3>
-      <p>Get to ground truth fast, from the data and from the user. Separate the trade-offs that matter from the noise. Then build the thing and make it lovable, because on eBay Live, taste and craft are exactly the gap. This came together in a weekend. Imagine it with your data, your team, and a quarter.</p>
+      <h3>The gap between an idea and feeling it live is almost gone.</h3>
+      <p>I can live in the product, feel what's actually working, and iterate on the real thing in the same loop, with you, right now on this call. That is the bottleneck that usually slows a team down, and it is mostly removed. Think about how fast we could move with your data, your team, and a quarter.</p>
     </div>
   </div>
 </div>
@@ -901,6 +1021,9 @@ document.querySelectorAll('.tab').forEach(t=>{
     if(activeTab==='proto'){ if(protoMode==='desktop')renderD(dScene); else renderScene(scene); } else {stopSim();stopDSim();}
   };
 });
+var navToggle=document.getElementById('navToggle'),navRestore=document.getElementById('navRestore');
+if(navToggle)navToggle.onclick=function(){document.body.classList.add('navcollapsed');};
+if(navRestore)navRestore.onclick=function(){document.body.classList.remove('navcollapsed');};
 
 /* ---------------- deck ---------------- */
 const slides=[...document.querySelectorAll('#stage .slide')];
@@ -1017,16 +1140,29 @@ const scenes=[
       <div class="la-bid" id="banBid"><div class="t">Trust &amp; safety</div><div class="pr">scammer_x</div><div class="ag agent">⚠ 3 flagged messages, agent recommends a ban</div><div class="jrow"><button class="jbtn" id="ignoreBan">Ignore</button><button class="jbtn hot" id="approveBan">✓ Ban from show</button></div></div>`
   },
   {
-    title:"First-time host. In one tap. Tap any line to look inside.",
-    cap:"Show done. The agent logged every sale, relisted the unsold, and consolidated shipping. Marcus never left the room. Tap any line on the phone to see the agent's work underneath it. A dormant seller turned into live supply, the whole thesis in one flow.",
-    html:`<div class="sc closed">
-        <div class="big">🎉</div>
-        <h4>Show complete · 18 lots sold</h4>
-        <div class="r" data-d="gmv"><span class="c">✓</span> $4,210 live GMV, first show ever <span class="chev">›</span></div>
-        <div class="r" data-d="receipt"><span class="c">✓</span> Every sale logged with a Video Receipt <span class="chev">›</span></div>
-        <div class="r" data-d="relist"><span class="c">✓</span> 7 unsold lots auto-relisted <span class="chev">›</span></div>
-        <div class="r" data-d="shipping"><span class="c">✓</span> Combined shipping handled <span class="chev">›</span></div>
-        <div style="font-size:10px;color:#5b6577;text-align:center;margin-top:10px">tap any line to see the detail</div>
+    title:"First show done. The agent already closed the loop.",
+    cap:"The numbers, the top buyers, and the post-show ops, all waiting for Marcus in the same co-pilot he ran the show with. The phone recap mirrors Seller Central, pocket-sized. A dormant seller became live supply. That is the whole thesis, in one flow.",
+    html:`<div class="sc pins">
+        <div class="pins-h"><span class="co-pulse"></span><span class="cop-name">Seller Co-pilot</span></div>
+        <div class="pins-sub">Show complete · 4h 02m</div>
+        <div class="pins-stats">
+          <div><b>$4,210</b><span>Live GMV</span></div>
+          <div><b>18/25</b><span>Lots sold</span></div>
+          <div><b>1,510</b><span>Peak viewers</span></div>
+          <div><b>+128</b><span>Followers</span></div>
+        </div>
+        <div class="pins-card"><div class="pins-ch">GMV by hour</div><div class="pins-bars">
+          <div class="pb"><small>$620</small><i style="height:24px"></i><em>1h</em></div>
+          <div class="pb"><small>$1.1k</small><i style="height:42px"></i><em>2h</em></div>
+          <div class="pb"><small>$1.6k</small><i style="height:58px"></i><em>3h</em></div>
+          <div class="pb"><small>$890</small><i style="height:34px"></i><em>4h</em></div>
+        </div></div>
+        <div class="pins-card"><div class="pins-ch">Top buyers</div>
+          <div class="pins-buyer"><b>1</b> 🏆 jeremy_23 <span>$1,180</span></div>
+          <div class="pins-buyer"><b>2</b> vaultkid <span>$720</span></div>
+          <div class="pins-buyer"><b>3</b> nebran_54 <span>$455</span></div>
+        </div>
+        <div class="pins-note"><span class="ag-dot">◆</span> I relisted your 7 unsold, emailed 18 labels, and drafted thank-you notes. Finish up in Seller Central.</div>
       </div>`
   }
 ];
@@ -1292,8 +1428,10 @@ const dScenes=[
          </div></div>
        </div>
        <div class="ins-col-r">
-         <div class="ins-copilot" id="insCopilot"><div class="co-h"><span class="co-pulse"></span><span class="cop-name">Co-pilot</span> · next best actions <button class="doall" id="doAll">Do all →</button></div>
+         <div class="ins-copilot" id="insCopilot"><div class="co-h"><span class="co-pulse"></span><span class="cop-name">Seller Co-pilot</span></div>
+           <div class="co-sub">Next best actions</div>
            <div class="co-b">Tap a row to see what it does, or hit the arrow to run it.</div>
+           <button class="doall" id="doAll">Do all →</button>
            <div class="ins-work" id="insWork"></div></div>
          <div class="ins-inbox"><div class="inbox-h">◆ Needs your call</div>
            <div class="refund-card" id="refundCard">
@@ -1398,7 +1536,7 @@ function renderCop(body,i){
     body.scrollTop=body.scrollHeight;
     if(a[3])chatSys(document.getElementById('dChat'),a[3]);
     if(n.fixLot&&a[0]==='y')updateLotSize();
-    if(a[1]==='Queue a J4 next')queueJ4();
+    if(a[1]==='Queue a J4')queueJ4();
     if(a[1]==='End show & recap'){if(copTimer){clearTimeout(copTimer);copTimer=null;}setTimeout(endShowToInsights,900);}
   };});
   if(!n.end)copTimer=setTimeout(function(){renderCop(body,i+1);},i<copNotes.length-1?6000:12000);
@@ -1439,7 +1577,7 @@ function openIntake(next){
     box.innerHTML='<div class="in-step"><div class="in-t in-glow" id="pTitle">Converting your 25 listings…</div><div id="pSteps"></div></div>';
     var steps=['Collecting item details, photos, and condition','Pricing each lot from your sale history','Creating your '+fmt.toLowerCase()+' listings','Making all 25 live-eligible'];
     var ps=document.getElementById('pSteps'),i=0;
-    var iv=setInterval(function(){if(i>=steps.length){clearInterval(iv);var pt=document.getElementById('pTitle');if(pt)pt.textContent='✓ 25 lots are live-eligible';var b=document.createElement('button');b.className='cm-close';b.style.marginTop='4px';b.textContent='Next step →';b.onclick=step2;ps.parentNode.appendChild(b);return;}var d=document.createElement('div');d.className='max-step';d.innerHTML='<span class="c">✓</span> '+steps[i];ps.appendChild(d);i++;},700);
+    var iv=setInterval(function(){if(i>=steps.length){clearInterval(iv);var pt=document.getElementById('pTitle');if(pt)pt.textContent='✓ 25 lots are live-eligible';var b=document.createElement('button');b.className='cm-close';b.style.marginTop='18px';b.textContent='Next step →';b.onclick=step2;ps.parentNode.appendChild(b);return;}var d=document.createElement('div');d.className='max-step';d.innerHTML='<span class="c">✓</span> '+steps[i];ps.appendChild(d);i++;},700);
   };
   var step1=function(){
     box.innerHTML='<div class="in-step"><div class="in-t"><span class="stp">Step 1</span> Make your listings live-eligible</div><div class="in-d">I\'ll convert your 25 existing listings into live lots. How should they sell?</div><div class="in-opts" id="fmtRow"><button class="on">Live auction</button><button>Fixed price</button></div><button class="cm-close" id="inA1">Approve →</button></div>';
@@ -1483,7 +1621,7 @@ function runPostShow(){
   var i=0;var iv=setInterval(function(){if(i>=actions.length){clearInterval(iv);return;}addWorkRow(box,actions[i]);i++;},600);
   var da=document.getElementById('doAll');if(da)da.onclick=function(){[...box.querySelectorAll('.wr-go:not(:disabled)')].forEach(function(g,x){setTimeout(function(){g.click();},x*400);});};
   var rj=document.getElementById('rfReject'),rp=document.getElementById('rfApprove'),rc=document.getElementById('refundCard');
-  if(rp)rp.onclick=function(){rc.classList.add('rf-run');rc.innerHTML='<div class="rf-t"><span class="ag-dot">◆</span> On it…</div><div id="rfSteps"></div>';var steps=['Refunding $185 to nebran_54','Relisting the Travis Scott lot','Queuing it for your next show'],ps=document.getElementById('rfSteps'),k=0;var iv2=setInterval(function(){if(k>=steps.length){clearInterval(iv2);rc.classList.add('rf-done');rc.innerHTML='<div class="rf-t">✓ Refunded and relisted</div><div class="rf-d">nebran_54 was refunded $185 and the Travis Scott lot is back in your next show.</div>';return;}var s=document.createElement('div');s.className='sub-step';s.innerHTML='<span>✓</span> '+steps[k];ps.appendChild(s);k++;},560);};
+  if(rp)rp.onclick=function(){rc.classList.add('rf-run');rc.innerHTML='<div class="rf-t"><span class="ag-dot">◆</span> On it, here\'s what I\'m doing…</div><div id="rfSteps"></div>';var steps=['Refunding $185 to nebran_54','Relisting the Travis Scott lot','Queuing it for your next show'],ps=document.getElementById('rfSteps'),k=0;var iv2=setInterval(function(){if(k>=steps.length){clearInterval(iv2);var b=document.createElement('button');b.className='rf-y';b.style.cssText='margin-top:12px;padding:8px 22px';b.textContent='Done';b.onclick=function(){rc.classList.add('rf-done');rc.innerHTML='<div class="rf-t">✓ Refunded and relisted</div><div class="rf-d">nebran_54 was refunded $185 and the Travis Scott lot is back in your next show.</div>';};ps.appendChild(b);return;}var s=document.createElement('div');s.className='sub-step';s.innerHTML='<span>✓</span> '+steps[k];ps.appendChild(s);k++;},560);};
   if(rj)rj.onclick=function(){rc.classList.add('rf-done');rc.innerHTML='<div class="rf-t">Kept the sale</div><div class="rf-d">Sent nebran_54 a friendly note explaining your return policy.</div>';};
 }
 function runMaximize(){
