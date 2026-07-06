@@ -160,14 +160,14 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .kicker{font-size:clamp(15px,1.7vw,22px);font-weight:900;letter-spacing:-.01em;color:#9fc0ff;margin-bottom:2vh}
 .lc-compare{display:grid;grid-template-columns:0.82fr 1.55fr;gap:1.6vw;margin-top:2.8vh;align-items:stretch}
 .lc-trad,.lc-live{border-radius:16px;padding:17px 19px}
-.lc-trad{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;justify-content:center}
+.lc-trad{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;justify-content:center}
 .lc-live{background:rgba(134,184,23,.07);border:1px solid rgba(134,184,23,.24)}
 .lc-label{font-size:10.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#8ea2c4;margin-bottom:14px}
 .lc-label.green{color:#9fe0ac}
 .lc-flow{display:flex;flex-direction:column;gap:12px}
-.lcf{display:flex;gap:11px;align-items:flex-start;font-size:clamp(13px,1.35vw,16px);color:#c2cbdb;line-height:1.4}
-.lcf .lcn{width:23px;height:23px;border-radius:7px;background:rgba(255,255,255,.1);color:#8ea2c4;font-weight:900;font-size:12px;display:grid;place-items:center;flex:none}
-.lc-note{margin-top:18px;font-size:clamp(12px,1.2vw,14.5px);color:#8b93a5;font-style:italic}
+.lcf{display:flex;gap:11px;align-items:flex-start;font-size:clamp(13px,1.35vw,16px);color:#eef2fa;line-height:1.4;font-weight:500}
+.lcf .lcn{width:23px;height:23px;border-radius:7px;background:rgba(255,255,255,.18);color:#dfe7f5;font-weight:900;font-size:12px;display:grid;place-items:center;flex:none}
+.lc-note{margin-top:18px;font-size:clamp(12px,1.2vw,14.5px);color:#c2cbdb;font-style:italic}
 .lc-intro{font-size:clamp(12px,1.25vw,15px);color:#aab3c4;line-height:1.4;margin-bottom:12px}
 .lc-tiles{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .lct{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:11px 13px}
@@ -711,11 +711,11 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
           <div class="lc-label green">Live commerce · manufactures intent</div>
           <p class="lc-intro">You're just happy to be there, and being there can form the intent. Five lived ways to feel it:</p>
           <div class="lc-tiles">
-            <div class="lct"><span class="lc-cat">The analogy</span><b>The barbecue</b><span>"You got that for that price?" A want forms through the group, not from need.</span></div>
-            <div class="lct"><span class="lc-cat">The analogy, at scale</span><b>The Sephora turn</b><span>A stranger says "great for your skin." On live it happens on purpose, to a whole room.</span></div>
-            <div class="lct"><span class="lc-cat">A scene you watch</span><b>The dress</b><span>Measured live, $200 → $129 in 90 seconds. Async can't close intent like that.</span></div>
-            <div class="lct"><span class="lc-cat">A feeling</span><b>The auction thrill</b><span>Winning, the countdown, not missing the drop. Buying becomes belonging.</span></div>
-            <div class="lct wide"><span class="lc-cat">The glue</span><b>The community</b><span>"Give Jeremy his hearts." A passive watcher becomes a member. You can't ask another shopper anything at Walmart.</span></div>
+            <div class="lct"><span class="lc-cat">The analogy</span><b>🔥 The barbecue</b><span>"You got that for that price?" A want forms through the group, not from need.</span></div>
+            <div class="lct"><span class="lc-cat">The analogy, at scale</span><b>💄 The Sephora turn</b><span>A stranger says "great for your skin." On live it happens on purpose, to a whole room.</span></div>
+            <div class="lct"><span class="lc-cat">A scene you watch</span><b>👗 The dress</b><span>Measured live, $200 → $129 in 90 seconds. Async can't close intent like that.</span></div>
+            <div class="lct"><span class="lc-cat">A feeling</span><b>🔨 The auction thrill</b><span>Winning, the countdown, not missing the drop. Buying becomes belonging.</span></div>
+            <div class="lct wide"><span class="lc-cat">The glue</span><b>❤️ The community</b><span>"Give Jeremy his hearts." A passive watcher becomes a member. You can't ask another shopper anything at Walmart.</span></div>
           </div>
         </div>
       </div>
@@ -812,7 +812,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 
     <section class="slide dark">
       <div class="tagpill">Hold it as a hypothesis, not a fact</div>
-      <h1>Why did eBay pick the <span class="red">most restrictive</span> door?</h1>
+      <h1>Our hypotheses for <span class="red">what's blocking scale and growth.</span></h1>
       <div class="hyp-grid">
         <div class="hyp"><div class="hh"><b>Brand + velocity</b><span class="htag s">strong</span></div><p>A fake or a bad stream damages a 30-year reputation. Live outruns eBay's async fraud tools, which catch scams before money moves. So it polices the person, not the content.</p></div>
         <div class="hyp"><div class="hh"><b>Unit economics</b><span class="htag s">strongest</span></div><p>Streaming costs money per minute. Open access, where sellers stream for hours and sell little, likely runs at a loss. A static listing is near-pure margin.</p></div>
@@ -820,16 +820,6 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
         <div class="hyp"><div class="hh"><b>Demand-side</b><span class="htag t">falsify this</span></div><p>Maybe the live audience isn't there yet. This one would break the thesis, so it's the one to actively test: is the constraint hosts, or viewers?</p></div>
       </div>
       <p class="sub"><strong style="color:#fff">The synthesis: it is not "gated and safe" vs "open and risky." It is "gated and profitable" vs "open and money-losing." Flooding the zone with 18M sellers is a bad idea by eBay's own math, and the agent is how eBay opens the gate profitably.</strong></p>
-    </section>
-
-    <section class="slide wash">
-      <div class="eyebrow">The principle, and where we win</div>
-      <h2>Humans do the human part. The agent does the rest. <span class="agent">That is the differentiation.</span></h2>
-      <div class="btd">
-        <div class="col b"><h4>Below · trade it away</h4><ul><li>Out-communitying Whatnot's culture (their moat, fake on eBay)</li><li>Breadth of cheap, impulse goods</li><li>Being the lowest-fee option</li></ul></div>
-        <div class="col t"><h4>Table stakes · must match</h4><ul><li>Go live from a phone, fast payout, discovery</li><li>Auction mechanics that don't glitch</li><li>AI listing and reply drafts (eBay already ships these)</li></ul></div>
-        <div class="col d"><h4>Differentiate · where we win</h4><ul><li>The human keeps the room, the agent takes the ops</li><li>Trusted supply from existing data in one tap</li><li>Trust in the live moment: in-stream comps, Authenticity Guarantee, video receipt</li></ul></div>
-      </div>
     </section>
 
     <section class="slide">
@@ -851,6 +841,16 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       <p class="sub">The beachhead is the <strong>dormant, high-value seller</strong>. This is a unit-economics call as much as a moat one: profitable supply, not dead streams. <span class="agent">eBay's lane is the intelligent platform for serious, curated selling, not clowning for the culture.</span></p>
     </section>
 
+    <section class="slide wash">
+      <div class="eyebrow">The principle, and where we win</div>
+      <h2>Humans do the human part. The agent does the rest. <span class="agent">That is the differentiation.</span></h2>
+      <div class="btd">
+        <div class="col b"><h4>Below · trade it away</h4><ul><li>Out-communitying Whatnot's culture (their moat, fake on eBay)</li><li>Breadth of cheap, impulse goods</li><li>Being the lowest-fee option</li></ul></div>
+        <div class="col t"><h4>Table stakes · must match</h4><ul><li>Go live from a phone, fast payout, discovery</li><li>Auction mechanics that don't glitch</li><li>AI listing and reply drafts (eBay already ships these)</li></ul></div>
+        <div class="col d"><h4>Differentiate · where we win</h4><ul><li>The human keeps the room, the agent takes the ops</li><li>Trusted supply from existing data in one tap</li><li>Trust in the live moment: in-stream comps, Authenticity Guarantee, video receipt</li></ul></div>
+      </div>
+    </section>
+
     <section class="slide">
       <div class="tagpill">The product · the one-tap host</div>
       <h2>Two beats. See both in the Prototype tab.</h2>
@@ -869,18 +869,6 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       </div>
     </section>
 
-    <section class="slide dark">
-      <div class="tagpill">Technology · where I'd invest, and the trade-offs</div>
-      <h2>The hard part isn't the model. It's the real-time context layer.</h2>
-      <div class="rows" style="max-width:none">
-        <div class="row"><span class="dot" style="background:var(--agent);margin-top:.6em"></span><div><span class="k">The layer</span><span class="v">A knowledge graph over eBay's catalog, comps, authentication, and buyer history, plus an event layer for the live moment. Converting static catalog into live-ready shows is the core capability, and eBay is uniquely positioned to build it because it owns the data.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--green);margin-top:.6em"></span><div><span class="k">Cold start</span><span class="v">Slower and richer. It runs before the show, so spend the compute and get the pricing and lots right.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--yellow);margin-top:.6em"></span><div><span class="k">In-show</span><span class="v">Low-latency. It must keep pace with a live room, so lean on the pre-built layer, not heavy real-time reasoning.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--red);margin-top:.6em"></span><div><span class="k">Human gate</span><span class="v">Anything irreversible — an offer, a price drop, a refund — the agent proposes and the human confirms. Bias to speed where cheap and reversible, to control where a wrong action is costly.</span></div></div>
-      </div>
-      <p class="sub"><strong style="color:#fff">Reliability of the stream is the floor, not the product.</strong> Get the real-time layer solid, then the lovable agent sits on top.</p>
-    </section>
-
     <section class="slide">
       <div class="eyebrow">How we measure success · tie every hypothesis to a metric</div>
       <h2>Supply first. Then GMV. Yield and trust as guardrails.</h2>
@@ -895,6 +883,18 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
         </tbody>
       </table>
       <p class="verdict">Sequence: activation → liquidity → Live GMV, with yield-per-stream-minute and dispute rate throughout. <span class="agent">An empty marketplace has no conversion problem yet. Liquidity precedes polish.</span></p>
+    </section>
+
+    <section class="slide dark">
+      <div class="tagpill">The hard parts · where I'd invest, and the trade-offs</div>
+      <h2>The hard part isn't the model. It's the real-time context layer.</h2>
+      <div class="rows" style="max-width:none">
+        <div class="row"><span class="dot" style="background:var(--agent);margin-top:.6em"></span><div><span class="k">The layer</span><span class="v">A knowledge graph over eBay's catalog, comps, authentication, and buyer history, plus an event layer for the live moment. Converting static catalog into live-ready shows is the core capability, and eBay is uniquely positioned to build it because it owns the data.</span></div></div>
+        <div class="row"><span class="dot" style="background:var(--green);margin-top:.6em"></span><div><span class="k">Cold start</span><span class="v">Slower and richer. It runs before the show, so spend the compute and get the pricing and lots right.</span></div></div>
+        <div class="row"><span class="dot" style="background:var(--yellow);margin-top:.6em"></span><div><span class="k">In-show</span><span class="v">Low-latency. It must keep pace with a live room, so lean on the pre-built layer, not heavy real-time reasoning.</span></div></div>
+        <div class="row"><span class="dot" style="background:var(--red);margin-top:.6em"></span><div><span class="k">Human gate</span><span class="v">Anything irreversible, an offer, a price drop, a refund, the agent proposes and the human confirms. Bias to speed where cheap and reversible, to control where a wrong action is costly.</span></div></div>
+      </div>
+      <p class="sub"><strong style="color:#fff">Reliability of the stream is the floor, not the product.</strong> Get the real-time layer solid, then the lovable agent sits on top.</p>
     </section>
 
     <section class="slide dark">
@@ -1169,18 +1169,6 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
         <li><b>I did the thing.</b> Studied shows across all three platforms, interviewed sellers on stream, ran my own show, and bought on both, four vintage Hermès plates on eBay Live from Linda's Stuff, Yeezy slides on Whatnot.</li>
       </ul>
       <div class="prd-quote">First principles, real research, and I build. This whole strategy and prototype came together in a weekend using my own AI-native workflow.</div>
-    </div>
-
-    <div class="prd-sec">
-      <h2><span class="pnum">◆</span> Lines to remember</h2>
-      <div class="prd-liners">
-        <span>"Regular commerce serves demand. Live commerce manufactures it."</span>
-        <span>"It's not luxury. Whatnot has watches too. It's the data under every seller."</span>
-        <span>"The agent is how eBay gets Whatnot's openness without losing eBay's trust."</span>
-        <span>"Humans do the human part. The agent does the rest."</span>
-        <span>"An empty marketplace has no quality problem yet. Liquidity precedes polish."</span>
-        <span>"The buyer follows the show."</span>
-      </div>
     </div>
   </div>
 </div>
