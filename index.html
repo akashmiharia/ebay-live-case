@@ -269,8 +269,8 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 
 /* ---------- PROTOTYPE (tab 3) ---------- */
 #proto{background:radial-gradient(120% 90% at 20% 0%,#1a1f2b,#0b0d12)}
-.proto-layout{display:grid;grid-template-columns:0.85fr auto 1fr;gap:3.4vw;align-items:center;height:100%;max-width:1280px;margin:0 auto;padding:0 44px}
-.phone{width:352px;height:720px;max-height:88vh;background:#0b0b0c;border-radius:46px;border:11px solid #05060a;box-shadow:0 46px 100px -30px rgba(0,0,0,.85);position:relative;overflow:hidden;justify-self:center;grid-column:2}
+.proto-layout{display:grid;grid-template-columns:0.85fr auto 1fr;gap:3.4vw;align-items:center;height:100%;max-width:1280px;margin:0 auto;padding:60px 44px 10px}
+.phone{width:352px;height:720px;max-height:80vh;background:#0b0b0c;border-radius:46px;border:11px solid #05060a;box-shadow:0 46px 100px -30px rgba(0,0,0,.85);position:relative;overflow:hidden;justify-self:center;grid-column:2}
 .phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#05060a;border-radius:0 0 16px 16px;z-index:8}
 .screen{position:absolute;inset:0;background:#0e0f13;color:#fff;overflow:hidden}
 .pstatus{position:absolute;top:10px;left:0;right:0;display:flex;justify-content:space-between;padding:0 20px;font-size:11px;font-weight:700;color:#c9cfdb;z-index:7}
@@ -457,7 +457,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 /* ---------- DESKTOP SELLER CENTRAL (prototype mode 2) ---------- */
 .proto-mobile{position:absolute;inset:0}
 .proto-mode{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:30;display:flex;gap:4px;background:rgba(0,0,0,.45);padding:4px;border-radius:999px;backdrop-filter:blur(8px)}
-.proto-help{position:absolute;top:13px;right:20px;z-index:35;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;font-weight:900;font-size:16px;cursor:pointer;backdrop-filter:blur(8px)}
+.proto-help{position:absolute;top:13px;right:20px;z-index:58;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-weight:900;font-size:16px;cursor:pointer;backdrop-filter:blur(8px)}
 .proto-help:hover{background:rgba(255,255,255,.22)}
 .phm-overlay{position:absolute;inset:0;background:rgba(4,6,12,.7);z-index:60;display:none;place-items:center;padding:24px}
 .phm-overlay.on{display:grid;animation:fade .25s ease}
@@ -686,9 +686,9 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
   <div class="brand"><span class="e">e</span><span class="b">B</span><span class="a">a</span><span class="y">y</span><span class="live">Live</span></div>
   <div class="tabs">
     <button class="tab on" data-tab="think">Product Thinking</button>
-    <button class="tab" data-tab="process">My Process</button>
-    <button class="tab" data-tab="prd">PRD</button>
     <button class="tab" data-tab="proto">Prototype</button>
+    <button class="tab" data-tab="prd">PRD</button>
+    <button class="tab" data-tab="process">My Process</button>
   </div>
   <div class="nav-right"><div class="who">Akash Miharia · Seller &amp; Host</div><button class="nav-toggle" id="navToggle" title="Hide header for the demo">⌄ hide</button></div>
 </div>
