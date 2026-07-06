@@ -457,6 +457,18 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 /* ---------- DESKTOP SELLER CENTRAL (prototype mode 2) ---------- */
 .proto-mobile{position:absolute;inset:0}
 .proto-mode{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:30;display:flex;gap:4px;background:rgba(0,0,0,.45);padding:4px;border-radius:999px;backdrop-filter:blur(8px)}
+.proto-help{position:absolute;top:13px;right:20px;z-index:35;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;font-weight:900;font-size:16px;cursor:pointer;backdrop-filter:blur(8px)}
+.proto-help:hover{background:rgba(255,255,255,.22)}
+.phm-overlay{position:absolute;inset:0;background:rgba(4,6,12,.7);z-index:60;display:none;place-items:center;padding:24px}
+.phm-overlay.on{display:grid;animation:fade .25s ease}
+.phm-card{background:#141821;border:1px solid #2a3140;border-radius:18px;padding:26px 28px;max-width:460px;width:100%;color:#fff;max-height:86%;overflow:auto;box-shadow:0 40px 90px -20px rgba(0,0,0,.8)}
+.phm-h{font-size:20px;font-weight:900;letter-spacing:-.01em}
+.phm-sub{font-size:13px;color:#aab3c4;margin-top:6px;line-height:1.45}
+.phm-grp{margin-top:18px}
+.phm-grp b{font-size:14px;font-weight:800;color:#9fc0ff}
+.phm-grp ul{margin:9px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.phm-grp li{font-size:13.5px;color:#c2cbdb;line-height:1.45}
+.phm-close{margin-top:22px;width:100%;border:none;background:var(--blue);color:#fff;font-family:inherit;font-weight:800;font-size:15px;padding:12px;border-radius:12px;cursor:pointer}
 .proto-mode button{border:none;background:transparent;color:#c2cbdb;font-family:inherit;font-weight:700;font-size:12.5px;padding:7px 15px;border-radius:999px;cursor:pointer}
 .proto-mode button.on{background:#fff;color:#141821}
 .proto-desktop{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;color:#191919;padding-top:50px}
@@ -1177,6 +1189,30 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 
 <!-- ============ TAB 3 : PROTOTYPE ============ -->
 <div class="panel" id="proto">
+  <button class="proto-help" id="protoHelp" title="How to use this prototype">?</button>
+  <div class="phm-overlay" id="phmOverlay">
+    <div class="phm-card">
+      <div class="phm-h">How to use this prototype</div>
+      <div class="phm-sub">It's fully interactive. Click around, or use the arrows and the ↻ restart button.</div>
+      <div class="phm-grp"><b>📱 Live show, the seller's phone</b>
+        <ul>
+          <li>Tap the blue buttons to move through the flow (Go Live, then enter the show).</li>
+          <li>On a live screen, click anywhere on the phone to advance to the next moment.</li>
+          <li>Tap the ◆ in the "Add a comment" bar to open co-pilot settings, flip on Auto-ban to catch a scammer live.</li>
+          <li>Approve or reject the agent's fix, send Jeremy an offer, and tap the ♥ for a color burst.</li>
+        </ul>
+      </div>
+      <div class="phm-grp"><b>🖥 Seller Central, the desktop console</b>
+        <ul>
+          <li>Click the tabs (Listings, Live console, Insights) to move between screens.</li>
+          <li>In the co-pilot, click Send offer, Shout out, or Yes-update, they post into the live chat.</li>
+          <li>Open Settings to toggle Auto-ban and Autonomy. Click the ♥ on the cam for a burst.</li>
+          <li>On Insights, hit the arrow to run an action, or Approve &amp; relist the refund.</li>
+        </ul>
+      </div>
+      <button class="phm-close" id="phmClose">Got it</button>
+    </div>
+  </div>
   <div class="proto-mode">
     <button data-m="mobile" class="on">📱 Live show</button>
     <button data-m="desktop">🖥 Seller Central</button>
@@ -1550,6 +1586,10 @@ document.querySelectorAll('.proto-mode button').forEach(b=>{
     if(protoMode==='desktop')renderD(dScene); else renderScene(scene);
   };
 });
+var protoHelp=document.getElementById('protoHelp'),phmOverlay=document.getElementById('phmOverlay'),phmClose=document.getElementById('phmClose');
+if(protoHelp)protoHelp.onclick=function(){phmOverlay.classList.add('on');};
+if(phmClose)phmClose.onclick=function(){phmOverlay.classList.remove('on');};
+if(phmOverlay)phmOverlay.onclick=function(e){if(e.target===phmOverlay)phmOverlay.classList.remove('on');};
 
 /* ---------------- desktop seller central ---------------- */
 const ebBody=document.getElementById('ebBody'),ebTabs=document.getElementById('ebTabs');
