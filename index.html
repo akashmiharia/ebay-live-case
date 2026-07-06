@@ -225,6 +225,31 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .proc-close{margin-top:22px;background:#141821;color:#fff;border-radius:18px;padding:34px}
 .proc-close h3{font-size:clamp(20px,2.4vw,30px);font-weight:800;line-height:1.2}
 .proc-close p{color:#c2cbdb;font-size:16px;margin-top:12px;line-height:1.5}
+/* ---------- PRD (tab) ---------- */
+#prd{background:var(--wash);overflow-y:auto}
+.prd-wrap{max-width:900px;margin:0 auto;padding:6vh 28px 14vh}
+.prd-cover{border-bottom:2px solid var(--line);padding-bottom:28px}
+.prd-cover .eyebrow{margin-bottom:14px}
+.prd-cover h1{font-size:clamp(30px,4.5vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.04}
+.prd-cover .psub{font-size:clamp(16px,1.8vw,21px);color:var(--ink-2);line-height:1.5;margin-top:16px;max-width:66ch}
+.prd-cover .pmeta{font-size:14px;font-weight:600;color:var(--muted);margin-top:16px}
+.prd-sec{margin-top:44px}
+.prd-sec>h2{font-size:clamp(20px,2.4vw,27px);font-weight:800;letter-spacing:-.015em;color:var(--ink);display:flex;align-items:baseline;gap:12px}
+.prd-sec .pnum{color:var(--agent);font-weight:900;font-size:.72em;flex:none;font-variant-numeric:tabular-nums}
+.prd-sec p{font-size:16px;line-height:1.62;color:var(--ink-2);margin-top:13px}
+.prd-sec p.pnote{font-style:italic;color:var(--muted);font-size:15px}
+.prd-sec ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:11px}
+.prd-sec li{font-size:15.5px;line-height:1.55;color:var(--ink-2);padding-left:20px;position:relative}
+.prd-sec li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--agent)}
+.prd-sec li b,.prd-sec p b{color:var(--ink)}
+.prd-sec .compare,.prd-sec .mtable{margin-top:16px}
+.prd-quote{border-left:4px solid var(--agent);background:#fff;padding:16px 22px;border-radius:0 12px 12px 0;font-size:clamp(16px,1.7vw,19px);font-weight:600;color:var(--ink);line-height:1.5;margin:20px 0 4px;box-shadow:0 10px 30px rgba(20,30,60,.05)}
+.prd-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:16px}
+.pst{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:0 10px 30px rgba(20,30,60,.05)}
+.pst b{display:block;font-size:clamp(22px,2.6vw,32px);font-weight:900;letter-spacing:-.02em;color:var(--agent);line-height:1}
+.pst span{display:block;font-size:12px;color:var(--ink-2);margin-top:6px;line-height:1.35}
+.prd-liners{display:flex;flex-direction:column;gap:9px;margin-top:16px}
+.prd-liners span{background:#fff;border:1px solid var(--line);border-left:3px solid var(--agent);border-radius:0 10px 10px 0;padding:11px 15px;font-size:15px;font-weight:600;color:var(--ink)}
 .proc-section{margin-top:48px}
 .ps-h{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--agent);margin-bottom:16px}
 .ps-title{font-size:clamp(20px,2.4vw,28px);font-weight:800;line-height:1.15;margin-bottom:18px;letter-spacing:-.015em;color:var(--ink)}
@@ -650,6 +675,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
   <div class="tabs">
     <button class="tab on" data-tab="think">Product Thinking</button>
     <button class="tab" data-tab="process">My Process</button>
+    <button class="tab" data-tab="prd">PRD</button>
     <button class="tab" data-tab="proto">Prototype</button>
   </div>
   <div class="nav-right"><div class="who">Akash Miharia · Seller &amp; Host</div><button class="nav-toggle" id="navToggle" title="Hide header for the demo">⌄ hide</button></div>
@@ -961,6 +987,204 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </div>
   </div>
 </div>
+
+<!-- ============ TAB : PRD ============ -->
+<div class="panel" id="prd">
+  <div class="prd-wrap">
+    <div class="prd-cover">
+      <div class="eyebrow" style="color:var(--muted)">Strategy white paper &amp; product brief</div>
+      <h1>eBay Live, the one-tap host</h1>
+      <p class="psub">The seller and host experience: how an agent turns any eBay seller into a confident, trusted live host, and how that graduates Live out of a four-year beta.</p>
+      <p class="pmeta">Akash Miharia · prepared for the eBay Live Product Thinking exercise · July 2026</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">§</span> Executive summary</h2>
+      <p>Live commerce does not serve demand, it manufactures it. In a live show, belonging forms the intent in real time, the way a good deal at a barbecue makes you want the grill you never planned to buy. Every bit of that magic is made by one human, live, the host, which makes host capacity the scarce resource in the whole category.</p>
+      <p>eBay has a once-in-a-generation position and is not using it. It is the only platform where socially manufactured demand sits on top of real institutional trust, because people come to eBay to shop, not to be entertained, so community lands as a bonus rather than a bait-and-switch. Under every one of eBay's ~18 million sellers sits thirty years of catalog, sold-comps, purchase history, and physical authentication that no competitor can copy. Yet Live is still invite-only, and has been since 2022.</p>
+      <p>The fix is an agent that turns any eBay seller into a confident, trusted live host in one tap. The seller taps once, the agent reads their catalog, builds and prices the show from comps, carries the authenticity guarantee into the stream, and runs shipping and disputes in the background. The human does the one thing only a human can, run the room. The agent does everything else.</p>
+      <div class="prd-quote">eBay Live is the only place to sell high-value goods live to buyers who came to shop and can trust what they are buying, with eBay carrying the trust and the operations so the host can just run the room.</div>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">1</span> What live commerce is</h2>
+      <p>Regular commerce serves an intent you already have. Live commerce creates the intent on the spot, socially. Five ways to feel the difference:</p>
+      <ul>
+        <li><b>The barbecue.</b> A friend shows off a new grill, the group says "you got that for that price?", and a want forms through the group, not through need. Live is the barbecue, not the charger.</li>
+        <li><b>The Sephora turn.</b> A stranger says "I tried that, it's great for your skin," and you suddenly want it. In a store that is luck. On live it happens on purpose, to a whole room, over and over.</li>
+        <li><b>The dress.</b> On Linda's Stuff a buyer asked for a measurement, the host pulled out a tape live, it fit, and the price moved from $200 to $129. Intent formed and closed in ninety seconds.</li>
+        <li><b>The auction thrill.</b> Almost winning, the countdown, not missing the drop. The buyer is not just buying, they are winning and belonging.</li>
+        <li><b>The community.</b> People answer each other's questions on a stranger's behalf. "Give Jeremy his hearts." The switch from passive watcher to member is about identity.</li>
+      </ul>
+      <div class="prd-quote">Regular commerce serves demand. Live commerce manufactures it, and it is something Amazon and Walmart are not built to do.</div>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">2</span> Why it matters, the market</h2>
+      <p>When commerce goes live, it performs. Industry figures eBay itself presents:</p>
+      <div class="prd-stats">
+        <div class="pst"><b>10x</b><span>engagement vs standard video</span></div>
+        <div class="pst"><b>~10x</b><span>conversion vs standard e-commerce</span></div>
+        <div class="pst"><b>40%</b><span>lower return rate</span></div>
+        <div class="pst"><b>$3.7T</b><span>global live commerce by 2030</span></div>
+        <div class="pst"><b>7x</b><span>eBay Live's own YoY GMV growth, in beta</span></div>
+        <div class="pst"><b>70%</b><span>of EU shoppers interested</span></div>
+      </div>
+      <p>eBay does ~$80B GMV a year across 134M buyers, nearly all of it static. A gated beta already growing ~7x year-over-year. Open that gate profitably and Live compounds from a sliver into a major share of the business.</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">3</span> The players and the rules</h2>
+      <p>Every live platform faces the same two risks, fraud and brand-safety on one side, seller skill on the other, and makes a different bet. Each is built on a different job.</p>
+      <table class="compare">
+        <thead><tr><th>Platform</th><th>DNA</th><th>Enforcement bet</th><th>Way in</th></tr></thead>
+        <tbody>
+          <tr><th>Whatnot</th><td>Culture-first</td><td>Open door, ban after the fact</td><td>Instant, ~15 min</td></tr>
+          <tr><th>TikTok Shop</th><td>Attention-first</td><td>Real-time AI kills a violating stream</td><td>Instant, gated lives</td></tr>
+          <tr><th>Poshmark</th><td>Closet-first</td><td>Lowers the skill bar (Silent Shows)</td><td>30-day probation</td></tr>
+          <tr><th class="eb">eBay Live</th><td class="win eb">Trust-first</td><td class="eb">Pre-vets the person, not the content</td><td class="lose eb">Invite-only beta</td></tr>
+        </tbody>
+      </table>
+      <p>What I saw as a user confirms the split. On Whatnot I built a full show in five minutes and watched a host sell Yeezy slides in three-second auctions to 7,000 people, a community manager in a seller's apron. On eBay the sellers who got in were reactive and in their heads, passing stickers, buyers asking for refunds in the chat, one host shouting "eBay glitched out, put in your max bids." Same job, one platform makes the seller great, the other makes them fight the tool.</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">4</span> The three humans</h2>
+      <p>Put the buyer on one side of the marketplace, the seller and host together on the other. The seller owns the business and the inventory, the host runs the show, often the same person, sometimes a team.</p>
+      <ul>
+        <li><b>The buyer.</b> Win the bid, catch the deal, belong to the room, and trust the item is real. Their intent is formed inside the show, not before it.</li>
+        <li><b>The seller.</b> Move real inventory, build a following that returns, be known, without the operations swallowing the day. A creator seeking community in a merchant's apron.</li>
+        <li><b>The host.</b> Run the room. Read the crowd, hype the lot, celebrate the regulars. The motivation engine, built by hand while drowning in ops.</li>
+      </ul>
+      <div class="prd-quote">Live commerce is a belonging machine for both sides. The host builds identity and community, the buyer finds belonging and forms intent inside it. Two ends of one loop.</div>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">5</span> Why eBay, the three truths</h2>
+      <p><b>Intent alignment.</b> On TikTok you came to be entertained, so a live selling diamonds reads as bait-and-switch. On eBay you came to shop, so community arrives as a bonus on intent you already had. Sticky, not manipulative.</p>
+      <p><b>The moat.</b> It is not luxury, Whatnot has watches too. The moat is the data and trust under every seller: thirty years of catalog, sold-comps, history, and physical authentication. Exactly what an agent needs to stand up a trusted show.</p>
+      <p><b>The gap eBay is hired to close.</b> eBay promises trusted community commerce and hands its sellers a manual, unsupported grind, to almost no one. That gap between the promise and the delivery is the entire strategy space.</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">6</span> Why is eBay stuck, as hypotheses</h2>
+      <p>The senior move is to hold several and know which to test. The real question is not "why is eBay gated," it is "why did eBay pick the most restrictive model of the four?"</p>
+      <ul>
+        <li><b>Brand + velocity (strong).</b> A fake damages a thirty-year reputation. Live moves faster than eBay's async fraud tools, so it polices the person up front, not the content live.</li>
+        <li><b>Unit economics (strongest).</b> Streaming costs money per minute. Open access, where most sellers stream for hours and sell little, likely runs at negative unit economics. A static listing is near-pure margin.</li>
+        <li><b>Legacy tech (plausible).</b> The live stack is bolted onto an old async system. Field evidence supports it, but it stays a hypothesis until eng confirms.</li>
+        <li><b>Demand-side (falsify this).</b> Maybe the live audience is not there yet. This one would break the thesis, so it is the one to actively test.</li>
+      </ul>
+      <div class="prd-quote">It is not "gated and safe" vs "open and risky." It is "gated and profitable" vs "open and money-losing." The agent does not just add supply, it changes the unit economics of every stream, so eBay can open the gate profitably.</div>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">7</span> The seller's real problem</h2>
+      <p>They love the connection, they drown in the operations. Every seller I asked named community as their favorite thing, and every pain they named was ops: combined shipping, glitches, no-pays, "they say they never got it, tracking says delivered." The seller runs a creative workflow and an operations workflow in parallel, live.</p>
+      <div class="prd-quote">The tax scales with volume, the magic per hour is capped by human attention. Success itself grows the tax until it caps the best sellers or burns them out.</div>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">8</span> Segmentation, who we build for first</h2>
+      <p>Segment by the job, not the company size. The axes that matter: how much a seller needs the trust moat, against how live-ready they already are.</p>
+      <ul>
+        <li><b>Dormant high-value seller (the beachhead).</b> Already has inventory, comps, history, and trust inside eBay, in categories where authentication matters, and has never gone live. Biggest activation gap, the only segment eBay's data can uniquely activate, and yield-positive by construction.</li>
+        <li><b>Scaling host.</b> Already live, loves it, hitting the ops ceiling. Real, but a tiny gated population.</li>
+        <li><b>Fast-mover, cheap goods.</b> TikTok and Whatnot's game. Chasing it is the stuck-in-the-middle death.</li>
+      </ul>
+      <p>eBay's lane is the intelligent platform for serious, curated selling at scale, not clowning for the culture. A lane Whatnot cannot occupy, and exactly where eBay's moat pays off.</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">9</span> Differentiation, where we win</h2>
+      <ul>
+        <li><b>Below, trade away:</b> out-communitying Whatnot, breadth of cheap goods, being the lowest-fee option.</li>
+        <li><b>Table stakes, match:</b> go live from a phone, fast payout, discovery, AI listing (eBay already ships these).</li>
+        <li><b>Differentiate, win:</b> the agent that manufactures trusted supply from existing data in one tap, trust carried into the live moment (in-stream comps, authenticity guarantee, video receipt), and the humans-do-human, agent-does-the-rest division of labor.</li>
+      </ul>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">10</span> The strategy</h2>
+      <p><b>The reframe.</b> The obvious question is "how do we make the shows better?" The more useful one is "why is it still so hard to sell live on eBay at all?" The constraint is supply liquidity. 135M buyers, ~18M sellers, roughly eight buyers per seller, and only a gated beta can go live. The dormant supply is the prize.</p>
+      <div class="prd-quote">Humans do the human part. The agent does the rest. Never touch the chat, the banter, crowning Jeremy, reading the room. Automate everything else: the show setup, pricing, shipping, disputes, logistics.</div>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">11</span> The product, the one-tap host</h2>
+      <p><b>Beat one, cold start.</b> A dormant seller with 25 authenticated sneakers taps once. The agent reads the catalog, builds and prices the show from comps, stamps the authenticity guarantee and prepares video-receipt proof, and the seller reviews in seconds, then just talks.</p>
+      <p><b>Beat two, in-show.</b> While the seller hosts, the agent runs the ops silently on a rail the buyer never sees: combined shipping, no-pays, buyer offers, "you lost that bid, here's the same item shipping Tuesday." The humans keep doing what community does.</p>
+      <p class="pnote">Whatnot makes a human do all of this by hand. eBay's agent does it from data Whatnot does not have.</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">12</span> Technology and trade-offs</h2>
+      <p>The hard part is not the model, it is the real-time context layer: a live, structured view of the seller's catalog, comps, authentication status, buyer history, and show state, fast enough to act inside a stream. Think a knowledge graph over eBay's data plus an event layer for the live moment.</p>
+      <ul>
+        <li>The cold-start build can be slower and richer, it runs before the show.</li>
+        <li>The in-show agent must be low-latency, leaning on the pre-built context layer.</li>
+        <li>Anything irreversible (an offer, a price drop, a refund) keeps a human gate. The agent proposes, the human confirms.</li>
+      </ul>
+      <p class="pnote">The reliability of the stream is the floor, not the product. Get the real-time layer solid, then the lovable agent sits on top.</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">13</span> How we measure success</h2>
+      <table class="mtable">
+        <thead><tr><th>Hypothesis</th><th>What we build</th><th>How we measure</th></tr></thead>
+        <tbody>
+          <tr><th>Supply is the constraint</th><td>One-tap host that activates dormant sellers</td><td class="ns">Activation: first-time live sellers / week</td></tr>
+          <tr><th>Cutting the ops tax keeps sellers live</th><td>Agent runs ops off-camera</td><td class="ns">Liquidity: active hosts, shows/week, hours live</td></tr>
+          <tr><th>Trusted supply drives sales</th><td>Trust carried into the stream</td><td class="ns">North star: Live GMV</td></tr>
+          <tr><th>The agent makes streams profitable</th><td>Comps pricing, structured shows</td><td class="ns">Yield: GMV per stream-minute</td></tr>
+          <tr><th>Opening the gate can't break trust</th><td>Authentication + dispute cover live</td><td class="ns">Guardrail: dispute rate, chargebacks</td></tr>
+        </tbody>
+      </table>
+      <p>Sequence: activation, then liquidity, then Live GMV, with yield and dispute-rate guardrails throughout. An empty marketplace has no conversion problem yet. Liquidity precedes polish.</p>
+      <p><b>The flywheel.</b> Activate dormant sellers, more shows, more buyers show up, sellers engage them better, more sellers want in. It starts from the seller. Activation is the metric to watch, not a pretty loop.</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">14</span> Roadmap</h2>
+      <p><b>Near-term, the bet we prototype.</b> One-tap conversion of a static catalog into a live, priced, trust-stamped show, aimed at the dormant high-value seller. The verified authenticity claim gives it credibility and hype from day one.</p>
+      <p><b>Long-term, the vision.</b> Once supply is flowing, the agent turns to the communal layer: offers, deals, giveaways on the seller's behalf, surfacing loyal buyers. Then the bigger swing: if any seller can go live in one tap, anyone can sell anything live. eBay was always the global treasure hunt. This makes the treasure hunt live.</p>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">15</span> Risks and open questions</h2>
+      <ul>
+        <li><b>The demand hypothesis.</b> If eBay's data shows the live audience is the real constraint, the priority shifts to the buyer side. I would want that data first.</li>
+        <li><b>Quality dilution.</b> Opening supply could fill the feed with weak shows. The agent raises the floor of every show, and we scale inside trusted categories first.</li>
+        <li><b>Reaching non-live sellers.</b> Seller Hub, the app, and existing seller-incentive programs.</li>
+        <li><b>Cannibalization.</b> Early hypothesis: live grows the pie, because it converts want-based demand async never captures.</li>
+      </ul>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">16</span> Why me</h2>
+      <ul>
+        <li><b>Commerce at scale.</b> Shipped Walmart's first generative-AI search, scaled personalization and visual AI to $87M+ in GMV, hold a computer-vision patent.</li>
+        <li><b>Enterprise agentic AI.</b> A year building AI copilots that let non-experts do expert work, where trust was the whole game. It maps one-to-one onto a seller co-pilot.</li>
+        <li><b>A shopper and social native.</b> I live in fast commerce, TikTok, and Instagram, so I feel the intent problem as a user, not a theory.</li>
+        <li><b>I did the thing.</b> Studied shows across all three platforms, interviewed sellers on stream, ran my own show, and bought on both, four vintage Hermès plates on eBay Live from Linda's Stuff, Yeezy slides on Whatnot.</li>
+      </ul>
+      <div class="prd-quote">First principles, real research, and I build. This whole strategy and prototype came together in a weekend using my own AI-native workflow.</div>
+    </div>
+
+    <div class="prd-sec">
+      <h2><span class="pnum">◆</span> Lines to remember</h2>
+      <div class="prd-liners">
+        <span>"Regular commerce serves demand. Live commerce manufactures it."</span>
+        <span>"It's not luxury. Whatnot has watches too. It's the data under every seller."</span>
+        <span>"The agent is how eBay gets Whatnot's openness without losing eBay's trust."</span>
+        <span>"Humans do the human part. The agent does the rest."</span>
+        <span>"An empty marketplace has no quality problem yet. Liquidity precedes polish."</span>
+        <span>"The buyer follows the show."</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- ============ TAB 3 : PROTOTYPE ============ -->
 <div class="panel" id="proto">
