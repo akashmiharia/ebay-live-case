@@ -253,6 +253,12 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .fdiff{margin-top:2.3vh;background:rgba(0,100,210,.13);border:1px solid rgba(120,170,255,.35);border-radius:14px;padding:13px 18px;font-size:clamp(13px,1.3vw,17px);color:#dfe7f5;line-height:1.5}
 .fdiff-h{font-weight:900;color:#9fc0ff;text-transform:uppercase;letter-spacing:.05em;font-size:.72em;margin-bottom:5px}
 .fdiff b{color:#fff}
+.picks{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:1.8vh}
+.pick-tag{font-size:clamp(11px,1.15vw,14px);font-weight:800;padding:6px 13px;border-radius:999px}
+.pick-tag.who{background:rgba(134,184,23,.16);color:#a6d84a;border:1px solid rgba(134,184,23,.4)}
+.pick-tag.how{background:rgba(0,100,210,.18);color:#9fc0ff;border:1px solid rgba(120,170,255,.4)}
+.pick-tag.out{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.pick-plus,.pick-arrow{color:#8b94a6;font-weight:900;font-size:16px}
 .slide.dark .two-side .li{color:#c2cbdb}
 /* deck controls */
 .deckbar{position:absolute;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green),var(--blue));z-index:20;transition:width .35s}
@@ -817,7 +823,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 
     <section class="slide wash">
       <div class="eyebrow">The live seller's job · a creative show and a full operation</div>
-      <h2>A regular seller lists an item and waits. A live host performs the show <span class="agent">and</span> runs the whole operation, at the same time.</h2>
+      <h2>A regular eBay seller lists an item and waits. A live host performs the show <span class="agent">and</span> runs an entire operation, in real time.</h2>
       <table class="wf">
         <thead><tr><th></th><th>Before the show</th><th>Live</th><th>After the show</th></tr></thead>
         <tbody>
@@ -869,7 +875,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       <div class="eyebrow">Going deep · the barriers to going live</div>
       <h2>What stops a dormant seller from going live, and which barrier do we remove first?</h2>
       <div class="matrix">
-        <div class="mx-yl">Impact on activation</div>
+        <div class="mx-yl">Impact on seller activation</div>
         <div class="mx-plot">
           <span class="mx-vline"></span><span class="mx-hline"></span>
           <span class="mx-q tl">Remove first</span>
@@ -879,31 +885,40 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
           <div class="pt pick" style="left:27%;top:14%"><span class="pd"></span><span class="pl">Setup toil</span></div>
           <div class="pt lft" style="left:79%;top:25%"><span class="pd"></span><span class="pl">Hosting skill</span></div>
           <div class="pt" style="left:31%;top:53%"><span class="pd"></span><span class="pl">Confidence</span></div>
+          <div class="pt lft" style="left:62%;top:21%"><span class="pd"></span><span class="pl">Time to run a show</span></div>
+          <div class="pt" style="left:46%;top:49%"><span class="pd"></span><span class="pl">Trust at live speed</span></div>
           <div class="pt" style="left:21%;top:79%"><span class="pd"></span><span class="pl">Awareness</span></div>
         </div>
         <div class="mx-xl">Effort for eBay to solve &#8594;</div>
       </div>
-      <p class="sub"><strong>Setup toil is the one high-impact barrier only eBay can remove today.</strong> Their inventory is already listed, so eBay's data can turn it into a live show in one tap. That flips the seller's head: you are already eligible, press start and sell. <span class="agent">The trade-off: I would not lead with a training or coaching agent. Hosting and confidence are the human part, coached as a fast-follow. Coaching a seller who still faces hours of setup gets no one live.</span></p>
+      <p class="sub"><strong>Setup toil is the one high-impact barrier only eBay can remove today,</strong> because the inventory is already listed and only eBay's data can turn it into a live show in one tap. And it cascades: once a seller goes live and the show works, confidence and awareness build on their own. <span class="agent">So we solve setup first. Hosting and time-to-run are the fast-follows. That cascade is the flywheel on the next slide.</span></p>
     </section>
 
     <section class="slide dark">
-      <div class="tagpill">Supply first · the flywheel only eBay can spin</div>
-      <h2>Get the dormant supply live, and the flywheel turns on its own.</h2>
+      <div class="tagpill">The strategy · why the two picks compound</div>
+      <h2>Dormant high-value supply <span class="agent">+</span> agentic setup starts the activation flywheel.</h2>
+      <div class="picks">
+        <span class="pick-tag who">Pick 1 · the dormant high-value seller</span>
+        <span class="pick-plus">+</span>
+        <span class="pick-tag how">Pick 2 · agentic one-tap setup</span>
+        <span class="pick-arrow">&#8594;</span>
+        <span class="pick-tag out">the flywheel below</span>
+      </div>
       <div class="fly">
-        <div class="fnode">One tap converts already-listed inventory into a live-ready show</div>
+        <div class="fnode">Agentic setup turns already-listed inventory into a live show in one tap</div>
         <div class="farrow">&#8594;</div>
-        <div class="fnode">Supply shows up, and buyers browse it in anticipation of the drops</div>
+        <div class="fnode">The dormant seller goes live, and the first show actually works</div>
         <div class="farrow">&#8594;</div>
-        <div class="fnode">Demand builds around the shows</div>
+        <div class="fnode">Confidence and awareness build, and buyers gather around the shows</div>
         <div class="farrow">&#8594;</div>
-        <div class="fnode">Sellers want to host better, so training and coaching pull in as the fast-follow</div>
+        <div class="fnode">More dormant sellers convert, and the ones who want to host better pull training in</div>
         <div class="farrow">&#8635;</div>
       </div>
       <div class="fdiff">
         <div class="fdiff-h">Why only eBay can start it</div>
-        Three things no competitor has together: <b>existing sellers</b>, <b>verified authenticity</b>, and <b>dormant, high-value supply already listed</b>. Converting that supply to live in one tap is the differentiator, and because it activates yield-positive streams, eBay opens the gate profitably instead of losing money on open access.
+        Only eBay has all three at once: <b>existing sellers</b>, <b>verified authenticity</b>, and <b>dormant high-value supply already listed</b>. No competitor can convert that to a live show in one tap, and because the streams are yield-positive, eBay spins the flywheel profitably.
       </div>
-      <p class="sub">Not every dormant seller converts on day one. But the ones on the edge, who don't need onboarding or coaching, can start now, and that first turn is what gets the flywheel going.</p>
+      <p class="sub">The two picks are not separate decisions. Removing setup toil for the dormant seller is the single push that gets the wheel turning. <span class="agent">Solve one thing well, and the rest of the barriers start solving themselves.</span></p>
     </section>
 
     <section class="slide wash">
