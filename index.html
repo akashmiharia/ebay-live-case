@@ -220,6 +220,12 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .two-side .li{font-size:clamp(12px,1.3vw,16px);line-height:1.42;color:var(--ink-2);margin-bottom:9px;padding-left:15px;border-left:3px solid var(--line)}
 .two-side .agentcol .li{border-color:var(--agent)}.two-side .mecol .li{border-color:var(--green)}
 .treasure{margin-top:2vh;font-size:clamp(15px,1.6vw,20px);font-weight:800;letter-spacing:-.01em;background:linear-gradient(90deg,#9fc0ff,#7ee29a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.fly{display:flex;align-items:stretch;gap:9px;margin-top:2.2vh;flex-wrap:wrap}
+.fnode{flex:1;min-width:140px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px 14px;font-size:clamp(12px,1.15vw,15px);font-weight:600;color:#e8edf6;display:flex;align-items:center;line-height:1.35}
+.farrow{display:flex;align-items:center;color:#9fc0ff;font-weight:900;font-size:20px}
+.fdiff{margin-top:2.3vh;background:rgba(0,100,210,.13);border:1px solid rgba(120,170,255,.35);border-radius:14px;padding:13px 18px;font-size:clamp(13px,1.3vw,17px);color:#dfe7f5;line-height:1.5}
+.fdiff-h{font-weight:900;color:#9fc0ff;text-transform:uppercase;letter-spacing:.05em;font-size:.72em;margin-bottom:5px}
+.fdiff b{color:#fff}
 .slide.dark .two-side .li{color:#c2cbdb}
 /* deck controls */
 .deckbar{position:absolute;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green),var(--blue));z-index:20;transition:width .35s}
@@ -784,20 +790,9 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       <p class="verdict">On TikTok a live selling diamonds reads as bait-and-switch, because you came to be entertained. On eBay you came to shop, so trust and community arrive as a bonus. <span class="agent">Trust-first is the lane only eBay can own, and it points straight at who we build for.</span></p>
     </section>
 
-    <section class="slide dark">
-      <div class="tagpill">The unlock · why it's gated, and how it opens</div>
-      <h1>The question isn't "make shows better." It's <span class="green">"why is supply gated?"</span></h1>
-      <div class="rows" style="max-width:none">
-        <div class="row"><span class="dot" style="background:var(--yellow);margin-top:.5em"></span><div><span class="k" style="color:#f5c518">The honest answer</span><span class="v">Unit economics. Streaming costs money per minute, and open access, where sellers stream for hours and sell little, likely loses money. A static listing is near-pure margin. And a fake risks a 30-year brand.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--red);margin-top:.5em"></span><div><span class="k" style="color:#ff8f8f">So the naive pitch fails</span><span class="v">"Flood the zone with 18M sellers" is a bad idea by eBay's own math. It is not gated-safe vs open-risky, it is <strong style="color:#fff">gated-profitable vs open-money-losing.</strong></span></div></div>
-        <div class="row"><span class="dot" style="background:var(--green);margin-top:.5em"></span><div><span class="k" style="color:#7ee29a">The unlock</span><span class="v">The agent that removes the ops tax also changes the unit economics of every stream. So eBay can open the gate <strong style="color:#fff">profitably</strong>, by activating the yield-positive dormant supply, not the used-sock supply.</span></div></div>
-      </div>
-      <p class="sub"><strong style="color:#fff">The constraint is supply liquidity, and the dormant supply is the prize.</strong> The agent is how eBay unlocks it without losing money or trust.</p>
-    </section>
-
     <section class="slide wash">
-      <div class="eyebrow">The problem · why Live is stuck</div>
-      <h2>The seller runs a creative show <span class="agent">and</span> a full operation, live, at the same time.</h2>
+      <div class="eyebrow">The live seller's job · a creative show and a full operation</div>
+      <h2>A regular eBay seller lists an item and waits. A live host performs <span class="agent">and</span> runs the entire operation, in real time.</h2>
       <table class="wf">
         <thead><tr><th></th><th>Before the show</th><th>Live</th><th>After the show</th></tr></thead>
         <tbody>
@@ -846,12 +841,32 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
         <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">Confidence</span><span class="v">"Is this for me?" Mostly downstream of the first two. It lifts once setup is trivial and the first show goes well.</span></div></div>
         <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">Awareness</span><span class="v">Some don't know Live exists. That's a distribution problem, Seller Hub and incentives, not a product-depth one.</span></div></div>
       </div>
-      <p class="sub"><strong>Solve the setup gate first, with the one-tap host.</strong> It's the hard blocker, it's uniquely eBay's to solve (only our data can auto-build the show), and it's yield-positive from day one. <span class="agent">The trade-off I'm making: I would not lead with a training or coaching agent, even the live simulation that teaches a seller what to say. It's real, and I'd ship it as the fast-follow that raises show quality, but coaching a seller who still faces hours of setup gets no one live.</span></p>
+      <p class="sub"><strong>Solve the setup gate first, with the one-tap host.</strong> It's the hard blocker, it's uniquely eBay's to solve (only our data can auto-build the show), and it flips the seller's mental model: your inventory is already eligible, eBay converts it in one tap, all you do is press start and sell. <span class="agent">The trade-off I'm making: I would not lead with a training or coaching agent, even the live simulation that teaches a seller what to say. It's real, and I'd ship it as the fast-follow, but coaching a seller who still faces hours of setup gets no one live.</span></p>
+    </section>
+
+    <section class="slide dark">
+      <div class="tagpill">Supply first · the flywheel only eBay can spin</div>
+      <h2>Get the dormant supply live, and the flywheel turns on its own.</h2>
+      <div class="fly">
+        <div class="fnode">One tap converts already-listed inventory into a live-ready show</div>
+        <div class="farrow">&#8594;</div>
+        <div class="fnode">Supply shows up, and buyers browse it in anticipation of the drops</div>
+        <div class="farrow">&#8594;</div>
+        <div class="fnode">Demand builds around the shows</div>
+        <div class="farrow">&#8594;</div>
+        <div class="fnode">Sellers want to host better, so training and coaching pull in as the fast-follow</div>
+        <div class="farrow">&#8635;</div>
+      </div>
+      <div class="fdiff">
+        <div class="fdiff-h">Why only eBay can start it</div>
+        Three things no competitor has together: <b>existing sellers</b>, <b>verified authenticity</b>, and <b>dormant, high-value supply already listed</b>. Converting that supply to live in one tap is the differentiator, and because it activates yield-positive streams, eBay opens the gate profitably instead of losing money on open access.
+      </div>
+      <p class="sub">Not every dormant seller converts on day one. But the ones on the edge, who don't need onboarding or coaching, can start now, and that first turn is what gets the flywheel going.</p>
     </section>
 
     <section class="slide wash">
       <div class="eyebrow">The principle, and where we win</div>
-      <h2>Humans do the human part. The agent does the rest. <span class="agent">That is the differentiation.</span></h2>
+      <h2>Humans do the human part. The agent does the rest. <span class="agent">So where do we actually win?</span></h2>
       <div class="btd">
         <div class="col b"><h4>Below · trade it away</h4><ul><li>Out-communitying Whatnot's culture (their moat, fake on eBay)</li><li>Breadth of cheap, impulse goods</li><li>Being the lowest-fee option</li></ul></div>
         <div class="col t"><h4>Table stakes · must match</h4><ul><li>Go live from a phone, fast payout, discovery</li><li>Auction mechanics that don't glitch</li><li>AI listing and reply drafts (eBay already ships these)</li></ul></div>
