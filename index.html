@@ -219,6 +219,20 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .score tr.win{background:rgba(134,184,23,.10)}
 .score .verd{font-weight:900;color:var(--green);font-size:.9em}
 .score .verd-m{font-weight:600;color:var(--muted);font-size:.84em}
+.matrix{margin-top:2.2vh;display:grid;grid-template-columns:26px 1fr;grid-template-rows:1fr 24px;gap:6px;height:44vh;max-height:340px}
+.mx-yl{grid-column:1;grid-row:1;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-size:10.5px;font-weight:800;color:var(--ink-2);text-transform:uppercase;letter-spacing:.05em}
+.mx-xl{grid-column:2;grid-row:2;text-align:center;font-size:10.5px;font-weight:800;color:var(--ink-2);text-transform:uppercase;letter-spacing:.05em}
+.mx-plot{grid-column:2;grid-row:1;position:relative;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.mx-vline{position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed #d7dbe4}
+.mx-hline{position:absolute;top:50%;left:0;right:0;border-top:1px dashed #d7dbe4}
+.mx-q{position:absolute;font-size:9.5px;font-weight:800;color:#b3bac8;text-transform:uppercase;letter-spacing:.05em}
+.mx-q.tl{top:8px;left:9px}.mx-q.tr{top:8px;right:9px}.mx-q.bl{bottom:8px;left:9px}.mx-q.br{bottom:8px;right:9px}
+.pt{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.pt.lft{flex-direction:row-reverse}
+.pt .pd{width:13px;height:13px;border-radius:50%;background:var(--muted);flex:none}
+.pt .pl{font-size:12px;font-weight:800;color:var(--ink);background:#fff;padding:2px 8px;border-radius:6px;border:1px solid var(--line)}
+.pt.pick .pd{background:var(--red);width:17px;height:17px;box-shadow:0 0 0 5px rgba(229,50,56,.15)}
+.pt.pick .pl{color:var(--red);border-color:rgba(229,50,56,.45);font-weight:900}
 .htag{display:inline-block;font-size:9.5px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:20px;margin-left:7px;vertical-align:middle}
 .htag.s{background:#0e3a1a;color:#7ee29a}.htag.m{background:#3a2f10;color:#f5d98a}.htag.t{background:#3a1418;color:#ffb0b0}
 .mtable{width:100%;border-collapse:separate;border-spacing:0;margin-top:2.2vh;font-size:clamp(11px,1.15vw,14.5px);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
@@ -803,7 +817,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 
     <section class="slide wash">
       <div class="eyebrow">The live seller's job · a creative show and a full operation</div>
-      <h2>A regular eBay seller lists an item and waits. A live host performs <span class="agent">and</span> runs the entire operation, in real time.</h2>
+      <h2>A regular seller lists an item and waits. A live host performs the show <span class="agent">and</span> runs the whole operation, at the same time.</h2>
       <table class="wf">
         <thead><tr><th></th><th>Before the show</th><th>Live</th><th>After the show</th></tr></thead>
         <tbody>
@@ -826,7 +840,8 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 
     <section class="slide">
       <div class="eyebrow">Segmentation · which seller do we switch on first?</div>
-      <h2>A first bet needs four things. One seller segment has all of them.</h2>
+      <h2>The dormant, high-value existing seller is the inevitable place to start.</h2>
+      <p style="font-size:clamp(13px,1.4vw,17px);color:var(--ink-2);margin-top:1vh;font-weight:600">The best first segment gives the most activation for the least cost and risk. That comes down to four tests.</p>
       <table class="score">
         <thead><tr>
           <th></th>
@@ -837,11 +852,11 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
           <th></th>
         </tr></thead>
         <tbody>
-          <tr class="win"><th>Dormant high-value seller<span>watches · sneakers · cards · vintage · luxury</span></th>
+          <tr class="win"><th>Dormant high-value existing seller<span>sells on eBay today, never gone live</span></th>
             <td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="verd">Priority 1 · start here</td></tr>
           <tr><th>Active power host<span>the few already streaming</span></th>
             <td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td><td class="verd-m">Priority 2 · small, already on</td></tr>
-          <tr><th>New or aspiring seller<span>wants in, no inventory yet</span></th>
+          <tr><th>New or aspiring seller<span>new to selling, not just to live</span></th>
             <td class="n">&#10007;</td><td class="m">~</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="verd-m">Priority 3 · needs onboarding</td></tr>
           <tr><th>Commodity fast-mover<span>cheap, impulse goods</span></th>
             <td class="y">&#10003;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="verd-m">Priority 4 · not eBay's game</td></tr>
@@ -851,16 +866,24 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </section>
 
     <section class="slide">
-      <div class="eyebrow">Going deep · so which problem do we solve first?</div>
-      <h2>Why isn't the dormant seller already live?</h2>
-      <p style="font-size:clamp(13px,1.4vw,17px);color:var(--ink-2);margin-top:1vh;font-weight:600">I ranked the barriers by one test: which one, if we remove it, gets the most sellers live right now.</p>
-      <div class="rows" style="max-width:none">
-        <div class="row"><span class="dot" style="background:var(--red);margin-top:.5em"></span><div><span class="k" style="color:var(--red)">1 · Setup toil, the gate</span><span class="v">Their inventory is already listed, but turning it into a priced, sequenced live show is hours of manual work. Even a willing, capable seller stops here. The hard blocker.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">2 · Hosting skill</span><span class="v">Reading the room, keeping energy, knowing what to say. Real, but it's the human part we coach, not what blocks the first show.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">3 · Confidence</span><span class="v">"Is this for me?" Mostly downstream of the first two. It lifts once setup is trivial and the first show goes well.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">4 · Awareness</span><span class="v">Some don't know Live exists. That's a distribution problem, Seller Hub and incentives, not a product-depth one.</span></div></div>
+      <div class="eyebrow">Going deep · the barriers to going live</div>
+      <h2>What stops a dormant seller from going live, and which barrier do we remove first?</h2>
+      <div class="matrix">
+        <div class="mx-yl">Impact on activation</div>
+        <div class="mx-plot">
+          <span class="mx-vline"></span><span class="mx-hline"></span>
+          <span class="mx-q tl">Remove first</span>
+          <span class="mx-q tr">Big bets, later</span>
+          <span class="mx-q bl">Distribution lever</span>
+          <span class="mx-q br">Not worth it</span>
+          <div class="pt pick" style="left:27%;top:14%"><span class="pd"></span><span class="pl">Setup toil</span></div>
+          <div class="pt lft" style="left:79%;top:25%"><span class="pd"></span><span class="pl">Hosting skill</span></div>
+          <div class="pt" style="left:31%;top:53%"><span class="pd"></span><span class="pl">Confidence</span></div>
+          <div class="pt" style="left:21%;top:79%"><span class="pd"></span><span class="pl">Awareness</span></div>
+        </div>
+        <div class="mx-xl">Effort for eBay to solve &#8594;</div>
       </div>
-      <p class="sub"><strong>Solve the setup gate first, with the one-tap host.</strong> It's the hard blocker, it's uniquely eBay's to solve (only our data can auto-build the show), and it flips the seller's mental model: your inventory is already eligible, eBay converts it in one tap, all you do is press start and sell. <span class="agent">The trade-off I'm making: I would not lead with a training or coaching agent, even the live simulation that teaches a seller what to say. It's real, and I'd ship it as the fast-follow, but coaching a seller who still faces hours of setup gets no one live.</span></p>
+      <p class="sub"><strong>Setup toil is the one high-impact barrier only eBay can remove today.</strong> Their inventory is already listed, so eBay's data can turn it into a live show in one tap. That flips the seller's head: you are already eligible, press start and sell. <span class="agent">The trade-off: I would not lead with a training or coaching agent. Hosting and confidence are the human part, coached as a fast-follow. Coaching a seller who still faces hours of setup gets no one live.</span></p>
     </section>
 
     <section class="slide dark">
