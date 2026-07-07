@@ -207,6 +207,18 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .bn span{display:block;font-size:clamp(11px,1.1vw,13.5px);color:var(--ink-2);margin-top:7px;line-height:1.35}
 .slide.dark .bn span{color:#aab3c4}
 .bn .why{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:clamp(10.5px,1vw,12.5px);font-weight:800;color:var(--agent);line-height:1.32}
+.score{width:100%;border-collapse:collapse;margin-top:2.4vh;font-size:clamp(12px,1.25vw,15px)}
+.score th,.score td{padding:11px 9px;text-align:center;border-bottom:1px solid var(--line)}
+.score thead th{font-size:clamp(11px,1.05vw,13px);font-weight:800;color:var(--ink-2);vertical-align:bottom}
+.score thead th span{display:block;font-weight:600;font-size:.82em;color:var(--muted);margin-top:2px}
+.score tbody th{text-align:left;font-weight:800;color:var(--ink);width:26%}
+.score tbody th span{display:block;font-weight:500;font-size:.78em;color:var(--muted);margin-top:3px;text-transform:none;letter-spacing:0}
+.score td.y{color:var(--green);font-weight:900;font-size:1.25em}
+.score td.n{color:#cbd0da;font-weight:900;font-size:1.1em}
+.score td.m{color:#d9a400;font-weight:900;font-size:1.2em}
+.score tr.win{background:rgba(134,184,23,.10)}
+.score .verd{font-weight:900;color:var(--green);font-size:.9em}
+.score .verd-m{font-weight:600;color:var(--muted);font-size:.84em}
 .htag{display:inline-block;font-size:9.5px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:20px;margin-left:7px;vertical-align:middle}
 .htag.s{background:#0e3a1a;color:#7ee29a}.htag.m{background:#3a2f10;color:#f5d98a}.htag.t{background:#3a1418;color:#ffb0b0}
 .mtable{width:100%;border-collapse:separate;border-spacing:0;margin-top:2.2vh;font-size:clamp(11px,1.15vw,14.5px);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
@@ -363,7 +375,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .proto-dots{display:flex;gap:7px;margin-top:20px}
 .proto-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);transition:all .2s}
 .proto-dots i.on{background:var(--green);width:22px;border-radius:6px}
-@media(max-width:860px){.proto-layout{grid-template-columns:1fr;gap:24px;padding:20px;overflow-y:auto;align-content:start}.phone,.proto-story{grid-column:auto}.three,.split,.lovehate,.btd,.metrics,.proc-grid,.ins-cols,.two-side,.empathy-grid,.hyp-grid,.lc-compare,.bignums{grid-template-columns:1fr}.compare,.segtable,.mtable,.wf{font-size:11px;display:block;overflow-x:auto}}
+@media(max-width:860px){.proto-layout{grid-template-columns:1fr;gap:24px;padding:20px;overflow-y:auto;align-content:start}.phone,.proto-story{grid-column:auto}.three,.split,.lovehate,.btd,.metrics,.proc-grid,.ins-cols,.two-side,.empathy-grid,.hyp-grid,.lc-compare,.bignums{grid-template-columns:1fr}.compare,.segtable,.score,.mtable,.wf{font-size:11px;display:block;overflow-x:auto}}
 /* ---------- iPhone live: real eBay Live app look ---------- */
 .la-video{position:absolute;inset:0;background:radial-gradient(130% 90% at 50% 30%,#3a3f4d,#0b0b0c)}
 .la-video::after{content:"👟";position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);font-size:64px;opacity:.5;filter:drop-shadow(0 10px 24px rgba(0,0,0,.55))}
@@ -813,22 +825,29 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </section>
 
     <section class="slide">
-      <div class="eyebrow">Segmentation · by the job, not the company size</div>
-      <h2>Which seller do we switch on first?</h2>
-      <table class="segtable">
-        <thead><tr><th style="width:24%"></th><th>Dormant<span>never gone live</span></th><th>Scaling host<span>already live</span></th><th>Fast-mover<span>cheap goods</span></th></tr></thead>
+      <div class="eyebrow">Segmentation · which seller do we switch on first?</div>
+      <h2>A first bet needs four things. One seller segment has all of them.</h2>
+      <table class="score">
+        <thead><tr>
+          <th></th>
+          <th>Supply<span>already listed</span></th>
+          <th>Profitable<span>to stream</span></th>
+          <th>Only eBay<span>can activate</span></th>
+          <th>Greenfield<span>not live today</span></th>
+          <th></th>
+        </tr></thead>
         <tbody>
-          <tr><th>High-value, trust-sensitive<span>cards · sneakers · watches · vintage · luxury</span></th>
-            <td class="pick"><span class="tg">◆ Beachhead</span>Inventory, comps, and trust already sit in eBay. The biggest activation gap, only eBay's data can switch it on, and the streams are profitable by construction.</td>
-            <td>Loves it, hitting the ops ceiling. Real, but a tiny gated group.</td>
-            <td class="below">TikTok and Whatnot's game.</td></tr>
-          <tr><th>Low-value, low-trust</th>
-            <td class="below">Not the wedge.</td>
-            <td class="below">Below.</td>
-            <td class="below">The used-sock supply that makes open access a money pit.</td></tr>
+          <tr class="win"><th>Dormant high-value seller<span>watches · sneakers · cards · vintage · luxury</span></th>
+            <td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="verd">Start here</td></tr>
+          <tr><th>Active power host<span>the few already streaming</span></th>
+            <td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td><td class="verd-m">Already on, and saturated</td></tr>
+          <tr><th>New or aspiring seller<span>wants in, no inventory yet</span></th>
+            <td class="n">&#10007;</td><td class="m">~</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="verd-m">Needs onboarding first</td></tr>
+          <tr><th>Commodity fast-mover<span>cheap, impulse goods</span></th>
+            <td class="y">&#10003;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="verd-m">Whatnot's game, not eBay's</td></tr>
         </tbody>
       </table>
-      <p class="sub">The beachhead is the <strong>dormant, high-value seller</strong>. This is a unit-economics call as much as a moat one: profitable supply, not dead streams. <span class="agent">eBay's lane is the intelligent platform for serious, curated selling.</span></p>
+      <p class="sub">The dormant, high-value seller is the only segment that clears every test: authenticated inventory already listed, profitable streams, only eBay's data can switch them on, and no one is serving them yet. <span class="agent">We did not pick a beachhead. The criteria picked one for us.</span></p>
     </section>
 
     <section class="slide">
