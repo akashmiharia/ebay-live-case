@@ -922,8 +922,8 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </section>
 
     <section class="slide wash">
-      <div class="eyebrow">The principle, and where we win</div>
-      <h2>Humans do the human part. The agent does the rest. <span class="agent">So where do we actually win?</span></h2>
+      <div class="eyebrow">The focus · what we build to spin it, and what we won't</div>
+      <h2>To start the flywheel, here's what we build, what we match, and what we won't chase.</h2>
       <div class="btd">
         <div class="col b"><h4>Below · trade it away</h4><ul><li>Out-communitying Whatnot's culture (their moat, fake on eBay)</li><li>Breadth of cheap, impulse goods</li><li>Being the lowest-fee option</li></ul></div>
         <div class="col t"><h4>Table stakes · must match</h4><ul><li>Go live from a phone, fast payout, discovery</li><li>Auction mechanics that don't glitch</li><li>AI listing and reply drafts (eBay already ships these)</li></ul></div>
@@ -933,49 +933,30 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </section>
 
     <section class="slide">
-      <div class="tagpill">The product · the one-tap host</div>
-      <h2>Two beats. See both in the Prototype tab.</h2>
-      <div class="protohead"><span class="num">1</span>Cold start, a dormant seller with 25 authenticated sneakers taps once</div>
-      <div class="flow">
-        <div class="step"><div class="n">READS</div><h5>The catalog</h5><p>Pulls live inventory, sold-comps, and history. All data eBay already holds.</p></div>
-        <div class="step"><div class="n">BUILDS</div><h5>The show</h5><p>Picks the lots, orders them, prices each from comps, drafts the run of show.</p></div>
-        <div class="step"><div class="n">STAMPS</div><h5>The trust</h5><p>Authenticity Guarantee on eligible lots, video-receipt proof prepared.</p></div>
-        <div class="step"><div class="n">LIVE</div><h5>They just talk</h5><p>Seller reviews in seconds, then runs the room. Ops already done.</p></div>
-      </div>
-      <div class="protohead"><span class="num">2</span>In-show, the co-pilot runs the ops on a rail the buyer never sees</div>
-      <div class="flow">
-        <div class="step"><div class="n">TRUST</div><h5>Verified live</h5><p>Authenticity, moderation, and fraud checks in real time.</p></div>
-        <div class="step"><div class="n">OPS</div><h5>Absorbed silently</h5><p>Combined shipping, no-pays, disputes, buyer offers.</p></div>
-        <div class="step"><div class="n">HUMAN</div><h5>Free to connect</h5><p>Hype the lot, answer the chat, shout out the regulars.</p></div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">How we measure success · tie every hypothesis to a metric</div>
-      <h2>Supply first. Then GMV. Yield and trust as guardrails.</h2>
+      <div class="tagpill">The experiment · three bets, one prototype, a metric for each</div>
+      <h2>The one-tap host is the experiment. It tests three bets.</h2>
+      <p style="font-size:clamp(13px,1.35vw,16px);color:var(--ink-2);margin-top:1vh;line-height:1.5">In one tap the agent reads the catalog, builds and prices the show, stamps authenticity, and the seller goes live. In-show it runs the ops on a rail the buyer never sees. The <strong>Prototype tab</strong> walks through both, with a star on the priority step, converting inventory into a live show.</p>
       <table class="mtable">
-        <thead><tr><th>Hypothesis</th><th>What we build</th><th>How we measure</th></tr></thead>
+        <thead><tr><th>The hypothesis, and how I formed it</th><th>How the prototype tests it</th><th>The metric</th></tr></thead>
         <tbody>
-          <tr><th>Supply is the constraint</th><td>One-tap host that activates dormant sellers</td><td class="ns">Activation: first-time live sellers / week</td></tr>
-          <tr><th>Cutting the ops tax keeps sellers live</th><td>Agent runs ops off-camera</td><td class="ns">Liquidity: active hosts, shows/week, hours live</td></tr>
-          <tr><th>Trusted supply drives sales</th><td>Trust carried into the stream</td><td class="ns">North star: Live GMV = hosts × shows × conversion</td></tr>
-          <tr><th>The agent makes streams profitable</th><td>Comps pricing, structured shows</td><td class="ns">Yield: GMV per stream-minute</td></tr>
-          <tr><th>Opening the gate can't break trust</th><td>Authentication + dispute cover live</td><td class="ns">Guardrail: dispute rate, chargebacks</td></tr>
+          <tr><th>1 · Supply is the constraint, and it activates<span style="display:block;font-weight:400;font-size:.82em;color:var(--muted);margin-top:3px">gated supply, not demand, from the seller interviews</span></th><td>One tap converts a dormant seller's catalog into a live show</td><td class="ns">Activation: targeted dormant sellers who host a first show</td></tr>
+          <tr><th>2 · Those streams are profitable<span style="display:block;font-weight:400;font-size:.82em;color:var(--muted);margin-top:3px">high-value margin beats the streaming cost per minute</span></th><td>Comps pricing, a structured show, the agent running ops</td><td class="ns">Yield per stream-minute, margin per show</td></tr>
+          <tr><th>3 · Live grows the pie<span style="display:block;font-weight:400;font-size:.82em;color:var(--muted);margin-top:3px">live manufactures demand async never captures</span></th><td>The same inventory, sold live with trust in the moment</td><td class="ns">Conversion lift, incremental GMV, dispute rate as guardrail</td></tr>
         </tbody>
       </table>
-      <p class="verdict">Sequence: activation → liquidity → Live GMV, with yield-per-stream-minute and dispute rate throughout. <span class="agent">An empty marketplace has no conversion problem yet. Liquidity precedes polish.</span></p>
+      <p class="verdict">Sequence: activation, then yield, then GMV, with dispute rate as the trust guardrail throughout. <span class="agent">Liquidity precedes polish. An empty marketplace has no conversion problem yet.</span></p>
     </section>
 
     <section class="slide dark">
-      <div class="tagpill">The hard parts · where I'd invest, and the trade-offs</div>
-      <h2>The hard part isn't the model. It's the real-time context layer.</h2>
+      <div class="tagpill">Challenges to work through · where we invest, where I'd want buy-in</div>
+      <h2>The challenges I'm anticipating, and the investment each one needs.</h2>
       <div class="rows" style="max-width:none">
         <div class="row"><span class="dot" style="background:var(--agent);margin-top:.5em"></span><div><span class="k" style="color:#9fc0ff">The layer</span><span class="v">A knowledge graph over eBay's catalog, comps, authentication, and buyer history, plus an event layer for the live moment. Converting static catalog into live-ready shows is the core capability, and eBay is uniquely positioned to build it because it owns the data.</span></div></div>
         <div class="row"><span class="dot" style="background:var(--green);margin-top:.5em"></span><div><span class="k" style="color:#7ee29a">Cold start</span><span class="v">Slower and richer. It runs before the show, so spend the compute and get the pricing and lots right.</span></div></div>
         <div class="row"><span class="dot" style="background:var(--yellow);margin-top:.5em"></span><div><span class="k" style="color:#f5c518">In-show</span><span class="v">Low-latency. It must keep pace with a live room, so lean on the pre-built layer, not heavy real-time reasoning.</span></div></div>
         <div class="row"><span class="dot" style="background:var(--red);margin-top:.5em"></span><div><span class="k" style="color:#ff8f8f">Human gate</span><span class="v">Anything irreversible, an offer, a price drop, a refund, the agent proposes and the human confirms. Bias to speed where cheap and reversible, to control where a wrong action is costly.</span></div></div>
       </div>
-      <p class="sub"><strong style="color:#fff">Reliability of the stream is the floor, not the product.</strong> Get the real-time layer solid, then the lovable agent sits on top.</p>
+      <p class="sub"><strong style="color:#fff">The real-time context layer is the foundation the whole thing sits on,</strong> and the first investment I would make. <span class="agent">Reliability of the stream is the floor, and this is where I would want leadership's read early.</span></p>
     </section>
 
     <section class="slide dark">
@@ -998,7 +979,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 
         <div class="deckctl">
       <button id="dprev">‹</button>
-      <span class="cnt" id="dcnt">1 / 13</span>
+      <span class="cnt" id="dcnt">1 / 12</span>
       <button id="dnext">›</button>
     </div>
   </div>
