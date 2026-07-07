@@ -838,26 +838,27 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
         </tr></thead>
         <tbody>
           <tr class="win"><th>Dormant high-value seller<span>watches · sneakers · cards · vintage · luxury</span></th>
-            <td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="verd">Start here</td></tr>
+            <td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="verd">Priority 1 · start here</td></tr>
           <tr><th>Active power host<span>the few already streaming</span></th>
-            <td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td><td class="verd-m">Already on, and saturated</td></tr>
+            <td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td><td class="verd-m">Priority 2 · small, already on</td></tr>
           <tr><th>New or aspiring seller<span>wants in, no inventory yet</span></th>
-            <td class="n">&#10007;</td><td class="m">~</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="verd-m">Needs onboarding first</td></tr>
+            <td class="n">&#10007;</td><td class="m">~</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="verd-m">Priority 3 · needs onboarding</td></tr>
           <tr><th>Commodity fast-mover<span>cheap, impulse goods</span></th>
-            <td class="y">&#10003;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="verd-m">Whatnot's game, not eBay's</td></tr>
+            <td class="y">&#10003;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="verd-m">Priority 4 · not eBay's game</td></tr>
         </tbody>
       </table>
-      <p class="sub">The dormant, high-value seller is the only segment that clears every test: authenticated inventory already listed, profitable streams, only eBay's data can switch them on, and no one is serving them yet. <span class="agent">We did not pick a beachhead. The criteria picked one for us.</span></p>
+      <p class="sub">Only the dormant high-value seller passes all four. Their inventory is already listed, their streams make money, only eBay can switch them on, and no one is serving them yet. So we start there, and the rest wait or fall away. <span class="agent">We did not choose this seller. The four tests did.</span></p>
     </section>
 
     <section class="slide">
       <div class="eyebrow">Going deep · so which problem do we solve first?</div>
       <h2>Why isn't the dormant seller already live?</h2>
+      <p style="font-size:clamp(13px,1.4vw,17px);color:var(--ink-2);margin-top:1vh;font-weight:600">I ranked the barriers by one test: which one, if we remove it, gets the most sellers live right now.</p>
       <div class="rows" style="max-width:none">
-        <div class="row"><span class="dot" style="background:var(--red);margin-top:.5em"></span><div><span class="k" style="color:var(--red)">Setup toil · the gate</span><span class="v">Their inventory is already listed, but turning it into a priced, sequenced live show is hours of manual work. Even a willing, capable seller stops here. The hard blocker.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">Hosting skill</span><span class="v">Reading the room, keeping energy, knowing what to say. Real, but it's the human part we coach, not what blocks the first show.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">Confidence</span><span class="v">"Is this for me?" Mostly downstream of the first two. It lifts once setup is trivial and the first show goes well.</span></div></div>
-        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">Awareness</span><span class="v">Some don't know Live exists. That's a distribution problem, Seller Hub and incentives, not a product-depth one.</span></div></div>
+        <div class="row"><span class="dot" style="background:var(--red);margin-top:.5em"></span><div><span class="k" style="color:var(--red)">1 · Setup toil, the gate</span><span class="v">Their inventory is already listed, but turning it into a priced, sequenced live show is hours of manual work. Even a willing, capable seller stops here. The hard blocker.</span></div></div>
+        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">2 · Hosting skill</span><span class="v">Reading the room, keeping energy, knowing what to say. Real, but it's the human part we coach, not what blocks the first show.</span></div></div>
+        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">3 · Confidence</span><span class="v">"Is this for me?" Mostly downstream of the first two. It lifts once setup is trivial and the first show goes well.</span></div></div>
+        <div class="row"><span class="dot" style="background:var(--muted);margin-top:.5em"></span><div><span class="k" style="color:var(--muted)">4 · Awareness</span><span class="v">Some don't know Live exists. That's a distribution problem, Seller Hub and incentives, not a product-depth one.</span></div></div>
       </div>
       <p class="sub"><strong>Solve the setup gate first, with the one-tap host.</strong> It's the hard blocker, it's uniquely eBay's to solve (only our data can auto-build the show), and it flips the seller's mental model: your inventory is already eligible, eBay converts it in one tap, all you do is press start and sell. <span class="agent">The trade-off I'm making: I would not lead with a training or coaching agent, even the live simulation that teaches a seller what to say. It's real, and I'd ship it as the fast-follow, but coaching a seller who still faces hours of setup gets no one live.</span></p>
     </section>
