@@ -413,6 +413,16 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .uc-badge.uc3{background:rgba(134,184,23,.16);border:1px solid rgba(134,184,23,.45);color:#a6d84a}
 .uc-badge.uc4{background:rgba(196,120,246,.15);border:1px solid rgba(196,120,246,.4);color:#d3a6f5}
 .uc-badge .star{font-size:14px;color:#f5c518}
+.ph-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.pht{font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid;background:transparent;opacity:.5;transition:all .15s;font-family:inherit}
+.pht.uc1{color:#f5c518;border-color:rgba(245,175,2,.5)}
+.pht.uc2{color:#9fc0ff;border-color:rgba(120,170,255,.45)}
+.pht.uc3{color:#a6d84a;border-color:rgba(134,184,23,.5)}
+.pht.active{opacity:1}
+.pht.active.uc1{background:rgba(245,175,2,.18)}
+.pht.active.uc2{background:rgba(0,100,210,.2)}
+.pht.active.uc3{background:rgba(134,184,23,.18)}
+.pht .star{font-size:12px}
 .uc-bar{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;padding:9px 18px;border-bottom:1px solid var(--line)}
 .uc-bar.uc1{background:linear-gradient(90deg,#fff7e0,#fffdf6);color:#b8860b;border-bottom-color:rgba(245,175,2,.45)}
 .uc-bar.uc2{background:#eef4ff;color:#0a4fa0;border-bottom-color:rgba(0,100,210,.3)}
@@ -1290,7 +1300,11 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       </div>
       <div class="proto-story">
         <div class="seller-says" id="sellerSays"></div>
-        <div class="uc-badge" id="scUC"></div>
+        <div class="ph-tabs" id="scTabs">
+          <button class="pht uc1" data-f="0"><span class="star">&#9733;</span> 1 &middot; Go live</button>
+          <button class="pht uc2" data-f="3">2 &middot; Live show</button>
+          <button class="pht uc3" data-f="6">3 &middot; Recap</button>
+        </div>
         <div class="eyebrow">Live prototype · the host's phone</div>
         <h2 id="scTitle">Marcus has 25 sneakers and has never gone live.</h2>
         <p class="cap" id="scCap">He's sold on eBay for eight years. Going live always meant too much setup, so he never did. Watch what one tap does. Press Play, or tap Go Live on the phone.</p>
@@ -1542,8 +1556,8 @@ function renderScene(n){
   scCap.textContent=s.cap;
   const ss=document.getElementById('sellerSays'); if(ss) ss.textContent=sellerLines[scene]||'';
   buildDots();
-  var _uc=[[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[2,'In-show co-pilot',0],[2,'In-show co-pilot',0],[2,'In-show co-pilot',0],[3,'Post-show insights',0]][scene]||[1,'',0];
-  var _ue=document.getElementById('scUC'); if(_ue){_ue.className='uc-badge uc'+_uc[0]; _ue.innerHTML=(_uc[2]?'<span class="star">\u2605</span>':'')+'Agentic use case '+_uc[0]+' \u00b7 '+_uc[1];}
+  var _fl=scene<=2?0:(scene<=5?1:2);
+  var _st=document.getElementById('scTabs'); if(_st){[..._st.children].forEach(function(b,i){b.classList.toggle('active',i===_fl);});}
   screen.onclick=null;
   const gl=document.getElementById('goLiveBtn'); if(gl) gl.onclick=()=>phoneIntake(()=>gotoScene(1));
   const so=document.getElementById('sendOffer'); if(so) so.onclick=()=>{so.textContent='Offer sent ✓';so.disabled=true;phoneChatSys('🎁 Marcus sent <b>jeremy_23</b> a private offer');};
@@ -1639,6 +1653,7 @@ function playSim(){
 document.getElementById('scPlay').onclick=()=>renderScene(0);
 document.getElementById('scNext').onclick=()=>gotoScene(scene+1);
 document.getElementById('scPrev').onclick=()=>gotoScene(scene-1);
+(function(){var st=document.getElementById('scTabs');if(st)[...st.children].forEach(function(b){b.onclick=function(){gotoScene(+b.dataset.f);};});})();
 renderScene(0);
 
 /* ---------------- prototype mode toggle ---------------- */
