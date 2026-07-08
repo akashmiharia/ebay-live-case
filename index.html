@@ -332,6 +332,11 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .emp li{font-size:15px;color:var(--ink);line-height:1.45;padding-left:25px;position:relative}
 .emp li::before{content:"✓";position:absolute;left:0;top:0;color:var(--green);font-weight:900}
 .emp-note{margin-top:18px;font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.5;max-width:74ch}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.6vh}
+.ai-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--ac);border-radius:14px;padding:22px 22px 24px;box-shadow:0 10px 30px rgba(20,30,60,.05)}
+.ai-k{font-size:13.5px;font-weight:900;color:var(--ink);margin-bottom:10px;letter-spacing:-.01em}
+.ai-k b{color:var(--ac);font-size:1.05em}
+.ai-card p{font-size:15px;color:var(--ink-2);line-height:1.55}
 
 /* ---------- PROTOTYPE (tab 3) ---------- */
 #proto{background:radial-gradient(120% 90% at 20% 0%,#1a1f2b,#0b0d12)}
@@ -413,7 +418,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .uc-bar.uc2{background:#eef4ff;color:#0a4fa0;border-bottom-color:rgba(0,100,210,.3)}
 .uc-bar.uc3{background:#edf7e4;color:#5a7d18;border-bottom-color:rgba(134,184,23,.4)}
 .uc-bar .star{color:#f5af02;font-size:15px}
-@media(max-width:860px){.proto-layout{grid-template-columns:1fr;gap:24px;padding:20px;overflow-y:auto;align-content:start}.phone,.proto-story{grid-column:auto}.three,.split,.lovehate,.btd,.metrics,.proc-grid,.ins-cols,.two-side,.empathy-grid,.hyp-grid,.lc-compare,.bignums{grid-template-columns:1fr}.compare,.segtable,.score,.mtable,.wf{font-size:11px;display:block;overflow-x:auto}}
+@media(max-width:860px){.proto-layout{grid-template-columns:1fr;gap:24px;padding:20px;overflow-y:auto;align-content:start}.phone,.proto-story{grid-column:auto}.three,.split,.lovehate,.btd,.metrics,.proc-grid,.ins-cols,.two-side,.empathy-grid,.hyp-grid,.lc-compare,.bignums,.ai-grid{grid-template-columns:1fr}.compare,.segtable,.score,.mtable,.wf{font-size:11px;display:block;overflow-x:auto}}
 /* ---------- iPhone live: real eBay Live app look ---------- */
 .la-video{position:absolute;inset:0;background:radial-gradient(130% 90% at 50% 30%,#3a3f4d,#0b0b0c)}
 .la-video::after{content:"👟";position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);font-size:64px;opacity:.5;filter:drop-shadow(0 10px 24px rgba(0,0,0,.55))}
@@ -1008,7 +1013,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
   <div class="proc-wrap">
     <div class="proc-head">
       <div class="eyebrow" style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">A glance inside how I work</div>
-      <p class="sub" style="font-size:21px;margin-top:2vh;max-width:76ch;color:var(--ink)">A lens into the thinking, the workflow, and the empathy underneath this case study, and the infrastructure that turns concept into delivery. This is how an AI-powered PM works.</p>
+      <p class="sub" style="font-size:21px;margin-top:2vh;max-width:76ch;color:var(--ink)">The research underneath the strategy, the thinking behind the decisions, and where AI helped me move faster.</p>
     </div>
 
     <div class="proc-section">
@@ -1027,33 +1032,42 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
           <ul>
             <li>Asked sellers directly in the chat: "what do you love about eBay Live?" and "what's the one thing you'd shout about?"</li>
             <li>Listened to their real answers, in their words, live</li>
+            <li>The questions sparked real back-and-forth, one seller said it was the most fun thing they had been asked</li>
             <li>Had close friends and family try it, for unbiased outside reactions</li>
           </ul>
         </div>
       </div>
-      <p class="emp-note">Being a buyer and a seller, across every platform, is how the deeper view showed up. You can't feel a want forming in a live room from a spreadsheet.</p>
+      <p class="emp-note">I make my own content on TikTok, so the creator's side of this is familiar to me: the work it takes to run a show and keep a room engaged. Using the product on every side, as a buyer and a seller, is where the real read came from.</p>
     </div>
 
     <div class="proc-section">
       <div class="ps-h">◆ My process for this case study</div>
       <div class="proc-steps">
-        <div class="pstep"><div class="pn">01</div><div><h4>Decompose the problem</h4><p>Broke eBay Live into its parts first: the market, the players, the people on both sides of the camera, the trust gap. No answers until the shape of the problem was clear.</p></div></div>
-        <div class="pstep"><div class="pn">02</div><div><h4>Reason from first principles, then fan out the research</h4><p>Thought it through from the ground up, then dispatched my own market-research sub-agents to pull the landscape, the competitors, and the performance data in parallel while I worked.</p></div></div>
-        <div class="pstep"><div class="pn">03</div><div><h4>Sub-agents scaffolded the presentation</h4><p>While that ran, other agents stood up the HTML structure for how I wanted to tell the story, so I could pour thinking into a real canvas instead of a blank page.</p></div></div>
-        <div class="pstep"><div class="pn">04</div><div><h4>Prototyped across the best tool for each job</h4><p>Built the interactive prototype with a mix of Codex, Lovable, and Claude Code, each where it's strongest, then stitched the pieces into one experience.</p></div></div>
-        <div class="pstep"><div class="pn">05</div><div><h4>Embedded it all together</h4><p>Wired the deck, the process, and the two-sided prototype into a single hosted thing, grounded in eBay's real Evo design system and Market Sans.</p></div></div>
-        <div class="pstep"><div class="pn">06</div><div><h4>Lived in the product the whole time, iterating live</h4><p>I stayed inside eBay Live and Whatnot as I built, so the strategy and the screens updated in real time as I learned. The prototype is a record of that loop.</p></div></div>
+        <div class="pstep"><div class="pn">01</div><div><h4>Understood the problem before answering it</h4><p>Broke eBay Live into the market, the players, the seller's job, and where trust breaks down. No solutions until the shape of the problem was clear.</p></div></div>
+        <div class="pstep"><div class="pn">02</div><div><h4>Reasoned from first principles, checked against research</h4><p>Worked out why live commerce is different and why eBay is stuck from the ground up, then ran research agents in parallel to pull the market, the competitors, and the performance data, so I could check my thinking against the evidence.</p></div></div>
+        <div class="pstep"><div class="pn">03</div><div><h4>Picked one problem and defended it</h4><p>Segmented the sellers, prioritized the dormant high-value seller and their setup problem, and made the trade-off for why that one over the alternatives.</p></div></div>
+        <div class="pstep"><div class="pn">04</div><div><h4>Turned the thesis into a strategy</h4><p>The one-tap host, the flywheel, the way I would measure it, and the risks. Written plainly so the argument holds on its own before any slides.</p></div></div>
+        <div class="pstep"><div class="pn">05</div><div><h4>Built an argument you can click</h4><p>Stood up the deck and a working two-sided prototype on eBay's real Evo design system, using a few AI coding tools together, so you could click through the idea and feel it working.</p></div></div>
+        <div class="pstep"><div class="pn">06</div><div><h4>Iterated it down</h4><p>Cut, sharpened, and reordered it through several review passes until it led with the decision and lost the filler. What you are reading is the result of that loop.</p></div></div>
       </div>
     </div>
 
     <div class="proc-section">
-      <div class="ps-h">◆ A full-stack product manager</div>
-      <p class="ps-lead">AI lets me run the whole stack of the job: deep strategy, the broad PM work, actually building the technology, and connecting it to the world. Not just a strategy deck, and not just a prototype, the real thing.</p>
-      <div class="proc-grid">
-        <div class="pcard"><div class="ic">🧭</div><h3>Deep strategy, grounded in taste</h3><p>First-principles thinking on top of Archie, my second brain of product thinking, the podcasts and articles I've absorbed, and what I believe. Every project starts with a point of view, not a blank page.</p><div class="tags"><span>first principles</span><span>Archie second brain</span><span>my taste &amp; beliefs</span></div></div>
-        <div class="pcard"><div class="ic">🔭</div><h3>The broad PM work</h3><p>Research agents that pull the market, the competitors, and the data in parallel, plus my own reviewers, critics, and personas. My PM OS, 20-plus custom skills wired into one workflow.</p><div class="tags"><span>20+ skills</span><span>research agents</span><span>reviewers &amp; critics</span></div></div>
-        <div class="pcard"><div class="ic">🛠️</div><h3>Actually building it</h3><p>Codex, Lovable, and Claude Code orchestrated together, each where it's strongest, to build real, working software. Not gray wireframes, and past throwaway prototypes into real technology.</p><div class="tags"><span>Codex</span><span>Lovable</span><span>Claude Code</span></div></div>
-        <div class="pcard"><div class="ic">🔌</div><h3>Connected to the world</h3><p>MCPs wire the agents to GitHub, Firecrawl, and live APIs, so the work researches, deploys, and operates in the world, not just in the editor.</p><div class="tags"><span>MCP tooling</span><span>GitHub</span><span>Firecrawl</span><span>live APIs</span></div></div>
+      <div class="ps-h">◆ Where AI fits in how I work</div>
+      <p class="ps-lead">I use AI as a tool to move faster, not to think for me. It holds my knowledge, handles the laborious parts, and helps me turn a strategy into something you can actually click.</p>
+      <div class="ai-grid">
+        <div class="ai-card" style="--ac:var(--agent)">
+          <div class="ai-k"><b>01</b> &middot; My knowledge, ready to use</div>
+          <p>I keep my product frameworks, the thinking I've absorbed, and how I make decisions in a system I call Archie. When I start a project, the tools already know how I think, so I never start cold.</p>
+        </div>
+        <div class="ai-card" style="--ac:var(--green)">
+          <div class="ai-k"><b>02</b> &middot; The laborious work, handled</div>
+          <p>I've built more than twenty custom tools that do the repetitive parts of the PM job: the market research, the data pulls, the first drafts, the reviews. My time goes to the thinking and the calls.</p>
+        </div>
+        <div class="ai-card" style="--ac:var(--yellow)">
+          <div class="ai-k"><b>03</b> &middot; Idea to a working thing</div>
+          <p>A few AI coding tools together turn a strategy into a real, clickable prototype, on the actual design system, in hours. Everything on this site was built that way.</p>
+        </div>
       </div>
     </div>
 
@@ -1087,7 +1101,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       <ul>
         <li><b>The barbecue.</b> A friend shows off a new grill, the group says "you got that for that price?", and a want forms through the group, not through need. Live is the barbecue, not the charger.</li>
         <li><b>The Sephora turn.</b> A stranger says "I tried that, it's great for your skin," and you suddenly want it. In a store that is luck. On live it happens on purpose, to a whole room, over and over.</li>
-                <li><b>The auction thrill.</b> Almost winning, the countdown, not missing the drop. The buyer is not just buying, they are winning and belonging.</li>
+                <li><b>The auction thrill.</b> Almost winning, the countdown, the fear of missing the drop. The pull is winning and belonging, more than the purchase itself.</li>
         <li><b>The community.</b> People answer each other's questions on a stranger's behalf. "Give Jeremy his hearts." The switch from passive watcher to member is about identity.</li>
       </ul>
       <div class="prd-quote">Regular commerce serves demand you already have. Live creates it in the room, something Amazon and Walmart are not built to do.</div>
