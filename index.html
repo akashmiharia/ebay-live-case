@@ -301,6 +301,13 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .prd-sec li{font-size:15.5px;line-height:1.55;color:var(--ink-2);padding-left:20px;position:relative}
 .prd-sec li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--agent)}
 .prd-sec li b,.prd-sec p b{color:var(--ink)}
+.prd-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.prd-legend a{font-size:12.5px;font-weight:700;color:var(--ink-2);background:#f4f6f9;border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none}
+.prd-legend a:hover{background:var(--agent);color:#fff;border-color:var(--agent)}
+.prd-sec>h2{scroll-margin-top:18px}
+.prd-sec .fly{margin-top:16px;margin-bottom:4px}
+.prd-sec .fnode{background:#f4f6f9;border-color:var(--line);color:var(--ink)}
+.prd-sec .farrow{color:var(--agent)}
 .prd-sec .compare,.prd-sec .mtable{margin-top:16px}
 .prd-quote{border-left:4px solid var(--agent);background:#fff;padding:16px 22px;border-radius:0 12px 12px 0;font-size:clamp(16px,1.7vw,19px);font-weight:600;color:var(--ink);line-height:1.5;margin:20px 0 4px;box-shadow:0 10px 30px rgba(20,30,60,.05)}
 .prd-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:16px}
@@ -396,12 +403,15 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .proto-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);transition:all .2s}
 .proto-dots i.on{background:var(--green);width:22px;border-radius:6px}
 .uc-badge{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;padding:7px 14px;border-radius:999px;margin-bottom:14px;width:fit-content}
-.uc-badge.gold{background:linear-gradient(90deg,rgba(245,175,2,.22),rgba(245,175,2,.08));border:1px solid rgba(245,175,2,.55);color:#f5c518}
-.uc-badge.reg{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#c2cbdb}
-.uc-badge .star{font-size:14px}
+.uc-badge.uc1{background:linear-gradient(90deg,rgba(245,175,2,.22),rgba(245,175,2,.08));border:1px solid rgba(245,175,2,.55);color:#f5c518}
+.uc-badge.uc2{background:rgba(0,100,210,.18);border:1px solid rgba(120,170,255,.4);color:#9fc0ff}
+.uc-badge.uc3{background:rgba(134,184,23,.16);border:1px solid rgba(134,184,23,.45);color:#a6d84a}
+.uc-badge.uc4{background:rgba(196,120,246,.15);border:1px solid rgba(196,120,246,.4);color:#d3a6f5}
+.uc-badge .star{font-size:14px;color:#f5c518}
 .uc-bar{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;padding:9px 18px;border-bottom:1px solid var(--line)}
-.uc-bar.gold{background:linear-gradient(90deg,#fff7e0,#fffdf6);color:#b8860b;border-bottom-color:rgba(245,175,2,.45)}
-.uc-bar.reg{background:#f5f7fa;color:#41495a}
+.uc-bar.uc1{background:linear-gradient(90deg,#fff7e0,#fffdf6);color:#b8860b;border-bottom-color:rgba(245,175,2,.45)}
+.uc-bar.uc2{background:#eef4ff;color:#0a4fa0;border-bottom-color:rgba(0,100,210,.3)}
+.uc-bar.uc3{background:#edf7e4;color:#5a7d18;border-bottom-color:rgba(134,184,23,.4)}
 .uc-bar .star{color:#f5af02;font-size:15px}
 @media(max-width:860px){.proto-layout{grid-template-columns:1fr;gap:24px;padding:20px;overflow-y:auto;align-content:start}.phone,.proto-story{grid-column:auto}.three,.split,.lovehate,.btd,.metrics,.proc-grid,.ins-cols,.two-side,.empathy-grid,.hyp-grid,.lc-compare,.bignums{grid-template-columns:1fr}.compare,.segtable,.score,.mtable,.wf{font-size:11px;display:block;overflow-x:auto}}
 /* ---------- iPhone live: real eBay Live app look ---------- */
@@ -949,7 +959,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
         <tbody>
           <tr><th>1 · Supply is the constraint, and it activates<span style="display:block;font-weight:400;font-size:.82em;color:var(--muted);margin-top:3px">gated supply, not demand, from the seller interviews</span></th><td>One tap converts a dormant seller's catalog into a live show</td><td class="ns">Activation: targeted dormant sellers who host a first show</td></tr>
           <tr><th>2 · Those streams are profitable<span style="display:block;font-weight:400;font-size:.82em;color:var(--muted);margin-top:3px">high-value margin beats the streaming cost per minute</span></th><td>Comps pricing, a structured show, the agent running ops</td><td class="ns">Yield per stream-minute, margin per show</td></tr>
-          <tr><th>3 · Live grows the pie<span style="display:block;font-weight:400;font-size:.82em;color:var(--muted);margin-top:3px">live manufactures demand async never captures</span></th><td>The same inventory, sold live with trust in the moment</td><td class="ns">Conversion lift, incremental GMV, dispute rate as guardrail</td></tr>
+          <tr><th>3 · Live grows the pie<span style="display:block;font-weight:400;font-size:.82em;color:var(--muted);margin-top:3px">live creates demand async never captures</span></th><td>The same inventory, sold live with trust in the moment</td><td class="ns">Conversion lift, incremental GMV, dispute rate as guardrail</td></tr>
         </tbody>
       </table>
       <p class="verdict">Sequence: activation, then yield, then GMV, with dispute rate as the trust guardrail throughout. <span class="agent">Liquidity precedes polish. An empty marketplace has no conversion problem yet.</span></p>
@@ -1021,7 +1031,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
           </ul>
         </div>
       </div>
-      <p class="emp-note">Being a buyer and a seller, across every platform, is how the deeper view showed up. You can't feel manufactured demand from a spreadsheet.</p>
+      <p class="emp-note">Being a buyer and a seller, across every platform, is how the deeper view showed up. You can't feel a want forming in a live room from a spreadsheet.</p>
     </div>
 
     <div class="proc-section">
@@ -1058,32 +1068,33 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       <h1>eBay Live, the one-tap host</h1>
       <p class="psub">The seller and host experience: how an agent turns any eBay seller into a confident, trusted live host, and how that graduates Live out of a four-year beta.</p>
       <p class="pmeta">Akash Miharia · prepared for the eBay Live Product Thinking exercise · July 2026</p>
+      <div class="prd-legend">
+        <a href="#prd-summary">Summary</a><a href="#prd-1">Live commerce</a><a href="#prd-2">Market</a><a href="#prd-3">Players</a><a href="#prd-4">Why eBay</a><a href="#prd-5">Why stuck</a><a href="#prd-6">The problem</a><a href="#prd-7">Segmentation</a><a href="#prd-8">Differentiation</a><a href="#prd-9">Strategy</a><a href="#prd-10">Product</a><a href="#prd-11">Challenges</a><a href="#prd-12">Metrics</a><a href="#prd-13">Roadmap</a><a href="#prd-14">Risks</a>
+      </div>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">§</span> Executive summary</h2>
-      <p><b>The bet:</b> activate the dormant, high-value eBay seller with a one-tap host, an agent that clears the operations so they can just run the room. It is the highest-leverage way to graduate Live out of a four-year beta, and I would prioritize it over a training agent or the buyer side.</p>
-      <p>Live commerce does not serve demand, it manufactures it. In a live show, belonging forms the intent in real time, the way a good deal at a barbecue makes you want the grill you never planned to buy. Every bit of that magic is made by one human, live, the host, which makes host capacity the scarce resource in the whole category.</p>
-      <p>eBay has a once-in-a-generation position and is not using it. It is the only platform where socially manufactured demand sits on top of real institutional trust, because people come to eBay to shop, not to be entertained, so community lands as a bonus rather than a bait-and-switch. Under every one of eBay's ~18 million sellers sits thirty years of catalog, sold-comps, purchase history, and physical authentication that no competitor can copy. Yet Live is still invite-only, and has been since 2022.</p>
-      <p>The fix is an agent that turns any eBay seller into a confident, trusted live host in one tap. The seller taps once, the agent reads their catalog, builds and prices the show from comps, carries the authenticity guarantee into the stream, and runs shipping and disputes in the background. The human does the one thing only a human can, run the room. The agent does everything else.</p>
+      <h2 id="prd-summary"><span class="pnum">§</span> Executive summary</h2>
+      <p><b>The bet.</b> Activate eBay's dormant, high-value sellers with a one-tap host: an agent that clears the operations so the seller just runs the room. I would prioritize this over a training agent or the buyer side.</p>
+      <p><b>Why Live is stuck.</b> Going live today means one person runs a creative show and a full operation at the same time. It is so much work that only a gated few can host, so Live has stayed invite-only since 2022.</p>
+      <p><b>Why eBay wins.</b> Under every seller sits thirty years of catalog, sold-comps, and authentication that no competitor can copy, and it is exactly what an agent needs to build a trusted show in one tap. Buyers come to eBay to shop, so the trust is real.</p>
       <div class="prd-quote">eBay Live is the only place to sell high-value goods live to buyers who came to shop and can trust what they are buying, with eBay carrying the trust and the operations so the host can just run the room.</div>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">1</span> What live commerce is</h2>
+      <h2 id="prd-1"><span class="pnum">1</span> What live commerce is</h2>
       <p>Regular commerce serves an intent you already have. Live commerce creates the intent on the spot, socially. Five ways to feel the difference:</p>
       <ul>
         <li><b>The barbecue.</b> A friend shows off a new grill, the group says "you got that for that price?", and a want forms through the group, not through need. Live is the barbecue, not the charger.</li>
         <li><b>The Sephora turn.</b> A stranger says "I tried that, it's great for your skin," and you suddenly want it. In a store that is luck. On live it happens on purpose, to a whole room, over and over.</li>
-        <li><b>The dress.</b> On Linda's Stuff a buyer asked for a measurement, the host pulled out a tape live, it fit, and the price moved from $200 to $129. Intent formed and closed in ninety seconds.</li>
-        <li><b>The auction thrill.</b> Almost winning, the countdown, not missing the drop. The buyer is not just buying, they are winning and belonging.</li>
+                <li><b>The auction thrill.</b> Almost winning, the countdown, not missing the drop. The buyer is not just buying, they are winning and belonging.</li>
         <li><b>The community.</b> People answer each other's questions on a stranger's behalf. "Give Jeremy his hearts." The switch from passive watcher to member is about identity.</li>
       </ul>
-      <div class="prd-quote">Regular commerce serves demand. Live commerce manufactures it, and it is something Amazon and Walmart are not built to do.</div>
+      <div class="prd-quote">Regular commerce serves demand you already have. Live creates it in the room, something Amazon and Walmart are not built to do.</div>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">2</span> Why it matters, the market</h2>
+      <h2 id="prd-2"><span class="pnum">2</span> Why it matters, the market</h2>
       <p>When commerce goes live, it performs. Industry figures eBay itself presents:</p>
       <div class="prd-stats">
         <div class="pst"><b>10x</b><span>engagement vs standard video</span></div>
@@ -1097,7 +1108,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">3</span> The players and the rules</h2>
+      <h2 id="prd-3"><span class="pnum">3</span> The players and the rules</h2>
       <p>Every live platform faces the same two risks, fraud and brand-safety on one side, seller skill on the other, and makes a different bet. Each is built on a different job.</p>
       <table class="compare">
         <thead><tr><th>Platform</th><th>DNA</th><th>Enforcement bet</th><th>Way in</th></tr></thead>
@@ -1112,25 +1123,14 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">4</span> The three humans</h2>
-      <p>Put the buyer on one side of the marketplace, the seller and host together on the other. The seller owns the business and the inventory, the host runs the show, often the same person, sometimes a team.</p>
-      <ul>
-        <li><b>The buyer.</b> Win the bid, catch the deal, belong to the room, and trust the item is real. Their intent is formed inside the show, not before it.</li>
-        <li><b>The seller.</b> Move real inventory, build a following that returns, be known, without the operations swallowing the day. A creator seeking community in a merchant's apron.</li>
-        <li><b>The host.</b> Run the room. Read the crowd, hype the lot, celebrate the regulars. The motivation engine, built by hand while drowning in ops.</li>
-      </ul>
-      <div class="prd-quote">Live commerce is a belonging machine for both sides. The host builds identity and community, the buyer finds belonging and forms intent inside it. Two ends of one loop.</div>
-    </div>
-
-    <div class="prd-sec">
-      <h2><span class="pnum">5</span> Why eBay, the three truths</h2>
+      <h2 id="prd-4"><span class="pnum">4</span> Why eBay, the three truths</h2>
       <p><b>Intent alignment.</b> On TikTok you came to be entertained, so a live selling diamonds reads as bait-and-switch. On eBay you came to shop, so community arrives as a bonus on intent you already had. Sticky, not manipulative.</p>
       <p><b>The moat.</b> It is not luxury, Whatnot has watches too. The moat is the data and trust under every seller: thirty years of catalog, sold-comps, history, and physical authentication. Exactly what an agent needs to stand up a trusted show.</p>
       <p><b>The gap eBay is hired to close.</b> eBay promises trusted community commerce and hands its sellers a manual, unsupported grind, to almost no one. That gap between the promise and the delivery is the entire strategy space.</p>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">6</span> Why is eBay stuck, as hypotheses</h2>
+      <h2 id="prd-5"><span class="pnum">5</span> Why is eBay stuck, as hypotheses</h2>
       <p>The question worth asking is why eBay chose the most restrictive model of the four platforms, and which explanation to test first. A few hold up.</p>
       <ul>
         <li><b>Brand + velocity (strong).</b> A fake damages a thirty-year reputation. Live moves faster than eBay's async fraud tools, so it polices the person up front, not the content live.</li>
@@ -1142,13 +1142,13 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">7</span> The seller's real problem</h2>
+      <h2 id="prd-6"><span class="pnum">6</span> The seller's real problem</h2>
       <p>They love the connection, they drown in the operations. Every seller I asked named community as their favorite thing, and every pain they named was ops: combined shipping, glitches, no-pays, "they say they never got it, tracking says delivered." The seller runs a creative workflow and an operations workflow in parallel, live.</p>
       <div class="prd-quote">The tax scales with volume, the magic per hour is capped by human attention. Success itself grows the tax until it caps the best sellers or burns them out.</div>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">8</span> Segmentation, who we build for first</h2>
+      <h2 id="prd-7"><span class="pnum">7</span> Segmentation, who we build for first</h2>
       <p>Segment by the job, not the company size. The right first segment gives the most activation for the least cost and risk, and four tests decide it: the supply is already listed, the streams are profitable, only eBay can activate them, and no one is serving them yet.</p>
       <ul>
         <li><b>Dormant high-value existing seller.</b> Already sells on eBay, in categories where authentication matters, and has never gone live. Clears all four tests, which is why we start here.</li>
@@ -1159,29 +1159,39 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">9</span> Differentiation, where we win</h2>
+      <h2 id="prd-8"><span class="pnum">8</span> Differentiation, where we win</h2>
       <ul>
         <li><b>Below, trade away:</b> out-communitying Whatnot, breadth of cheap goods, being the lowest-fee option.</li>
         <li><b>Table stakes, match:</b> go live from a phone, fast payout, discovery, AI listing (eBay already ships these).</li>
-        <li><b>Differentiate, win:</b> the agent that manufactures trusted supply from existing data in one tap, trust carried into the live moment (in-stream comps, authenticity guarantee, video receipt), and the humans-do-human, agent-does-the-rest division of labor.</li>
+        <li><b>Differentiate, win:</b> the agent that builds trusted supply from existing data in one tap, trust carried into the live moment (in-stream comps, authenticity guarantee, video receipt), and the humans-do-human, agent-does-the-rest division of labor.</li>
       </ul>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">10</span> The strategy</h2>
+      <h2 id="prd-9"><span class="pnum">9</span> The strategy</h2>
       <p><b>Two picks compound into an activation flywheel.</b> Pick one is the dormant high-value seller. Pick two is agentic one-tap setup, clearing the operations that keep them from going live. Together they turn the wheel: setup is cleared, the seller goes live and the show works, confidence and awareness build on their own, buyers gather, and more dormant sellers convert. The constraint was never demand, it was supply liquidity, and this is the single push that releases it.</p>
+      <div class="fly">
+        <div class="fnode">One tap turns already-listed inventory into a live show</div>
+        <div class="farrow">&#8594;</div>
+        <div class="fnode">The dormant seller goes live, and the first show works</div>
+        <div class="farrow">&#8594;</div>
+        <div class="fnode">Confidence and awareness build, buyers gather</div>
+        <div class="farrow">&#8594;</div>
+        <div class="fnode">More dormant sellers convert</div>
+        <div class="farrow">&#8635;</div>
+      </div>
       <div class="prd-quote">Humans do the human part. The agent does the rest. Never touch the chat, the banter, shouting out loyal followers, reading the room. Automate everything else: the show setup, pricing, shipping, disputes, logistics.</div>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">11</span> The product, the one-tap host</h2>
+      <h2 id="prd-10"><span class="pnum">10</span> The product, the one-tap host</h2>
       <p><b>Beat one, cold start.</b> A dormant seller with 25 authenticated sneakers taps once. The agent reads the catalog, builds and prices the show from comps, stamps the authenticity guarantee and prepares video-receipt proof, and the seller reviews in seconds, then just talks.</p>
       <p><b>Beat two, in-show.</b> While the seller hosts, the agent runs the ops silently on a rail the buyer never sees: combined shipping, no-pays, buyer offers, "you lost that bid, here's the same item shipping Tuesday." The humans keep doing what community does.</p>
       <p class="pnote">Whatnot makes a human do all of this by hand. eBay's agent does it from data Whatnot does not have.</p>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">12</span> Challenges, and where we invest</h2>
+      <h2 id="prd-11"><span class="pnum">11</span> Challenges, and where we invest</h2>
       <p>The main investment is the real-time context layer: a live, structured view of the seller's catalog, comps, authentication status, buyer history, and show state, fast enough to act inside a stream. Think a knowledge graph over eBay's data plus an event layer for the live moment. The model is the easy part.</p>
       <ul>
         <li>The cold-start build can be slower and richer, it runs before the show.</li>
@@ -1192,7 +1202,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">13</span> How we measure success</h2>
+      <h2 id="prd-12"><span class="pnum">12</span> How we measure success</h2>
       <table class="mtable">
         <thead><tr><th>Hypothesis</th><th>What we build</th><th>How we measure</th></tr></thead>
         <tbody>
@@ -1208,13 +1218,13 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">14</span> Roadmap</h2>
+      <h2 id="prd-13"><span class="pnum">13</span> Roadmap</h2>
       <p><b>Near-term, the bet we prototype.</b> One-tap conversion of a static catalog into a live, priced, trust-stamped show, aimed at the dormant high-value seller. The verified authenticity claim gives it credibility and hype from day one.</p>
       <p><b>Long-term, the vision.</b> Once supply is flowing, the agent turns to the communal layer: offers, deals, giveaways on the seller's behalf, surfacing loyal buyers. Then the bigger swing: if any seller can go live in one tap, anyone can sell anything live. eBay was always the global treasure hunt. This makes the treasure hunt live.</p>
     </div>
 
     <div class="prd-sec">
-      <h2><span class="pnum">15</span> Risks and open questions</h2>
+      <h2 id="prd-14"><span class="pnum">14</span> Risks and open questions</h2>
       <ul>
         <li><b>The demand hypothesis.</b> If eBay's data shows the live audience is the real constraint, the priority shifts to the buyer side. I would want that data first.</li>
         <li><b>Quality dilution.</b> Opening supply could fill the feed with weak shows. The agent raises the floor of every show, and we scale inside trusted categories first.</li>
@@ -1375,7 +1385,7 @@ const scenes=[
       </div>`
   },
   {
-    title:"One tap. The agent builds the entire show.",
+    title:"One tap, and the agent builds the whole show.",
     cap:"No listing, no lotting, no pricing by hand. The agent reads Marcus's catalog and the thirty years of sold-comps behind it. This is the one-tap supply unlock, the thing only eBay's data can do.",
     html:`<div class="pstatus"><span>9:41</span><span>Preparing show</span></div>
       <div class="sc building">
@@ -1388,7 +1398,7 @@ const scenes=[
       </div>`
   },
   {
-    title:"Seconds later, Marcus is live. This is what the room sees.",
+    title:"Seconds later, Marcus is live. Here is what the room sees.",
     cap:"The real eBay Live experience: the auction, the community in the chat, and the Authenticity Guarantee the agent surfaces on every lot. This is the magic the whole platform exists to protect.",
     html:`<div class="la-video"></div>
       <div class="la-seller"><span class="av">👟</span> Marcus Kicks <span class="hrt">♡</span></div>
@@ -1398,7 +1408,7 @@ const scenes=[
       <div class="la-bid"><div class="t">Air Jordan 1 Retro High "Mocha" · 10.5</div><div class="pr">$312 <small>comps $420–460</small></div><div class="ag">✓ Authenticity Guarantee eligible</div><div class="bar"><span></span></div><div class="row"><button class="max">Max bid</button><button class="go">Bid $325 »</button></div><div class="win"><span>🏆 vaultkid winning</span><span class="tm">⏱ 00:08</span></div></div>`
   },
   {
-    title:"The agent finds the moment. Only Marcus can make it.",
+    title:"The co-pilot flags a loyal buyer. Marcus decides how to reward him.",
     cap:"Jeremy just rejoined for the fourth time today, and he's lost his last two bids. The agent flags it and tees up two moves. Marcus picks. The agent finds the human moment; only the human can deliver it.",
     html:`<div class="la-video"></div>
       <div class="la-seller"><span class="av">👟</span> Marcus Kicks <span class="hrt">♡</span></div>
@@ -1409,7 +1419,7 @@ const scenes=[
       <div class="la-bid" id="bid3"><div class="t">Air Jordan 1 "Chicago" · size 10</div><div class="pr">$340 <small>2 bids</small></div><div class="ag">✓ Authenticity Guarantee eligible</div><div class="bar"><span></span></div><div class="row"><button class="max">Max bid</button><button class="go">Bid $350 »</button></div><div class="win"><span>🏆 kickz_ winning</span><span class="tm">⏱ 00:12</span></div></div>`
   },
   {
-    title:"The agent proposes. Marcus approves. Nobody gets scammed.",
+    title:"The co-pilot spots a likely scam before it lands.",
     cap:"The agent spots that this lot is mislabeled, size 10 but it looks like a 10.5, and it asks before touching anything. Marcus taps Approve and it corrects the size, photo, and specs live, then the lot sells on a countdown. The agent is powerful, and the seller stays in control.",
     html:`<div class="la-video"></div>
       <div class="la-seller"><span class="av">👟</span> Marcus Kicks <span class="hrt">♡</span></div>
@@ -1420,7 +1430,7 @@ const scenes=[
       <div class="la-bid" id="fixBid"><div class="t">Nike Dunk Low "Panda" · size <span id="fixSize">10?</span></div><div class="pr">$96 <small>comps $110–130</small></div><div class="ag agent" id="fixAg">⚠ Waiting on your call, agent proposed a fix</div><div class="jrow"><button class="jbtn" id="rejectFix">Reject</button><button class="jbtn hot" id="approveFix">✓ Approve fix</button></div></div>`
   },
   {
-    title:"The room stays safe, and Marcus stays in control.",
+    title:"One tap removes the scammer, and the room stays safe.",
     cap:"A new account starts spamming \"fake\" and \"scam\" to tank the sale. The agent catches it after three messages and hands Marcus the call. He approves the ban, the noise is gone, and the show keeps its energy. Trust and safety at live velocity, with the human deciding.",
     html:`<div class="la-video"></div>
       <div class="la-seller"><span class="av">👟</span> Marcus Kicks <span class="hrt">♡</span></div>
@@ -1431,7 +1441,7 @@ const scenes=[
       <div class="la-bid" id="banBid"><div class="t">Trust &amp; safety</div><div class="pr">scammer_x</div><div class="ag agent">⚠ 3 flagged messages, agent recommends a ban</div><div class="jrow"><button class="jbtn" id="ignoreBan">Ignore</button><button class="jbtn hot" id="approveBan">✓ Ban from show</button></div></div>`
   },
   {
-    title:"First show done. The agent already closed the loop.",
+    title:"The show ends, and the agent hands Marcus the recap and next steps.",
     cap:"The numbers, the top buyers, and the post-show ops, all waiting for Marcus in the same co-pilot he ran the show with. The phone recap mirrors Seller Central, pocket-sized. A dormant seller became live supply. That is the whole thesis, in one flow.",
     html:`<div class="sc pins">
         <div class="pins-h"><span class="co-pulse"></span><span class="cop-name">Seller Co-pilot</span></div>
@@ -1519,7 +1529,7 @@ function renderScene(n){
   const ss=document.getElementById('sellerSays'); if(ss) ss.textContent=sellerLines[scene]||'';
   buildDots();
   var _uc=[[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[2,'In-show loyalty',0],[3,'Trust at live speed',0],[3,'Trust at live speed',0],[4,'Post-show insights',0]][scene]||[1,'',0];
-  var _ue=document.getElementById('scUC'); if(_ue){_ue.className='uc-badge '+(_uc[2]?'gold':'reg'); _ue.innerHTML=(_uc[2]?'<span class="star">\u2605</span>':'')+'Agentic use case '+_uc[0]+' \u00b7 '+_uc[1];}
+  var _ue=document.getElementById('scUC'); if(_ue){_ue.className='uc-badge uc'+_uc[0]; _ue.innerHTML=(_uc[2]?'<span class="star">\u2605</span>':'')+'Agentic use case '+_uc[0]+' \u00b7 '+_uc[1];}
   screen.onclick=null;
   const gl=document.getElementById('goLiveBtn'); if(gl) gl.onclick=()=>phoneIntake(()=>gotoScene(1));
   const so=document.getElementById('sendOffer'); if(so) so.onclick=()=>{so.textContent='Offer sent ✓';so.disabled=true;phoneChatSys('🎁 Marcus sent <b>jeremy_23</b> a private offer');};
@@ -1751,7 +1761,7 @@ function renderD(n){
   ebBody.innerHTML=s.html();
   dTitle.textContent=s.title;dCap.textContent=s.cap;
   var _duc=[[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[2,'Seller co-pilot, live',0],[3,'Post-show insights',0]][dScene]||[1,'',0];
-  var _due=document.getElementById('dUC'); if(_due){_due.className='uc-bar '+(_duc[2]?'gold':'reg'); _due.innerHTML=(_duc[2]?'<span class="star">\u2605</span> ':'')+'Agentic use case '+_duc[0]+' \u00b7 '+_duc[1];}
+  var _due=document.getElementById('dUC'); if(_due){_due.className='uc-bar uc'+_duc[0]; _due.innerHTML=(_duc[2]?'<span class="star">\u2605</span> ':'')+'Agentic use case '+_duc[0]+' \u00b7 '+_duc[1];}
   var bb=document.getElementById('dBuild');if(bb)bb.onclick=openIntake;
   var mx=document.getElementById('dMax');if(mx)mx.onclick=runMaximize;
   if(dScene===1){
