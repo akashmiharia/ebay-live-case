@@ -1301,9 +1301,9 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       <div class="proto-story">
         <div class="seller-says" id="sellerSays"></div>
         <div class="ph-tabs" id="scTabs">
-          <button class="pht uc1" data-f="0"><span class="star">&#9733;</span> 1 &middot; Go live</button>
-          <button class="pht uc2" data-f="3">2 &middot; Live show</button>
-          <button class="pht uc3" data-f="6">3 &middot; Recap</button>
+          <button class="pht uc1" data-f="0"><span class="star">&#9733;</span> 1 &middot; Inventory conversion</button>
+          <button class="pht uc2" data-f="3">2 &middot; Live co-pilot</button>
+          <button class="pht uc3" data-f="6">3 &middot; Post-show insights</button>
         </div>
         <div class="eyebrow">Live prototype · the host's phone</div>
         <h2 id="scTitle">Marcus has 25 sneakers and has never gone live.</h2>
@@ -1789,7 +1789,7 @@ function renderD(n){
   setEbTab(s.tab);
   ebBody.innerHTML=s.html();
   dTitle.textContent=s.title;dCap.textContent=s.cap;
-  var _duc=[[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[2,'Seller co-pilot, live',0],[3,'Post-show insights',0]][dScene]||[1,'',0];
+  var _duc=[[1,'Inventory conversion',1],[1,'Inventory conversion',1],[2,'Live co-pilot',0],[3,'Post-show insights',0]][dScene]||[1,'',0];
   var _due=document.getElementById('dUC'); if(_due){_due.className='uc-bar uc'+_duc[0]; _due.innerHTML=(_duc[2]?'<span class="star">\u2605</span> ':'')+'Agentic use case '+_duc[0]+' \u00b7 '+_duc[1];}
   var bb=document.getElementById('dBuild');if(bb)bb.onclick=openIntake;
   var mx=document.getElementById('dMax');if(mx)mx.onclick=runMaximize;
