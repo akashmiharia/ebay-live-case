@@ -1433,7 +1433,7 @@ const scenes=[
       <div class="la-bid" id="bid3"><div class="t">Air Jordan 1 "Chicago" · size 10</div><div class="pr">$340 <small>2 bids</small></div><div class="ag">✓ Authenticity Guarantee eligible</div><div class="bar"><span></span></div><div class="row"><button class="max">Max bid</button><button class="go">Bid $350 »</button></div><div class="win"><span>🏆 kickz_ winning</span><span class="tm">⏱ 00:12</span></div></div>`
   },
   {
-    title:"The co-pilot spots a likely scam before it lands.",
+    title:"The co-pilot catches a mislabeled lot, and Marcus approves the fix.",
     cap:"The agent spots that this lot is mislabeled, size 10 but it looks like a 10.5, and it asks before touching anything. Marcus taps Approve and it corrects the size, photo, and specs live, then the lot sells on a countdown. The agent is powerful, and the seller stays in control.",
     html:`<div class="la-video"></div>
       <div class="la-seller"><span class="av">👟</span> Marcus Kicks <span class="hrt">♡</span></div>
@@ -1542,7 +1542,7 @@ function renderScene(n){
   scCap.textContent=s.cap;
   const ss=document.getElementById('sellerSays'); if(ss) ss.textContent=sellerLines[scene]||'';
   buildDots();
-  var _uc=[[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[2,'In-show loyalty',0],[3,'Trust at live speed',0],[3,'Trust at live speed',0],[4,'Post-show insights',0]][scene]||[1,'',0];
+  var _uc=[[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[1,'Seller inventory conversion',1],[2,'In-show co-pilot',0],[2,'In-show co-pilot',0],[2,'In-show co-pilot',0],[3,'Post-show insights',0]][scene]||[1,'',0];
   var _ue=document.getElementById('scUC'); if(_ue){_ue.className='uc-badge uc'+_uc[0]; _ue.innerHTML=(_uc[2]?'<span class="star">\u2605</span>':'')+'Agentic use case '+_uc[0]+' \u00b7 '+_uc[1];}
   screen.onclick=null;
   const gl=document.getElementById('goLiveBtn'); if(gl) gl.onclick=()=>phoneIntake(()=>gotoScene(1));
