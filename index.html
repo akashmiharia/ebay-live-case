@@ -316,6 +316,14 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 .prd-sec .fly{margin-top:16px;margin-bottom:4px}
 .prd-sec .fnode{background:#f4f6f9;border-color:var(--line);color:var(--ink)}
 .prd-sec .farrow{color:var(--agent)}
+.arch{display:flex;flex-direction:column;gap:8px;margin-top:16px;margin-bottom:6px}
+.arch-use{background:#141821;color:#fff;border-radius:12px 12px 5px 5px;padding:12px 18px;font-weight:700;font-size:13.5px;text-align:center;letter-spacing:-.01em}
+.arch-layer{border:1px solid var(--line);border-radius:8px;padding:13px 18px;background:#fff}
+.arch-layer b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
+.arch-layer span{font-size:14px;color:var(--ink-2);line-height:1.5}
+.arch-layer.l1{border-left:4px solid var(--agent);background:#f4f8ff}
+.arch-layer.l2{border-left:4px solid var(--green)}
+.arch-layer.l3{border-left:4px solid #f5af02}
 .prd-sec .compare,.prd-sec .mtable{margin-top:16px}
 .prd-quote{border-left:4px solid var(--agent);background:#fff;padding:16px 22px;border-radius:0 12px 12px 0;font-size:clamp(16px,1.7vw,19px);font-weight:600;color:var(--ink);line-height:1.5;margin:20px 0 4px;box-shadow:0 10px 30px rgba(20,30,60,.05)}
 .prd-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:16px}
@@ -1095,7 +1103,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
 <!-- ============ TAB : PRD ============ -->
 <div class="panel" id="prd">
   <div class="prd-shell">
-    <nav class="prd-toc" id="prdToc"><div class="prd-toc-h">Contents</div><a href="#prd-summary">Summary</a><a href="#prd-1">Live commerce</a><a href="#prd-2">Market</a><a href="#prd-3">Players</a><a href="#prd-4">Why eBay</a><a href="#prd-5">Why stuck</a><a href="#prd-6">The problem</a><a href="#prd-7">Segmentation</a><a href="#prd-8">Differentiation</a><a href="#prd-9">Strategy</a><a href="#prd-10">Product</a><a href="#prd-11">Challenges</a><a href="#prd-12">Metrics</a><a href="#prd-13">Roadmap</a><a href="#prd-14">Risks</a></nav>
+    <nav class="prd-toc" id="prdToc"><div class="prd-toc-h">Contents</div><a href="#prd-summary">Summary</a><a href="#prd-1">Live commerce</a><a href="#prd-2">Market</a><a href="#prd-3">Players</a><a href="#prd-4">Why eBay</a><a href="#prd-5">Why stuck</a><a href="#prd-6">The problem</a><a href="#prd-7">Segmentation</a><a href="#prd-8">Differentiation</a><a href="#prd-9">Strategy</a><a href="#prd-10">Product</a><a href="#prd-11">Platform</a><a href="#prd-12">Metrics</a><a href="#prd-13">Roadmap</a><a href="#prd-14">Risks</a></nav>
   <div class="prd-wrap">
     <div class="prd-cover">
       <div class="eyebrow" style="color:var(--muted)">Strategy white paper &amp; product brief</div>
@@ -1103,7 +1111,7 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
       <p class="psub">The seller and host experience: how an agent turns any eBay seller into a confident, trusted live host, and how that graduates Live out of a four-year beta.</p>
       <p class="pmeta">Akash Miharia · prepared for the eBay Live Product Thinking exercise · July 2026</p>
       <div class="prd-legend">
-        <a href="#prd-summary">Summary</a><a href="#prd-1">Live commerce</a><a href="#prd-2">Market</a><a href="#prd-3">Players</a><a href="#prd-4">Why eBay</a><a href="#prd-5">Why stuck</a><a href="#prd-6">The problem</a><a href="#prd-7">Segmentation</a><a href="#prd-8">Differentiation</a><a href="#prd-9">Strategy</a><a href="#prd-10">Product</a><a href="#prd-11">Challenges</a><a href="#prd-12">Metrics</a><a href="#prd-13">Roadmap</a><a href="#prd-14">Risks</a>
+        <a href="#prd-summary">Summary</a><a href="#prd-1">Live commerce</a><a href="#prd-2">Market</a><a href="#prd-3">Players</a><a href="#prd-4">Why eBay</a><a href="#prd-5">Why stuck</a><a href="#prd-6">The problem</a><a href="#prd-7">Segmentation</a><a href="#prd-8">Differentiation</a><a href="#prd-9">Strategy</a><a href="#prd-10">Product</a><a href="#prd-11">Platform</a><a href="#prd-12">Metrics</a><a href="#prd-13">Roadmap</a><a href="#prd-14">Risks</a>
       </div>
     </div>
 
@@ -1225,14 +1233,21 @@ h2 .h2-sm{font-size:.58em;color:var(--muted);font-weight:700;display:inline-bloc
     </div>
 
     <div class="prd-sec">
-      <h2 id="prd-11"><span class="pnum">11</span> Challenges, and where we invest</h2>
-      <p>The main investment is the real-time context layer: a live, structured view of the seller's catalog, comps, authentication status, buyer history, and show state, fast enough to act inside a stream. Think a knowledge graph over eBay's data plus an event layer for the live moment. The model is the easy part.</p>
+      <h2 id="prd-11"><span class="pnum">11</span> The agentic platform, and where we'd invest</h2>
+      <p>This is a platform problem before it is a feature. Every use case, the conversion, the in-show co-pilot, the post-show relist, sits on the same stack, so we build the stack once and add solutions on top. This is the shape I would build, drawn from doing it at Adobe.</p>
+      <div class="arch">
+        <div class="arch-use">The use cases sit on top &nbsp;&middot;&nbsp; inventory conversion &nbsp;&middot;&nbsp; in-show co-pilot &nbsp;&middot;&nbsp; post-show relist</div>
+        <div class="arch-layer l3"><b>Orchestration</b><span>Decides which skills, MCPs, sub-agents, tools, and APIs to call, and when, then sequences them to drive the outcome. The human-in-loop gate lives here, on anything irreversible.</span></div>
+        <div class="arch-layer l2"><b>Reasoning</b><span>Interprets the seller's intent and reads the live moment, then plans the steps.</span></div>
+        <div class="arch-layer l1"><b>Context layer, the knowledge graph</b><span>A real-time, structured view of the seller's catalog, sold-comps, authentication, buyer history, and live show state. The foundation everything else stands on, and the hardest part to build.</span></div>
+      </div>
+      <p><b>Two investments, in parallel.</b> The platform above, built once, and the tactical work on top: defining each <b>agent's jobs-to-be-done versus the seller's jobs-to-be-done</b>, deciding what needs explainability, verifiability, and logs versus what can run ad hoc, and where per-seller customization matters. Sellers differ, so the jobs get defined up front, not improvised.</p>
       <ul>
         <li>The cold-start build can be slower and richer, it runs before the show.</li>
         <li>The in-show agent must be low-latency, leaning on the pre-built context layer.</li>
-        <li>Anything irreversible (an offer, a price drop, a refund) keeps a human gate. The agent proposes, the human confirms.</li>
+        <li>Anything irreversible (an offer, a price drop, a refund, a ban) keeps a human gate. The agent proposes, the human confirms.</li>
       </ul>
-      <p class="pnote">Reliability of the stream is the floor. Get the real-time layer solid first, and it is the place I would want leadership's read early.</p>
+      <p class="pnote">The model is the easy part. Reliability of the stream and the context layer are the floor, and where I'd want leadership's read early.</p>
     </div>
 
     <div class="prd-sec">
